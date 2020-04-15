@@ -1,0 +1,47 @@
+<nav class="navbar is-dark">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://github.com/fsbolero/Bolero">Bolero</a>
+    <div class="navbar-item">
+      <div class="buttons">
+        <a class="button is-success ${RunClass}" onclick="${Run}">Run</a>
+      </div>
+    </div>
+    <div class="navbar-item">
+      <div class="select">
+        <select bind="${LoadSnippet}">
+          ${Snippets}
+        </select>
+      </div>
+    </div>
+  </div>
+</nav>
+<section class="split-h">
+  <div id="editor"></div>
+  <div id="outputs" class="split-v">
+    <div id="messages-panel">
+      <div class="panel-header">Compiler output</div>
+      <div id="messages">
+        ${Messages}
+        <template id="CompilerMessage">
+          <a onclick="${Select}" class="compiler-message-link">
+            <div class="compiler-message ${Severity}"><b>(${StartLine},${StartColumn})-(${EndLine},${EndColumn})</b> ${Message}</div>
+          </a>
+        </template>
+        <template id="SimpleMessage">
+          <div class="compiler-message ${Severity}">${Message}</div>
+        </template>
+      </div>
+    </div>
+    <div id="stdout-panel">
+      <div class="panel-header">Program output</div>
+      <div id="stdout">${Stdout}</div>
+    </div>
+  </div>
+</section>
+<template id="Loader">
+  <div class="loading-wrapper">
+    <img src="img/wasm-fsharp.png">
+    <div><span class="loader"></span> ${Text}</div>
+    <div class="loader-firefox">Note: use Firefox for best performance with WebAssembly.</div>
+  </div>
+</template>

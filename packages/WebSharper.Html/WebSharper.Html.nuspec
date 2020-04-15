@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>WebSharper.Html</id>
+    <version>4.6.0.170</version>
+    <authors>IntelliFactory</authors>
+    <owners>IntelliFactory</owners>
+    <licenseUrl>http://websharper.com/licensing</licenseUrl>
+    <projectUrl>https://github.com/intellifactory/https://github.com/intellifactory/websharper.html</projectUrl>
+    <description>Client-side and server-side HTML Combinators for WebSharper (legacy)</description>
+    <tags>Web JavaScript F# C#</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Web" />
+      <frameworkAssembly assemblyName="System.Xml" />
+      <frameworkAssembly assemblyName="System.Xml.Linq" />
+    </frameworkAssemblies>
+    <dependencies>
+      <dependency id="WebSharper" version="[4.6.1,4.7.0)" />
+      <dependency id="IntelliFactory.Xml" version="[0.6.64,0.7.0)" />
+    </dependencies>
+  </metadata>
+</package>

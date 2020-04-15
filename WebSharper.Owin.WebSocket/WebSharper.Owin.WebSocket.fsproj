@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7561e844-3c13-446e-bbf0-000c0030cf9e}</ProjectGuid>
+    <WebSharperProject>Library</WebSharperProject>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <Tailcalls>false</Tailcalls>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <Name>WebSharper.Owin.WebSocket</Name>
+    <RootNamespace>WebSharper.Owin.WebSocket</RootNamespace>
+    <AssemblyName>WebSharper.Owin.WebSocket</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFSharpCoreVersion>4.4.1.0</TargetFSharpCoreVersion>
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DocumentationFile>bin\Release\WebSharper.Owin.WebSocket.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DocumentationFile>bin\Debug\WebSharper.Owin.WebSocket.XML</DocumentationFile>
+  </PropertyGroup>
+  <!-- F# targets -->
+  <PropertyGroup>
+    <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(FSharpTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets') ">
+    <FSharpTargetsPath>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets</FSharpTargetsPath>
+  </PropertyGroup>
+  <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.6.1'">
+      <ItemGroup>
+        <Reference Include="Microsoft.Practices.ServiceLocation">
+          <HintPath>..\packages\CommonServiceLocator\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.6.1'" />
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.6.1'" />
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.6.1'" />
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.6.1'">
+      <ItemGroup>
+        <Reference Include="WebSharper.Collections">
+          <HintPath>..\packages\WebSharper\lib\net461\WebSharper.Collections.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="WebSharper.Control">
+          <HintPath>..\packages\WebSharper\lib\net461\WebSharper.Control.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="WebSharper.Core">
+          <HintPath>..\packages\WebSharper\lib\net461\WebSharper.Core.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="WebSharper.Core.JavaScript">
+          <HintPath>..\packages\WebSharper\lib\net461\WebSharper.Core.JavaScript.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="WebSharper.InterfaceGenerator">
+          <HintPath>..\packages\WebSharper\lib\net461\WebSharper.InterfaceGenerator.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="WebSharper.JQuery">
+          <HintPath>..\packages\WebSharper\lib\net461\WebSharper.JQuery.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="WebSharper.JavaScript">
+          <HintPath>..\packages\WebSharper\lib\net461\WebSharper.JavaScript.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="WebSharper.Main">
+          <HintPath>..\packages\WebSharper\lib\net461\WebSharper.Main.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="WebSharper.Sitelets">
+          <HintPath>..\packages\WebSharper\lib\net461\WebSharper.Sitelets.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="WebSharper.Web">
+          <HintPath>..\packages\WebSharper\lib\net461\WebSharper.Web.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.6.1'">
+      <ItemGroup>
+        <Reference Include="System.Configuration">
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="HttpMultipartParser">
+          <HintPath>..\packages\WebSharper.Owin\lib\net461\HttpMultipartParser.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="WebSharper.Owin">
+          <HintPath>..\packages\WebSharper.Owin\lib\net461\WebSharper.Owin.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="..\packages\WebSharper.FSharp\build\WebSharper.FSharp.targets" Condition="Exists('..\packages\WebSharper.FSharp\build\WebSharper.FSharp.targets')" Label="Paket" />
+  <ItemGroup>
+    <Compile Include="WebSocket.fs" />
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator">
+      <HintPath>..\packages\CommonServiceLocator.2.0.5\lib\net48\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Core">
+      <HintPath>..\packages\FSharp.Core.4.7.1\lib\net45\FSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="HttpMultipartParser">
+      <HintPath>..\packages\WebSharper.Owin.4.6.0.189\lib\net461\HttpMultipartParser.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.4.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="WebSharper.Collections">
+      <HintPath>..\packages\WebSharper.4.6.1.381\lib\net461\WebSharper.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSharper.Control">
+      <HintPath>..\packages\WebSharper.4.6.1.381\lib\net461\WebSharper.Control.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSharper.Core">
+      <HintPath>..\packages\WebSharper.4.6.1.381\lib\net461\WebSharper.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSharper.Core.JavaScript">
+      <HintPath>..\packages\WebSharper.4.6.1.381\lib\net461\WebSharper.Core.JavaScript.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSharper.InterfaceGenerator">
+      <HintPath>..\packages\WebSharper.4.6.1.381\lib\net461\WebSharper.InterfaceGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSharper.JavaScript">
+      <HintPath>..\packages\WebSharper.4.6.1.381\lib\net461\WebSharper.JavaScript.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSharper.JQuery">
+      <HintPath>..\packages\WebSharper.4.6.1.381\lib\net461\WebSharper.JQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSharper.Main">
+      <HintPath>..\packages\WebSharper.4.6.1.381\lib\net461\WebSharper.Main.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSharper.Owin">
+      <HintPath>..\packages\WebSharper.Owin.4.6.0.189\lib\net461\WebSharper.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSharper.Sitelets">
+      <HintPath>..\packages\WebSharper.4.6.1.381\lib\net461\WebSharper.Sitelets.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSharper.Web">
+      <HintPath>..\packages\WebSharper.4.6.1.381\lib\net461\WebSharper.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Owin.WebSocket\Owin.WebSocket.csproj">
+      <Name>Owin.WebSocket</Name>
+      <Project>{9ad94815-2025-46c2-b6e2-2508c1a779e9}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

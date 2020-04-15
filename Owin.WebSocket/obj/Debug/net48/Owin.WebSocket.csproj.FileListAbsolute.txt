@@ -1,0 +1,11 @@
+C:\Users\anibal\Downloads\owin.websocket\Owin.WebSocket\bin\Debug\net48\Owin.WebSocket.dll
+C:\Users\anibal\Downloads\owin.websocket\Owin.WebSocket\bin\Debug\net48\Owin.WebSocket.pdb
+C:\Users\anibal\Downloads\owin.websocket\Owin.WebSocket\bin\Debug\net48\CommonServiceLocator.dll
+C:\Users\anibal\Downloads\owin.websocket\Owin.WebSocket\bin\Debug\net48\Microsoft.Owin.dll
+C:\Users\anibal\Downloads\owin.websocket\Owin.WebSocket\bin\Debug\net48\Owin.dll
+C:\Users\anibal\Downloads\owin.websocket\Owin.WebSocket\obj\Debug\net48\Owin.WebSocket.AssemblyInfoInputs.cache
+C:\Users\anibal\Downloads\owin.websocket\Owin.WebSocket\obj\Debug\net48\Owin.WebSocket.AssemblyInfo.cs
+C:\Users\anibal\Downloads\owin.websocket\Owin.WebSocket\obj\Debug\net48\Owin.WebSocket.csproj.CoreCompileInputs.cache
+C:\Users\anibal\Downloads\owin.websocket\Owin.WebSocket\obj\Debug\net48\Owin.WebSocket.csproj.CopyComplete
+C:\Users\anibal\Downloads\owin.websocket\Owin.WebSocket\obj\Debug\net48\Owin.WebSocket.dll
+C:\Users\anibal\Downloads\owin.websocket\Owin.WebSocket\obj\Debug\net48\Owin.WebSocket.pdb

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "FxjQmpaPRhN85BdmNRQ50Pk+0T5EenikVX66k5UEQDgvaVuAVA7IzFaBPgLEEwRG3Xw/xIVixW5nObhpYJ8zqw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\anibal\\Downloads\\owin.websocket\\testPath\\testPath.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\anibal\\.nuget\\packages\\fsharp.core\\4.7.0\\fsharp.core.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

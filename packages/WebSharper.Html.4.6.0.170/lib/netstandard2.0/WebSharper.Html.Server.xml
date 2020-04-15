@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>WebSharper.Html.Server</name></assembly>
+<members>
+<member name="T:WebSharper.Sitelets.ContentModule.HtmlElement">
+<summary>
+ A type of HTML elements.
+</summary>
+</member>
+<member name="T:WebSharper.Sitelets.ContentModule">
+<summary>
+ Sitelets Content functions for Html.Server.
+</summary>
+</member>
+<member name="T:WebSharper.Html.Server.Html.Element">
+<summary>
+ Represents HTML/XML contents.
+</summary>
+</member>
+<member name="T:WebSharper.Html.Server.Html.Attribute">
+<summary>
+ Represents HTML attributes.
+</summary>
+</member>
+<member name="T:WebSharper.Html.Server.Html.TagContent">
+<summary>
+ Represents HTML tags.
+</summary>
+</member>
+<member name="M:WebSharper.Html.Server.Html.Annotate(WebSharper.IRequiresResources,WebSharper.Html.Server.Html.Element)">
+<summary>
+ Sets an annotation on the element.
+ If the element is a non-tag element, this operation is a no-op.
+</summary>
+</member>
+<member name="M:WebSharper.Html.Server.Html.NewAttr(System.String,System.String)">
+<summary>
+ Constructs a new attribute value.
+</summary>
+</member>
+<member name="M:WebSharper.Html.Server.Html.NewTag``1(System.String,System.Collections.Generic.IEnumerable{``0})">
+<summary>
+ Constructs a new HTML element.
+</summary>
+</member>
+<member name="T:WebSharper.Html.Server.Html">
+<summary>
+ Provides types for expressing HTML values.
+</summary>
+</member>
+<member name="T:WebSharper.Html.Server.Tags">
+<summary>
+ Exposes common HTML tags.
+</summary>
+</member>
+</members>
+</doc>

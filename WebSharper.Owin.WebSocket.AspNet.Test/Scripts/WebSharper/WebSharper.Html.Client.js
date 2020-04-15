@@ -1,0 +1,639 @@
+(function()
+{
+ "use strict";
+ var Global,WebSharper,Obj,Html,Client,Pagelet,Text,Attribute,Element,DeprecatedTagBuilder,TagBuilder,DeprecatedAttributeBuilder,AttributeBuilder,Operators,Implementation,JQueryHtmlProvider,Default,Tags,Attr,SC$1,Events,JQueryEventSupport,EventsPervasives,SC$2,IntelliFactory,Runtime,Math,Enumerator;
+ Global=self;
+ WebSharper=Global.WebSharper;
+ Obj=WebSharper&&WebSharper.Obj;
+ Html=WebSharper.Html=WebSharper.Html||{};
+ Client=Html.Client=Html.Client||{};
+ Pagelet=Client.Pagelet=Client.Pagelet||{};
+ Text=Client.Text=Client.Text||{};
+ Attribute=Client.Attribute=Client.Attribute||{};
+ Element=Client.Element=Client.Element||{};
+ DeprecatedTagBuilder=Client.DeprecatedTagBuilder=Client.DeprecatedTagBuilder||{};
+ TagBuilder=Client.TagBuilder=Client.TagBuilder||{};
+ DeprecatedAttributeBuilder=Client.DeprecatedAttributeBuilder=Client.DeprecatedAttributeBuilder||{};
+ AttributeBuilder=Client.AttributeBuilder=Client.AttributeBuilder||{};
+ Operators=Client.Operators=Client.Operators||{};
+ Implementation=Client.Implementation=Client.Implementation||{};
+ JQueryHtmlProvider=Implementation.JQueryHtmlProvider=Implementation.JQueryHtmlProvider||{};
+ Default=Client.Default=Client.Default||{};
+ Tags=Client.Tags=Client.Tags||{};
+ Attr=Client.Attr=Client.Attr||{};
+ SC$1=Global.StartupCode$WebSharper_Html_Client$Html=Global.StartupCode$WebSharper_Html_Client$Html||{};
+ Events=Client.Events=Client.Events||{};
+ JQueryEventSupport=Events.JQueryEventSupport=Events.JQueryEventSupport||{};
+ EventsPervasives=Client.EventsPervasives=Client.EventsPervasives||{};
+ SC$2=Global.StartupCode$WebSharper_Html_Client$Events=Global.StartupCode$WebSharper_Html_Client$Events||{};
+ IntelliFactory=Global.IntelliFactory;
+ Runtime=IntelliFactory&&IntelliFactory.Runtime;
+ Math=Global.Math;
+ Enumerator=WebSharper&&WebSharper.Enumerator;
+ Pagelet=Client.Pagelet=Runtime.Class({
+  AppendTo:function(targetId)
+  {
+   self.document.getElementById(targetId).appendChild(this.get_Body());
+   this.Render();
+  },
+  Render:Global.ignore,
+  ReplaceInDom:function(node)
+  {
+   node.parentNode.replaceChild(this.get_Body(),node);
+   this.Render();
+  }
+ },Obj,Pagelet);
+ Pagelet.New=Runtime.Ctor(function()
+ {
+  Obj.New.call(this);
+ },Pagelet);
+ Text=Client.Text=Runtime.Class({
+  get_Body:function()
+  {
+   return self.document.createTextNode(this.text);
+  }
+ },Pagelet,Text);
+ Text.New=Runtime.Ctor(function(text)
+ {
+  Pagelet.New.call(this);
+  this.text=text;
+ },Text);
+ Attribute=Client.Attribute=Runtime.Class({
+  get_Body:function()
+  {
+   var attr;
+   attr=this.HtmlProvider.CreateAttribute(this.Name);
+   attr.value=this.Value;
+   return attr;
+  }
+ },Pagelet,Attribute);
+ Attribute.New=function(htmlProvider,name,value)
+ {
+  var a;
+  a=new Attribute.New$1(htmlProvider);
+  a.Name=name;
+  a.Value=value;
+  return a;
+ };
+ Attribute.New$1=Runtime.Ctor(function(HtmlProvider)
+ {
+  Pagelet.New.call(this);
+  this.HtmlProvider=HtmlProvider;
+ },Attribute);
+ Element=Client.Element=Runtime.Class({
+  AppendN:function(node)
+  {
+   this.HtmlProvider.AppendNode(this.get_Body(),node);
+  },
+  AppendI:function(pl)
+  {
+   var body,r;
+   body=pl.get_Body();
+   body.nodeType===2?this.HtmlProvider.AppendAttribute(this.get_Body(),body):this.HtmlProvider.AppendNode(this.get_Body(),pl.get_Body());
+   this.IsRendered?pl.Render():(r=this.RenderInternal,this.RenderInternal=function()
+   {
+    r();
+    pl.Render();
+   });
+  },
+  get_Body:function()
+  {
+   return this.Dom;
+  },
+  Render:function()
+  {
+   if(!this.IsRendered)
+    {
+     this.RenderInternal();
+     this.IsRendered=true;
+    }
+  },
+  set_Item:function(name,value)
+  {
+   this.HtmlProvider.SetAttribute(this.get_Body(),name,value);
+  },
+  get_Item:function(name)
+  {
+   this.HtmlProvider.GetAttribute(this.get_Body(),name);
+   return this.HtmlProvider.GetAttribute(this.get_Body(),name);
+  },
+  get_HtmlProvider:function()
+  {
+   return this.HtmlProvider;
+  },
+  OnLoad:function(f)
+  {
+   this.HtmlProvider.OnLoad(this.get_Body(),f);
+  },
+  get_Id:function()
+  {
+   var id,newId;
+   id=this.HtmlProvider.GetProperty(this.get_Body(),"id");
+   return id===void 0||id===""?(newId="id"+Math.round(Math.random()*100000000),(this.HtmlProvider.SetProperty(this.get_Body(),"id",newId),newId)):id;
+  },
+  set_Value:function(x)
+  {
+   this.HtmlProvider.SetValue(this.get_Body(),x);
+  },
+  get_Value:function()
+  {
+   return this.HtmlProvider.GetValue(this.get_Body());
+  },
+  set_Html:function(x)
+  {
+   this.HtmlProvider.SetHtml(this.get_Body(),x);
+  },
+  get_Html:function()
+  {
+   return this.HtmlProvider.GetHtml(this.get_Body());
+  },
+  set_Text:function(x)
+  {
+   this.HtmlProvider.SetText(this.get_Body(),x);
+  },
+  get_Text:function()
+  {
+   return this.HtmlProvider.GetText(this.get_Body());
+  }
+ },Pagelet,Element);
+ Element.New=function(html,name)
+ {
+  var el,dom;
+  el=new Element.New$1(html);
+  dom=self.document.createElement(name);
+  el.RenderInternal=Global.ignore;
+  el.Dom=dom;
+  el.IsRendered=false;
+  return el;
+ };
+ Element.New$1=Runtime.Ctor(function(HtmlProvider)
+ {
+  Pagelet.New.call(this);
+  this.HtmlProvider=HtmlProvider;
+ },Element);
+ DeprecatedTagBuilder=Client.DeprecatedTagBuilder=Runtime.Class({
+  NewTag:function(name,children)
+  {
+   var el,e;
+   el=Element.New(this.HtmlProvider,name);
+   e=Enumerator.Get(children);
+   try
+   {
+    while(e.MoveNext())
+     el.AppendI(e.Current());
+   }
+   finally
+   {
+    if(typeof e=="object"&&"Dispose"in e)
+     e.Dispose();
+   }
+   return el;
+  }
+ },Obj,DeprecatedTagBuilder);
+ DeprecatedTagBuilder.New=Runtime.Ctor(function(HtmlProvider)
+ {
+  Obj.New.call(this);
+  this.HtmlProvider=HtmlProvider;
+ },DeprecatedTagBuilder);
+ TagBuilder=Client.TagBuilder=Runtime.Class({
+  text:function(data)
+  {
+   return new Text.New(data);
+  },
+  NewTag:function(name,children)
+  {
+   var el,e;
+   el=Element.New(this.HtmlProvider,name);
+   e=Enumerator.Get(children);
+   try
+   {
+    while(e.MoveNext())
+     el.AppendI(e.Current());
+   }
+   finally
+   {
+    if(typeof e=="object"&&"Dispose"in e)
+     e.Dispose();
+   }
+   return el;
+  }
+ },Obj,TagBuilder);
+ TagBuilder.New=Runtime.Ctor(function(HtmlProvider)
+ {
+  Obj.New.call(this);
+  this.HtmlProvider=HtmlProvider;
+ },TagBuilder);
+ DeprecatedAttributeBuilder=Client.DeprecatedAttributeBuilder=Runtime.Class({
+  NewAttr:function(name,value)
+  {
+   return Attribute.New(this.HtmlProvider,name,value);
+  }
+ },Obj,DeprecatedAttributeBuilder);
+ DeprecatedAttributeBuilder.New=Runtime.Ctor(function(HtmlProvider)
+ {
+  Obj.New.call(this);
+  this.HtmlProvider=HtmlProvider;
+ },DeprecatedAttributeBuilder);
+ AttributeBuilder=Client.AttributeBuilder=Runtime.Class({
+  NewAttr:function(name,value)
+  {
+   return Attribute.New(this.HtmlProvider,name,value);
+  }
+ },Obj,AttributeBuilder);
+ AttributeBuilder.New=Runtime.Ctor(function(HtmlProvider)
+ {
+  Obj.New.call(this);
+  this.HtmlProvider=HtmlProvider;
+ },AttributeBuilder);
+ Operators.add=function(el,inner)
+ {
+  var e;
+  e=Enumerator.Get(inner);
+  try
+  {
+   while(e.MoveNext())
+    el.AppendI(e.Current());
+  }
+  finally
+  {
+   if(typeof e=="object"&&"Dispose"in e)
+    e.Dispose();
+  }
+  return el;
+ };
+ Operators.OnBeforeRender=function(f,w)
+ {
+  var r;
+  r=w.Render;
+  w.Render=function()
+  {
+   f(w);
+   r.apply(w);
+  };
+ };
+ Operators.OnAfterRender=function(f,w)
+ {
+  var r;
+  r=w.Render;
+  w.Render=function()
+  {
+   r.apply(w);
+   f(w);
+  };
+ };
+ JQueryHtmlProvider=Implementation.JQueryHtmlProvider=Runtime.Class({
+  OnDocumentReady:function(f)
+  {
+   Global.jQuery(self.document).ready(function()
+   {
+    return f();
+   });
+  },
+  OnLoad:function(node,f)
+  {
+   Global.jQuery(node).ready(function()
+   {
+    return f();
+   });
+  },
+  RemoveClass:function(node,cls)
+  {
+   Global.jQuery(node).removeClass(cls);
+  },
+  SetStyle:function(node,style)
+  {
+   Global.jQuery(node).attr("style",style);
+  },
+  SetCss:function(node,name,prop)
+  {
+   Global.jQuery(node).css(name,prop);
+  },
+  RemoveAttribute:function(node,name)
+  {
+   Global.jQuery(node).removeAttr(name);
+  },
+  SetProperty:function(node,name,value)
+  {
+   Global.jQuery(node).prop(name,value);
+  },
+  GetProperty:function(node,name)
+  {
+   return Global.jQuery(node).prop(name);
+  },
+  GetAttribute:function(node,name)
+  {
+   return Global.jQuery(node).attr(name);
+  },
+  HasAttribute:function(node,name)
+  {
+   return Global.jQuery(node).attr(name)!=null;
+  },
+  SetAttribute:function(node,name,value)
+  {
+   Global.jQuery(node).attr(name,value);
+  },
+  Remove:function(node)
+  {
+   Global.jQuery(node).remove();
+  },
+  SetValue:function(node,value)
+  {
+   Global.jQuery(node).val(value);
+  },
+  GetValue:function(node)
+  {
+   return Global.jQuery(node).val();
+  },
+  SetHtml:function(node,text)
+  {
+   Global.jQuery(node).html(text);
+  },
+  GetHtml:function(node)
+  {
+   return Global.jQuery(node).html();
+  },
+  Clear:function(node)
+  {
+   Global.jQuery(node).contents().detach();
+  },
+  AddClass:function(node,cls)
+  {
+   Global.jQuery(node).addClass(cls);
+  },
+  SetText:function(node,text)
+  {
+   node.textContent=text;
+  },
+  GetText:function(node)
+  {
+   return node.textContent;
+  },
+  AppendNode:function(node,el)
+  {
+   var _this,a;
+   _this=Global.jQuery(node);
+   a=Global.jQuery(el);
+   _this.append.apply(_this,[a]);
+  },
+  AppendAttribute:function(node,attr)
+  {
+   this.SetAttribute(node,attr.nodeName,attr.value);
+  },
+  CreateElement:function(name)
+  {
+   return self.document.createElement(name);
+  },
+  CreateAttribute:function(str)
+  {
+   return self.document.createAttribute(str);
+  },
+  CreateTextNode:function(str)
+  {
+   return self.document.createTextNode(str);
+  }
+ },Obj,JQueryHtmlProvider);
+ JQueryHtmlProvider.New=Runtime.Ctor(function()
+ {
+  Obj.New.call(this);
+ },JQueryHtmlProvider);
+ Implementation.DeprecatedHtml=function()
+ {
+  SC$1.$cctor();
+  return SC$1.DeprecatedHtml;
+ };
+ Implementation.Tags=function()
+ {
+  SC$1.$cctor();
+  return SC$1.Tags;
+ };
+ Implementation.Attr=function()
+ {
+  SC$1.$cctor();
+  return SC$1.Attr;
+ };
+ Implementation.HtmlProvider=function()
+ {
+  SC$1.$cctor();
+  return SC$1.HtmlProvider;
+ };
+ Default.OnLoad=function(init)
+ {
+  Implementation.HtmlProvider().OnDocumentReady(init);
+ };
+ Tags.Deprecated=function()
+ {
+  SC$1.$cctor();
+  return SC$1.Deprecated;
+ };
+ Tags.Tags=function()
+ {
+  SC$1.$cctor();
+  return SC$1.Tags$1;
+ };
+ Attr.Attr=function()
+ {
+  SC$1.$cctor();
+  return SC$1.Attr$1;
+ };
+ SC$1.$cctor=function()
+ {
+  SC$1.$cctor=Global.ignore;
+  SC$1.HtmlProvider=new JQueryHtmlProvider.New();
+  SC$1.Attr=new AttributeBuilder.New(Implementation.HtmlProvider());
+  SC$1.Tags=new TagBuilder.New(Implementation.HtmlProvider());
+  SC$1.DeprecatedHtml=new DeprecatedTagBuilder.New(Implementation.HtmlProvider());
+  SC$1.Tags$1=Implementation.Tags();
+  SC$1.Deprecated=Implementation.DeprecatedHtml();
+  SC$1.Attr$1=Implementation.Attr();
+ };
+ JQueryEventSupport=Events.JQueryEventSupport=Runtime.Class({
+  OnMouse:function(name,f,el)
+  {
+   Global.jQuery(el.get_Body()).on(name,function(ev)
+   {
+    return f(el,{
+     X:ev.pageX,
+     Y:ev.pageY,
+     Event:ev
+    });
+   });
+  },
+  OnError:function(f,el)
+  {
+   Global.jQuery(el.get_Body()).on("error",function(ev)
+   {
+    return(f(el))(ev);
+   });
+  },
+  OnSubmit:function(f,el)
+  {
+   Global.jQuery(el.get_Body()).on("submit",function(ev)
+   {
+    return(f(el))(ev);
+   });
+  },
+  OnSelect:function(f,el)
+  {
+   Global.jQuery(el.get_Body()).on("select",function(ev)
+   {
+    return(f(el))(ev);
+   });
+  },
+  OnScroll:function(f,el)
+  {
+   Global.jQuery(el.get_Body()).on("scroll",function(ev)
+   {
+    return(f(el))(ev);
+   });
+  },
+  OnResize:function(f,el)
+  {
+   Global.jQuery(el.get_Body()).on("resize",function(ev)
+   {
+    return(f(el))(ev);
+   });
+  },
+  OnUnLoad:function(f,el)
+  {
+   Global.jQuery(el.get_Body()).on("unload",function(ev)
+   {
+    return(f(el))(ev);
+   });
+  },
+  OnLoad:function(f,el)
+  {
+   Global.jQuery(el.get_Body()).on("load",function(ev)
+   {
+    return(f(el))(ev);
+   });
+  },
+  OnFocus:function(f,el)
+  {
+   Global.jQuery(el.get_Body()).on("focus",function(ev)
+   {
+    return(f(el))(ev);
+   });
+  },
+  OnKeyUp:function(f,el)
+  {
+   Global.jQuery(el.get_Body()).on("keyup",function(ev)
+   {
+    return(f(el))({
+     KeyCode:ev.keyCode,
+     Event:ev
+    });
+   });
+  },
+  OnKeyPress:function(f,el)
+  {
+   Global.jQuery(el.get_Body()).keypress(function(ev)
+   {
+    return(f(el))({
+     CharacterCode:ev.which,
+     Event:ev
+    });
+   });
+  },
+  OnKeyDown:function(f,el)
+  {
+   Global.jQuery(el.get_Body()).on("keydown",function(ev)
+   {
+    return(f(el))({
+     KeyCode:ev.keyCode,
+     Event:ev
+    });
+   });
+  },
+  OnMouseUp:function(f,el)
+  {
+   this.OnMouse("mouseup",function($1,$2)
+   {
+    return(f($1))($2);
+   },el);
+  },
+  OnMouseOut:function(f,el)
+  {
+   this.OnMouse("mouseout",function($1,$2)
+   {
+    return(f($1))($2);
+   },el);
+  },
+  OnMouseMove:function(f,el)
+  {
+   this.OnMouse("mousemove",function($1,$2)
+   {
+    return(f($1))($2);
+   },el);
+  },
+  OnMouseLeave:function(f,el)
+  {
+   this.OnMouse("mouseleave",function($1,$2)
+   {
+    return(f($1))($2);
+   },el);
+  },
+  OnMouseEnter:function(f,el)
+  {
+   this.OnMouse("mouseenter",function($1,$2)
+   {
+    return(f($1))($2);
+   },el);
+  },
+  OnMouseDown:function(f,el)
+  {
+   this.OnMouse("mousedown",function($1,$2)
+   {
+    return(f($1))($2);
+   },el);
+  },
+  OnDoubleClick:function(f,el)
+  {
+   this.OnMouse("dblclick",function($1,$2)
+   {
+    return(f($1))($2);
+   },el);
+  },
+  OnClick:function(f,el)
+  {
+   this.OnMouse("click",function($1,$2)
+   {
+    return(f($1))($2);
+   },el);
+  },
+  OnChange:function(f,el)
+  {
+   Global.jQuery(el.get_Body()).on("change",function(ev)
+   {
+    return(f(el))(ev);
+   });
+  },
+  OnBlur:function(f,el)
+  {
+   Global.jQuery(el.get_Body()).on("blur",function(ev)
+   {
+    return(f(el))(ev);
+   });
+  },
+  OnEvent:function(ev,f,el)
+  {
+   Global.jQuery(el.get_Body()).on(ev,function(ev$1)
+   {
+    return(f(el))(ev$1);
+   });
+  }
+ },Obj,JQueryEventSupport);
+ JQueryEventSupport.New=Runtime.Ctor(function()
+ {
+  Obj.New.call(this);
+ },JQueryEventSupport);
+ EventsPervasives.Events=function()
+ {
+  SC$2.$cctor();
+  return SC$2.Events;
+ };
+ SC$2.$cctor=function()
+ {
+  SC$2.$cctor=Global.ignore;
+  SC$2.Events=new JQueryEventSupport.New();
+ };
+}());

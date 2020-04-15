@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Paket.Core</id>
+    <version>5.141.0</version>
+    <title>Paket.Core</title>
+    <authors>Paket team</authors>
+    <licenseUrl>http://fsprojects.github.io/Paket/license.html</licenseUrl>
+    <projectUrl>http://fsprojects.github.com/Paket</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/fsprojects/Paket/master/docs/files/img/logo.png</iconUrl>
+    <description>A dependency manager for .NET with support for NuGet packages and git repositories.</description>
+    <summary>A dependency manager for .NET with support for NuGet packages and git repositories.</summary>
+    <releaseNotes>BUGFIX: Fixing TLS 1.2 for BootStrapper - https://github.com/fsprojects/Paket/pull/3066
+BUGFIX: Fixed unhandled exception when running 'paket config add-credentials' in Jenkins pipeline - https://github.com/fsprojects/Paket/issues/2884
+BUGFIX: Some NuGet v2 queries fail with normalized filter syntax and are now skipped/blacklisted - https://github.com/fsprojects/Paket/pull/3059
+BUGFIX: Be more robust with custom namespaces in app.config - https://github.com/fsprojects/Paket/issues/1607
+BUGFIX: Fix prerelease selection when having multiple prereleases - https://github.com/fsprojects/Paket/pull/3058
+USABILITY: Update process just ignores groups that where not in lock file - https://github.com/fsprojects/Paket/pull/3054</releaseNotes>
+    <tags>nuget bundler F#</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="Chessie" version="0.6.0"></dependency>
+        <dependency id="FSharp.Compiler.Tools" version="0.0"></dependency>
+        <dependency id="FSharp.Core" version="0.0"></dependency>
+        <dependency id="Mono.Cecil" version="0.10.0-beta6"></dependency>
+        <dependency id="Newtonsoft.Json" version="0.0"></dependency>
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Chessie" version="0.6.0" exclude="Build,Analyzers"></dependency>
+        <dependency id="Mono.Cecil" version="0.10.0-beta6" exclude="Build,Analyzers"></dependency>
+        <dependency id="Newtonsoft.Json" version="10.0.3" exclude="Build,Analyzers"></dependency>
+        <dependency id="System.Security.Cryptography.ProtectedData" version="4.4.0" exclude="Build,Analyzers"></dependency>
+      </group>
+    </dependencies>
+  </metadata>
+</package>

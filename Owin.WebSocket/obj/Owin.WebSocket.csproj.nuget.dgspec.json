@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\anibal\\Downloads\\owin.websocket\\Owin.WebSocket\\Owin.WebSocket.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\anibal\\Downloads\\owin.websocket\\Owin.WebSocket\\Owin.WebSocket.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\anibal\\Downloads\\owin.websocket\\Owin.WebSocket\\Owin.WebSocket.csproj",
+        "projectName": "Owin.WebSocket",
+        "projectPath": "C:\\Users\\anibal\\Downloads\\owin.websocket\\Owin.WebSocket\\Owin.WebSocket.csproj",
+        "packagesPath": "C:\\Users\\anibal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anibal\\Downloads\\owin.websocket\\Owin.WebSocket\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\anibal\\Downloads\\owin.websocket\\.nuget\\NuGet.Config",
+          "C:\\Users\\anibal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://daily.websharper.com/nuget": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "dependencies": {
+            "CommonServiceLocator": {
+              "target": "Package",
+              "version": "[2.0.5, )"
+            },
+            "Microsoft.Owin": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "Owin": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100-preview.2.20176.6\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Chessie</id>
+    <version>0.6.0</version>
+    <title>Chessie</title>
+    <authors>Steffen Forkmann, Max Malook, Tomasz Heimowski</authors>
+    <owners>Steffen Forkmann, Max Malook, Tomasz Heimowski</owners>
+    <licenseUrl>http://github.com/fsprojects/Chessie/blob/master/LICENSE.txt</licenseUrl>
+    <projectUrl>http://github.com/fsprojects/Chessie</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/fsprojects/Chessie/master/docs/files/img/logo.png</iconUrl>
+    <description>Railway-oriented programming for .NET</description>
+    <summary>Railway-oriented programming for .NET</summary>
+    <releaseNotes>New version for .NETStandard 1.6 and coreclr</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>rop fsharp F#</tags>
+    <dependencies>
+      <group>
+        <dependency id="FSharp.Core"></dependency>
+      </group>
+      <group targetFramework=".NETStandard1.6">
+        <dependency id="NETStandard.Library" version="[1.6.0, )"></dependency>
+        <dependency id="FSharp.Core" version="[4.0.1.7-alpha, )"></dependency>
+      </group>
+    </dependencies>
+  </metadata>
+</package>

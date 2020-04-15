@@ -1,0 +1,149 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.8": {
+      "CommonServiceLocator/2.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/net48/CommonServiceLocator.dll": {}
+        },
+        "runtime": {
+          "lib/net48/CommonServiceLocator.dll": {}
+        }
+      },
+      "Microsoft.Owin/4.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Owin": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        }
+      },
+      "Owin/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Owin.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CommonServiceLocator/2.0.5": {
+      "sha512": "Md2q9f6hAuUAm6IWTybQbYvxhDAs2dqmsudVDghpg0Q+C0M2KkmiTDjeGx1PsYhnZPvp+hy1Cx99v0VPW9W6/g==",
+      "type": "package",
+      "path": "commonservicelocator/2.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "commonservicelocator.2.0.5.nupkg.sha512",
+        "commonservicelocator.nuspec",
+        "lib/net40/CommonServiceLocator.dll",
+        "lib/net45/CommonServiceLocator.dll",
+        "lib/net46/CommonServiceLocator.dll",
+        "lib/net47/CommonServiceLocator.dll",
+        "lib/net48/CommonServiceLocator.dll",
+        "lib/netcoreapp1.0/CommonServiceLocator.dll",
+        "lib/netcoreapp2.0/CommonServiceLocator.dll",
+        "lib/netcoreapp3.0/CommonServiceLocator.dll",
+        "lib/netstandard1.0/CommonServiceLocator.dll",
+        "lib/netstandard2.0/CommonServiceLocator.dll",
+        "lib/netstandard2.1/CommonServiceLocator.dll"
+      ]
+    },
+    "Microsoft.Owin/4.1.0": {
+      "sha512": "pMeDJpH9LUSeQv3Rc2tq/6s3yANPyBa7Qe0xAbpX7GGhfaLSgcUC+WCDb8QteDh7BMkBBnZ3BM8ol+IWbtNehA==",
+      "type": "package",
+      "path": "microsoft.owin/4.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.Owin.XML",
+        "lib/net45/Microsoft.Owin.dll",
+        "microsoft.owin.4.1.0.nupkg.sha512",
+        "microsoft.owin.nuspec"
+      ]
+    },
+    "Owin/1.0.0": {
+      "sha512": "OseTFniKmyp76mEzOBwIKGBRS5eMoYNkMKaMXOpxx9jv88+b6mh1rSaw43vjBOItNhaLFG3d0a20PfHyibH5sw==",
+      "type": "package",
+      "path": "owin/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Owin.dll",
+        "owin.1.0.0.nupkg.sha512",
+        "owin.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.8": [
+      "CommonServiceLocator >= 2.0.5",
+      "Microsoft.Owin >= 4.1.0",
+      "Owin >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\anibal\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\anibal\\Downloads\\owin.websocket\\Owin.WebSocket\\Owin.WebSocket.csproj",
+      "projectName": "Owin.WebSocket",
+      "projectPath": "C:\\Users\\anibal\\Downloads\\owin.websocket\\Owin.WebSocket\\Owin.WebSocket.csproj",
+      "packagesPath": "C:\\Users\\anibal\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\anibal\\Downloads\\owin.websocket\\Owin.WebSocket\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\anibal\\Downloads\\owin.websocket\\.nuget\\NuGet.Config",
+        "C:\\Users\\anibal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net48"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://daily.websharper.com/nuget": {}
+      },
+      "frameworks": {
+        "net48": {
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net48": {
+        "dependencies": {
+          "CommonServiceLocator": {
+            "target": "Package",
+            "version": "[2.0.5, )"
+          },
+          "Microsoft.Owin": {
+            "target": "Package",
+            "version": "[4.1.0, )"
+          },
+          "Owin": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100-preview.2.20176.6\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

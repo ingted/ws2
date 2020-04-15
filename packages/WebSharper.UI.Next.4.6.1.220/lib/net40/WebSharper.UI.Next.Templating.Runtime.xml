@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>WebSharper.UI.Next.Templating.Runtime</name></assembly>
+<members>
+<member name="F:WebSharper.UI.Next.Templating.Runtime.templateWrappers">
+<summary>
+ Different nodes need to be wrapped in different container to be handled properly.
+ See http://krasimirtsonev.com/blog/article/Revealing-the-magic-how-to-properly-convert-HTML-string-to-a-DOM-element
+</summary>
+</member>
+</members>
+</doc>

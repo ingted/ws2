@@ -1,0 +1,64 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\anibal\\Downloads\\owin.websocket\\testPath\\testPath.fsproj": {}
+  },
+  "projects": {
+    "C:\\Users\\anibal\\Downloads\\owin.websocket\\testPath\\testPath.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\anibal\\Downloads\\owin.websocket\\testPath\\testPath.fsproj",
+        "projectName": "testPath",
+        "projectPath": "C:\\Users\\anibal\\Downloads\\owin.websocket\\testPath\\testPath.fsproj",
+        "packagesPath": "C:\\Users\\anibal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anibal\\Downloads\\owin.websocket\\testPath\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\anibal\\Downloads\\owin.websocket\\.nuget\\NuGet.Config",
+          "C:\\Users\\anibal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://daily.websharper.com/nuget": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "dependencies": {
+            "FSharp.Core": {
+              "target": "Package",
+              "version": "[4.7.0, )",
+              "generatePathProperty": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100-preview.2.20176.6\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>WebSharper.Suave</name></assembly>
+<members>
+<member name="M:WebSharper.Suave.WebSharperAdapter.ToWebPart``1(WebSharper.Sitelets.Sitelet{``0},Microsoft.FSharp.Core.FSharpOption{System.String},Microsoft.FSharp.Core.FSharpOption{System.String},Microsoft.FSharp.Core.FSharpOption{System.String},Microsoft.FSharp.Core.FSharpOption{Microsoft.FSharp.Core.FSharpFunc{Suave.Http.HttpContext,Microsoft.FSharp.Control.FSharpAsync{Microsoft.FSharp.Core.FSharpOption{Suave.Http.HttpContext}}}},Microsoft.FSharp.Core.FSharpOption{System.Boolean})">
+ <summary>
+ Run a WebSharper sitelet as a Suave WebPart.
+ </summary>
+ <param name="app">The sitelet.</param>
+ <param name="RootDirectory">The root of the application. (default: working directory)</param>
+ <param name="BinDirectory">The directory containing the application's binaries. (default: WebSharper.Suave.dll's location)</param>
+ <param name="RequestPathBase">The prefix under which to serve the application. (default: "")</param>
+ <param name="Continuation">The WebPart to run on unmatched URLs. (default: RequestErrors.NOT_FOUND "File not found")</param>
+ <param name="ServeResources">Whether to also serve Script and Content resources. (default: true)</param>
+</member>
+</members>
+</doc>

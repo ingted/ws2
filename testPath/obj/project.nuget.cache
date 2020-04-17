@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FxjQmpaPRhN85BdmNRQ50Pk+0T5EenikVX66k5UEQDgvaVuAVA7IzFaBPgLEEwRG3Xw/xIVixW5nObhpYJ8zqw==",
+  "dgSpecHash": "qQszzg8nazw0k90ZjPCRZiWX8kBIyC1ZQMOynyUSVFbS36cneVjZyIJqeHtjGAi7LA55MZ8mEUeuTkXoCAoFyQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\anibal\\Downloads\\owin.websocket\\testPath\\testPath.fsproj",
+  "projectFilePath": "T:\\webfsi\\ws2\\testPath\\testPath.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\anibal\\.nuget\\packages\\fsharp.core\\4.7.0\\fsharp.core.4.7.0.nupkg.sha512"
   ],

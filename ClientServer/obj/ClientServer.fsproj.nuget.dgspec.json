@@ -1,0 +1,285 @@
+{
+  "format": 1,
+  "restore": {
+    "T:\\webfsi\\ClientServer\\ClientServer.fsproj": {}
+  },
+  "projects": {
+    "T:\\webfsi\\ClientServer\\ClientServer.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "T:\\webfsi\\ClientServer\\ClientServer.fsproj",
+        "projectName": "ClientServer",
+        "projectPath": "T:\\webfsi\\ClientServer\\ClientServer.fsproj",
+        "packagesPath": "C:\\Users\\anibal\\.nuget\\packages\\",
+        "outputPath": "T:\\webfsi\\ClientServer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\anibal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {
+              "T:\\webfsi\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj": {
+                "projectPath": "T:\\webfsi\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj"
+              },
+              "T:\\webfsi\\ws2\\WebSharper.Owin.WebSocket\\WebSharper.Owin.WebSocket.fsproj": {
+                "projectPath": "T:\\webfsi\\ws2\\WebSharper.Owin.WebSocket\\WebSharper.Owin.WebSocket.fsproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "dependencies": {
+            "CommonServiceLocator": {
+              "target": "Package",
+              "version": "[2.0.5, )",
+              "generatePathProperty": true
+            },
+            "FSharp.Compiler.Service": {
+              "target": "Package",
+              "version": "[35.0.0, )",
+              "generatePathProperty": true
+            },
+            "FSharp.Control.Reactive": {
+              "target": "Package",
+              "version": "[4.2.0, )",
+              "generatePathProperty": true
+            },
+            "FSharp.Core": {
+              "target": "Package",
+              "version": "[4.7.1, )",
+              "generatePathProperty": true
+            },
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.23, )",
+              "generatePathProperty": true
+            },
+            "IntelliFactory.Xml": {
+              "target": "Package",
+              "version": "[0.6.64.1, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.Owin": {
+              "target": "Package",
+              "version": "[4.1.0, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.Owin.FileSystems": {
+              "target": "Package",
+              "version": "[4.1.0, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.Owin.Host.HttpListener": {
+              "target": "Package",
+              "version": "[4.1.0, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.Owin.Host.SystemWeb": {
+              "target": "Package",
+              "version": "[4.1.0, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.Owin.Hosting": {
+              "target": "Package",
+              "version": "[4.1.0, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.Owin.StaticFiles": {
+              "target": "Package",
+              "version": "[4.1.0, )",
+              "generatePathProperty": true
+            },
+            "Owin": {
+              "target": "Package",
+              "version": "[1.0.0, )",
+              "generatePathProperty": true
+            },
+            "Suave": {
+              "target": "Package",
+              "version": "[2.5.6, )",
+              "generatePathProperty": true
+            },
+            "System.Buffers": {
+              "target": "Package",
+              "version": "[4.5.1, )",
+              "generatePathProperty": true
+            },
+            "System.Collections.Immutable": {
+              "target": "Package",
+              "version": "[5.0.0-preview.2.20160.6, )",
+              "generatePathProperty": true
+            },
+            "System.Memory": {
+              "target": "Package",
+              "version": "[4.5.4, )",
+              "generatePathProperty": true
+            },
+            "System.Numerics.Vectors": {
+              "target": "Package",
+              "version": "[4.5.0, )",
+              "generatePathProperty": true
+            },
+            "System.Reactive": {
+              "target": "Package",
+              "version": "[4.4.1, )",
+              "generatePathProperty": true
+            },
+            "System.Reactive.Core": {
+              "target": "Package",
+              "version": "[4.4.1, )",
+              "generatePathProperty": true
+            },
+            "System.Reflection.Metadata": {
+              "target": "Package",
+              "version": "[5.0.0-preview.2.20160.6, )",
+              "generatePathProperty": true
+            },
+            "System.Threading.Tasks.Extensions": {
+              "target": "Package",
+              "version": "[4.5.4, )",
+              "generatePathProperty": true
+            },
+            "System.ValueTuple": {
+              "target": "Package",
+              "version": "[4.5.0, )",
+              "generatePathProperty": true
+            },
+            "System.Xml.XDocument": {
+              "target": "Package",
+              "version": "[4.3.0, )",
+              "generatePathProperty": true
+            },
+            "Unquote": {
+              "target": "Package",
+              "version": "[5.0.0, )",
+              "generatePathProperty": true
+            },
+            "WebSharper": {
+              "target": "Package",
+              "version": "[4.6.1.381, )",
+              "generatePathProperty": true
+            },
+            "WebSharper.AspNetCore": {
+              "target": "Package",
+              "version": "[4.6.1.127, )",
+              "generatePathProperty": true
+            },
+            "WebSharper.FSharp": {
+              "target": "Package",
+              "version": "[4.6.1.381, )",
+              "generatePathProperty": true
+            },
+            "WebSharper.Html": {
+              "target": "Package",
+              "version": "[4.6.0.170, )",
+              "generatePathProperty": true
+            },
+            "WebSharper.Owin": {
+              "target": "Package",
+              "version": "[4.6.0.189, )",
+              "generatePathProperty": true
+            },
+            "WebSharper.Owin.WebSocket": {
+              "target": "Package",
+              "version": "[4.6.0.182, )",
+              "generatePathProperty": true
+            },
+            "WebSharper.Suave": {
+              "target": "Package",
+              "version": "[4.6.0.246, )",
+              "generatePathProperty": true
+            },
+            "WebSharper.UI": {
+              "target": "Package",
+              "version": "[4.6.1.207, )",
+              "generatePathProperty": true
+            },
+            "WebSharper.UI.Next": {
+              "target": "Package",
+              "version": "[4.6.1.220, )",
+              "generatePathProperty": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100-preview.2.20176.6\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win7-x86": {
+          "#import": []
+        }
+      }
+    },
+    "T:\\webfsi\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "T:\\webfsi\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj",
+        "projectName": "Owin.WebSocket",
+        "projectPath": "T:\\webfsi\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj",
+        "packagesPath": "C:\\Users\\anibal\\.nuget\\packages\\",
+        "outputPath": "T:\\webfsi\\ws2\\Owin.WebSocket\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\anibal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "dependencies": {
+            "CommonServiceLocator": {
+              "target": "Package",
+              "version": "[2.0.5, )"
+            },
+            "Microsoft.Owin": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "Owin": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100-preview.2.20176.6\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "T:\\webfsi\\ws2\\WebSharper.Owin.WebSocket\\WebSharper.Owin.WebSocket.fsproj": {
+      "restore": {
+        "projectUniqueName": "T:\\webfsi\\ws2\\WebSharper.Owin.WebSocket\\WebSharper.Owin.WebSocket.fsproj",
+        "projectName": "WebSharper.Owin.WebSocket",
+        "projectPath": "T:\\webfsi\\ws2\\WebSharper.Owin.WebSocket\\WebSharper.Owin.WebSocket.fsproj"
+      },
+      "frameworks": {
+        "net48": {}
+      }
+    }
+  }
+}

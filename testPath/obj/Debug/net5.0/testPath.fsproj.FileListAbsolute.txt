@@ -25,3 +25,5 @@ C:\Users\anibal\Downloads\owin.websocket\testPath\obj\Debug\net5.0\testPath.fspr
 C:\Users\anibal\Downloads\owin.websocket\testPath\obj\Debug\net5.0\testPath.dll
 C:\Users\anibal\Downloads\owin.websocket\testPath\obj\Debug\net5.0\testPath.pdb
 C:\Users\anibal\Downloads\owin.websocket\testPath\obj\Debug\net5.0\testPath.genruntimeconfig.cache
+T:\webfsi\ws2\testPath\obj\Debug\net5.0\testPath.exe
+T:\webfsi\ws2\testPath\obj\Debug\net5.0\testPath.pdb

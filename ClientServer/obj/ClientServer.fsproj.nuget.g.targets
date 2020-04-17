@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)websharper.ui.next\4.6.1.220\build\WebSharper.UI.Next.targets" Condition="Exists('$(NuGetPackageRoot)websharper.ui.next\4.6.1.220\build\WebSharper.UI.Next.targets')" />
+    <Import Project="$(NuGetPackageRoot)websharper.fsharp\4.6.1.381\build\WebSharper.FSharp.targets" Condition="Exists('$(NuGetPackageRoot)websharper.fsharp\4.6.1.381\build\WebSharper.FSharp.targets')" />
+  </ImportGroup>
+</Project>

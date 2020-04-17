@@ -113,14 +113,13 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\anibal\\Downloads\\owin.websocket\\testPath\\testPath.fsproj",
+      "projectUniqueName": "T:\\webfsi\\ws2\\testPath\\testPath.fsproj",
       "projectName": "testPath",
-      "projectPath": "C:\\Users\\anibal\\Downloads\\owin.websocket\\testPath\\testPath.fsproj",
+      "projectPath": "T:\\webfsi\\ws2\\testPath\\testPath.fsproj",
       "packagesPath": "C:\\Users\\anibal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anibal\\Downloads\\owin.websocket\\testPath\\obj\\",
+      "outputPath": "T:\\webfsi\\ws2\\testPath\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\anibal\\Downloads\\owin.websocket\\.nuget\\NuGet.Config",
         "C:\\Users\\anibal\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -129,8 +128,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://daily.websharper.com/nuget": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {

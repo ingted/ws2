@@ -49,3 +49,5 @@ C:\Users\anibal\Downloads\owin.websocket\WebSharper.Owin.WebSocket.AspNet.Test\o
 C:\Users\anibal\Downloads\owin.websocket\WebSharper.Owin.WebSocket.AspNet.Test\obj\Debug\WebSharper.Owin.WebSocket.AspNet.Test.fsproj.CopyComplete
 C:\Users\anibal\Downloads\owin.websocket\WebSharper.Owin.WebSocket.AspNet.Test\obj\Debug\WebSharper.Owin.WebSocket.AspNet.Test.dll
 C:\Users\anibal\Downloads\owin.websocket\WebSharper.Owin.WebSocket.AspNet.Test\obj\Debug\WebSharper.Owin.WebSocket.AspNet.Test.pdb
+T:\webfsi\ws2\WebSharper.Owin.WebSocket.AspNet.Test\obj\Debug\WebSharper.Owin.WebSocket.AspNet.Test.fsprojAssemblyReference.cache
+T:\webfsi\ws2\WebSharper.Owin.WebSocket.AspNet.Test\obj\Debug\WebSharper.Owin.WebSocket.AspNet.Test.pdb

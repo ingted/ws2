@@ -1,20 +1,19 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\anibal\\Downloads\\owin.websocket\\Owin.WebSocket\\Owin.WebSocket.csproj": {}
+    "T:\\webfsi\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj": {}
   },
   "projects": {
-    "C:\\Users\\anibal\\Downloads\\owin.websocket\\Owin.WebSocket\\Owin.WebSocket.csproj": {
+    "T:\\webfsi\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\anibal\\Downloads\\owin.websocket\\Owin.WebSocket\\Owin.WebSocket.csproj",
+        "projectUniqueName": "T:\\webfsi\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj",
         "projectName": "Owin.WebSocket",
-        "projectPath": "C:\\Users\\anibal\\Downloads\\owin.websocket\\Owin.WebSocket\\Owin.WebSocket.csproj",
+        "projectPath": "T:\\webfsi\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj",
         "packagesPath": "C:\\Users\\anibal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\anibal\\Downloads\\owin.websocket\\Owin.WebSocket\\obj\\",
+        "outputPath": "T:\\webfsi\\ws2\\Owin.WebSocket\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\anibal\\Downloads\\owin.websocket\\.nuget\\NuGet.Config",
           "C:\\Users\\anibal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -23,8 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://daily.websharper.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net48": {

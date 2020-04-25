@@ -145,6 +145,7 @@
   <ItemGroup>
     <Compile Include="WebSocket.fs" />
     <Content Include="packages.config" />
+    <None Include="snk.snk" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CommonServiceLocator">
@@ -198,8 +199,6 @@
     <Reference Include="WebSharper.Web">
       <HintPath>..\packages\WebSharper.4.6.1.381\lib\net461\WebSharper.Web.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Owin.WebSocket\Owin.WebSocket.csproj">
       <Name>Owin.WebSocket</Name>
       <Project>{9ad94815-2025-46c2-b6e2-2508c1a779e9}</Project>

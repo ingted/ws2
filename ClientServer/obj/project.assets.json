@@ -2,33 +2,13 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.8": {
-      "CommonServiceLocator/2.0.5": {
+      "CommonServiceLocator/1.3.0": {
         "type": "package",
         "compile": {
-          "lib/net48/CommonServiceLocator.dll": {}
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         },
         "runtime": {
-          "lib/net48/CommonServiceLocator.dll": {}
-        }
-      },
-      "FSharp.Compiler.Service/35.0.0": {
-        "type": "package",
-        "dependencies": {
-          "FSharp.Core": "4.6.2",
-          "System.Buffers": "4.5.0",
-          "System.Collections.Immutable": "1.5.0",
-          "System.Memory": "4.5.3",
-          "System.Reflection.Metadata": "1.6.0",
-          "System.ValueTuple": "4.4.0"
-        },
-        "frameworkAssemblies": [
-          "ISymWrapper, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-        ],
-        "compile": {
-          "lib/net461/FSharp.Compiler.Service.dll": {}
-        },
-        "runtime": {
-          "lib/net461/FSharp.Compiler.Service.dll": {}
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
       "FSharp.Control.Reactive/4.2.0": {
@@ -44,7 +24,7 @@
           "lib/net46/FSharp.Control.Reactive.dll": {}
         }
       },
-      "FSharp.Core/4.7.1": {
+      "FSharp.Core/4.7.0": {
         "type": "package",
         "compile": {
           "lib/net45/FSharp.Core.dll": {}
@@ -342,6 +322,19 @@
           "lib/net40/Owin.dll": {}
         }
       },
+      "Owin.WebSocket/1.7.0": {
+        "type": "package",
+        "dependencies": {
+          "CommonServiceLocator": "1.3.0",
+          "Microsoft.Owin": "3.0.1"
+        },
+        "compile": {
+          "lib/net45/Owin.WebSocket.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Owin.WebSocket.dll": {}
+        }
+      },
       "Suave/2.5.6": {
         "type": "package",
         "dependencies": {
@@ -618,6 +611,27 @@
           "lib/net461/WebSharper.Owin.dll": {}
         }
       },
+      "WebSharper.Owin.WebSocket/4.6.0.182": {
+        "type": "package",
+        "dependencies": {
+          "CommonServiceLocator": "[1.3.0, 1.4.0)",
+          "Microsoft.Owin": "3.0.0",
+          "Owin": "[1.0.0, 1.1.0)",
+          "WebSharper": "[4.6.1, 4.7.0)",
+          "WebSharper.Owin": "[4.6.0, 4.7.0)"
+        },
+        "frameworkAssemblies": [
+          "System.Configuration"
+        ],
+        "compile": {
+          "lib/net461/Owin.WebSocket.dll": {},
+          "lib/net461/WebSharper.Owin.WebSocket.dll": {}
+        },
+        "runtime": {
+          "lib/net461/Owin.WebSocket.dll": {},
+          "lib/net461/WebSharper.Owin.WebSocket.dll": {}
+        }
+      },
       "WebSharper.Suave/4.6.0.246": {
         "type": "package",
         "dependencies": {
@@ -679,61 +693,17 @@
         },
         "build": {
           "build/WebSharper.UI.Next.targets": {}
-        }
-      },
-      "Owin.WebSocket/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.8",
-        "dependencies": {
-          "CommonServiceLocator": "2.0.5",
-          "Microsoft.Owin": "4.1.0",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Owin.WebSocket.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Owin.WebSocket.dll": {}
-        }
-      },
-      "WebSharper.Owin.WebSocket/1.0.0": {
-        "type": "project",
-        "compile": {
-          "bin/placeholder/WebSharper.Owin.WebSocket.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/WebSharper.Owin.WebSocket.dll": {}
         }
       }
     },
     ".NETFramework,Version=v4.8/win7-x86": {
-      "CommonServiceLocator/2.0.5": {
+      "CommonServiceLocator/1.3.0": {
         "type": "package",
         "compile": {
-          "lib/net48/CommonServiceLocator.dll": {}
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         },
         "runtime": {
-          "lib/net48/CommonServiceLocator.dll": {}
-        }
-      },
-      "FSharp.Compiler.Service/35.0.0": {
-        "type": "package",
-        "dependencies": {
-          "FSharp.Core": "4.6.2",
-          "System.Buffers": "4.5.0",
-          "System.Collections.Immutable": "1.5.0",
-          "System.Memory": "4.5.3",
-          "System.Reflection.Metadata": "1.6.0",
-          "System.ValueTuple": "4.4.0"
-        },
-        "frameworkAssemblies": [
-          "ISymWrapper, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-        ],
-        "compile": {
-          "lib/net461/FSharp.Compiler.Service.dll": {}
-        },
-        "runtime": {
-          "lib/net461/FSharp.Compiler.Service.dll": {}
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
       "FSharp.Control.Reactive/4.2.0": {
@@ -749,7 +719,7 @@
           "lib/net46/FSharp.Control.Reactive.dll": {}
         }
       },
-      "FSharp.Core/4.7.1": {
+      "FSharp.Core/4.7.0": {
         "type": "package",
         "compile": {
           "lib/net45/FSharp.Core.dll": {}
@@ -1047,6 +1017,19 @@
           "lib/net40/Owin.dll": {}
         }
       },
+      "Owin.WebSocket/1.7.0": {
+        "type": "package",
+        "dependencies": {
+          "CommonServiceLocator": "1.3.0",
+          "Microsoft.Owin": "3.0.1"
+        },
+        "compile": {
+          "lib/net45/Owin.WebSocket.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Owin.WebSocket.dll": {}
+        }
+      },
       "Suave/2.5.6": {
         "type": "package",
         "dependencies": {
@@ -1323,6 +1306,27 @@
           "lib/net461/WebSharper.Owin.dll": {}
         }
       },
+      "WebSharper.Owin.WebSocket/4.6.0.182": {
+        "type": "package",
+        "dependencies": {
+          "CommonServiceLocator": "[1.3.0, 1.4.0)",
+          "Microsoft.Owin": "3.0.0",
+          "Owin": "[1.0.0, 1.1.0)",
+          "WebSharper": "[4.6.1, 4.7.0)",
+          "WebSharper.Owin": "[4.6.0, 4.7.0)"
+        },
+        "frameworkAssemblies": [
+          "System.Configuration"
+        ],
+        "compile": {
+          "lib/net461/Owin.WebSocket.dll": {},
+          "lib/net461/WebSharper.Owin.WebSocket.dll": {}
+        },
+        "runtime": {
+          "lib/net461/Owin.WebSocket.dll": {},
+          "lib/net461/WebSharper.Owin.WebSocket.dll": {}
+        }
+      },
       "WebSharper.Suave/4.6.0.246": {
         "type": "package",
         "dependencies": {
@@ -1384,71 +1388,23 @@
         },
         "build": {
           "build/WebSharper.UI.Next.targets": {}
-        }
-      },
-      "Owin.WebSocket/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.8",
-        "dependencies": {
-          "CommonServiceLocator": "2.0.5",
-          "Microsoft.Owin": "4.1.0",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Owin.WebSocket.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Owin.WebSocket.dll": {}
-        }
-      },
-      "WebSharper.Owin.WebSocket/1.0.0": {
-        "type": "project",
-        "compile": {
-          "bin/placeholder/WebSharper.Owin.WebSocket.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/WebSharper.Owin.WebSocket.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "CommonServiceLocator/2.0.5": {
-      "sha512": "Md2q9f6hAuUAm6IWTybQbYvxhDAs2dqmsudVDghpg0Q+C0M2KkmiTDjeGx1PsYhnZPvp+hy1Cx99v0VPW9W6/g==",
+    "CommonServiceLocator/1.3.0": {
+      "sha512": "fbjO0SNwbOFPdwVfyqv+B7gIJ2CVBOFPKqn1mDDECK7KER8jFaOdcvroFYoAHa0ktPbxi5s+15qOLnA96f8GSA==",
       "type": "package",
-      "path": "commonservicelocator/2.0.5",
+      "path": "commonservicelocator/1.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "commonservicelocator.2.0.5.nupkg.sha512",
+        "commonservicelocator.1.3.0.nupkg.sha512",
         "commonservicelocator.nuspec",
-        "lib/net40/CommonServiceLocator.dll",
-        "lib/net45/CommonServiceLocator.dll",
-        "lib/net46/CommonServiceLocator.dll",
-        "lib/net47/CommonServiceLocator.dll",
-        "lib/net48/CommonServiceLocator.dll",
-        "lib/netcoreapp1.0/CommonServiceLocator.dll",
-        "lib/netcoreapp2.0/CommonServiceLocator.dll",
-        "lib/netcoreapp3.0/CommonServiceLocator.dll",
-        "lib/netstandard1.0/CommonServiceLocator.dll",
-        "lib/netstandard2.0/CommonServiceLocator.dll",
-        "lib/netstandard2.1/CommonServiceLocator.dll"
-      ]
-    },
-    "FSharp.Compiler.Service/35.0.0": {
-      "sha512": "CmTi/VTIG+tB55s1ikY3gpsQXrCU8KDpBkB6w8noNGega5OWIiAx/Vzfi4G12JOFuB2E2fn7uchb8n2xqxhInA==",
-      "type": "package",
-      "path": "fsharp.compiler.service/35.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "fsharp.compiler.service.35.0.0.nupkg.sha512",
-        "fsharp.compiler.service.nuspec",
-        "lib/net461/FSharp.Compiler.Service.dll",
-        "lib/net461/FSharp.Compiler.Service.xml",
-        "lib/netstandard2.0/FSharp.Compiler.Service.dll",
-        "lib/netstandard2.0/FSharp.Compiler.Service.xml",
-        "logo.png"
+        "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.XML",
+        "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll",
+        "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.pdb"
       ]
     },
     "FSharp.Control.Reactive/4.2.0": {
@@ -1467,15 +1423,14 @@
         "paket-installmodel.cache"
       ]
     },
-    "FSharp.Core/4.7.1": {
-      "sha512": "cQ4Dn5mFIWnJF8MmL49k2V6L8mtInDrXopskNFbpC4lsPdspTn7WzUQLylB4HU4tpi76ManXMVCAvtlYowTfHQ==",
+    "FSharp.Core/4.7.0": {
+      "sha512": "6Bf2qzSCaJoP6tTfO+a5muUS7QbyJANqSut73zQvwQ9It5P0ITz9VKseeia2ofco30c55EQ0jA2wf2+A2gpGnw==",
       "type": "package",
-      "path": "fsharp.core/4.7.1",
+      "path": "fsharp.core/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "Icon.png",
-        "fsharp.core.4.7.1.nupkg.sha512",
+        "fsharp.core.4.7.0.nupkg.sha512",
         "fsharp.core.nuspec",
         "lib/net45/FSharp.Core.dll",
         "lib/net45/FSharp.Core.optdata",
@@ -1510,7 +1465,8 @@
         "lib/netstandard2.0/ru/FSharp.Core.resources.dll",
         "lib/netstandard2.0/tr/FSharp.Core.resources.dll",
         "lib/netstandard2.0/zh-Hans/FSharp.Core.resources.dll",
-        "lib/netstandard2.0/zh-Hant/FSharp.Core.resources.dll"
+        "lib/netstandard2.0/zh-Hant/FSharp.Core.resources.dll",
+        "paket-installmodel.cache"
       ]
     },
     "HtmlAgilityPack/1.11.23": {
@@ -1818,6 +1774,18 @@
         "lib/net40/Owin.dll",
         "owin.1.0.0.nupkg.sha512",
         "owin.nuspec"
+      ]
+    },
+    "Owin.WebSocket/1.7.0": {
+      "sha512": "pkNiHlIj/wiGSfV85uy87E4wgY3u1bEdTOjotA/tIOYw7qTa4gJKY/XjlBNrq5LOKxshZN4in99pjlXWYjliOQ==",
+      "type": "package",
+      "path": "owin.websocket/1.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Owin.WebSocket.dll",
+        "owin.websocket.1.7.0.nupkg.sha512",
+        "owin.websocket.nuspec"
       ]
     },
     "Suave/2.5.6": {
@@ -2588,6 +2556,20 @@
         "websharper.owin.nuspec"
       ]
     },
+    "WebSharper.Owin.WebSocket/4.6.0.182": {
+      "sha512": "dFUUqQUs/NycXQ982IViQEAce/x+vsmy6U7AWDlnqUiRxWe0406TlGAUBFF1ingrbebo9yXTu5td1TBCZXgy2g==",
+      "type": "package",
+      "path": "websharper.owin.websocket/4.6.0.182",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/Owin.WebSocket.dll",
+        "lib/net461/WebSharper.Owin.WebSocket.XML",
+        "lib/net461/WebSharper.Owin.WebSocket.dll",
+        "websharper.owin.websocket.4.6.0.182.nupkg.sha512",
+        "websharper.owin.websocket.nuspec"
+      ]
+    },
     "WebSharper.Suave/4.6.0.246": {
       "sha512": "nu0UMO3RahxLtzjPvT9dfEveNCyN2YKplozBGx+f3eRtm+BS2kW3fQj5ifAQsc2j/YgRq9GmmdOtuR1/H+HesQ==",
       "type": "package",
@@ -2667,24 +2649,13 @@
         "websharper.ui.next.4.6.1.220.nupkg.sha512",
         "websharper.ui.next.nuspec"
       ]
-    },
-    "Owin.WebSocket/1.0.0": {
-      "type": "project",
-      "path": "../Owin.WebSocket/Owin.WebSocket.csproj",
-      "msbuildProject": "../Owin.WebSocket/Owin.WebSocket.csproj"
-    },
-    "WebSharper.Owin.WebSocket/1.0.0": {
-      "type": "project",
-      "path": "../WebSharper.Owin.WebSocket/WebSharper.Owin.WebSocket.fsproj",
-      "msbuildProject": "../WebSharper.Owin.WebSocket/WebSharper.Owin.WebSocket.fsproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.8": [
-      "CommonServiceLocator >= 2.0.5",
-      "FSharp.Compiler.Service >= 35.0.0",
+      "CommonServiceLocator >= 1.3.0",
       "FSharp.Control.Reactive >= 4.2.0",
-      "FSharp.Core >= 4.7.1",
+      "FSharp.Core >= 4.7.0",
       "HtmlAgilityPack >= 1.11.23",
       "IntelliFactory.Xml >= 0.6.64.1",
       "Microsoft.Owin >= 4.1.0",
@@ -2694,7 +2665,7 @@
       "Microsoft.Owin.Hosting >= 4.1.0",
       "Microsoft.Owin.StaticFiles >= 4.1.0",
       "Owin >= 1.0.0",
-      "Owin.WebSocket >= 1.0.0",
+      "Owin.WebSocket >= 1.7.0",
       "Suave >= 2.5.6",
       "System.Buffers >= 4.5.1",
       "System.Collections.Immutable >= 5.0.0-preview.2.20160.6",
@@ -2712,7 +2683,7 @@
       "WebSharper.FSharp >= 4.6.1.381",
       "WebSharper.Html >= 4.6.0.170",
       "WebSharper.Owin >= 4.6.0.189",
-      "WebSharper.Owin.WebSocket >= 1.0.0",
+      "WebSharper.Owin.WebSocket >= 4.6.0.182",
       "WebSharper.Suave >= 4.6.0.246",
       "WebSharper.UI >= 4.6.1.207",
       "WebSharper.UI.Next >= 4.6.1.220"
@@ -2743,14 +2714,7 @@
       },
       "frameworks": {
         "net48": {
-          "projectReferences": {
-            "T:\\webfsi\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj": {
-              "projectPath": "T:\\webfsi\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj"
-            },
-            "T:\\webfsi\\ws2\\WebSharper.Owin.WebSocket\\WebSharper.Owin.WebSocket.fsproj": {
-              "projectPath": "T:\\webfsi\\ws2\\WebSharper.Owin.WebSocket\\WebSharper.Owin.WebSocket.fsproj"
-            }
-          }
+          "projectReferences": {}
         }
       }
     },
@@ -2759,12 +2723,7 @@
         "dependencies": {
           "CommonServiceLocator": {
             "target": "Package",
-            "version": "[2.0.5, )",
-            "generatePathProperty": true
-          },
-          "FSharp.Compiler.Service": {
-            "target": "Package",
-            "version": "[35.0.0, )",
+            "version": "[1.3.0, )",
             "generatePathProperty": true
           },
           "FSharp.Control.Reactive": {
@@ -2774,7 +2733,7 @@
           },
           "FSharp.Core": {
             "target": "Package",
-            "version": "[4.7.1, )",
+            "version": "[4.7.0, )",
             "generatePathProperty": true
           },
           "HtmlAgilityPack": {
@@ -2820,6 +2779,11 @@
           "Owin": {
             "target": "Package",
             "version": "[1.0.0, )",
+            "generatePathProperty": true
+          },
+          "Owin.WebSocket": {
+            "target": "Package",
+            "version": "[1.7.0, )",
             "generatePathProperty": true
           },
           "Suave": {
@@ -2905,6 +2869,11 @@
           "WebSharper.Owin": {
             "target": "Package",
             "version": "[4.6.0.189, )",
+            "generatePathProperty": true
+          },
+          "WebSharper.Owin.WebSocket": {
+            "target": "Package",
+            "version": "[4.6.0.182, )",
             "generatePathProperty": true
           },
           "WebSharper.Suave": {

@@ -103,43 +103,10 @@
  };
  WithEncoding.FromWebSocket=function(encode,decode,socket,agent,jsonEncoding)
  {
-  var p,p$1,decode$1,decode$2,flush,cache,isOpen,server,b;
-  function f(a)
-  {
-   return JSON.parse(a);
-  }
-  p=(p$1=jsonEncoding.$==0?[function(a)
-  {
-   return JSON.stringify(a);
-  },function(x)
-  {
-   return Json.Activate(f(x));
-  }]:[encode,decode],(decode$1=p$1[1],[p$1[0],function(msg)
-  {
-   return decode$1(msg.data);
-  }]));
-  decode$2=p[1];
-  flush=(cache=[],(isOpen=[false],(socket.onopen=function()
-  {
-   cache.push(Message.Open);
-   isOpen[0]=true;
-  },socket.onclose=function()
-  {
-   return cache.push(Message.Close);
-  },socket.onmessage=function(msg)
-  {
-   return cache.push({
-    $:0,
-    $0:decode$2(msg)
-   });
-  },socket.onerror=function()
-  {
-   return cache.push(Message.Error);
-  },function(post)
-  {
-   Seq.iter(post,cache);
-   return isOpen[0];
-  })));
+  var p,decode$1,flush,server,b;
+  p=Client.getEncoding(encode,decode,jsonEncoding);
+  decode$1=p[1];
+  flush=Client.cacheSocket(socket,decode$1);
   server=new WebSocketServer.New(socket,p[0]);
   b=null;
   return Concurrency.Delay(function()
@@ -148,8 +115,8 @@
    {
     function a$1(ok,ko)
     {
-     var isOpen$1;
-     isOpen$1=flush(a);
+     var isOpen;
+     isOpen=flush(a);
      socket.onopen=function()
      {
       a(Message.Open);
@@ -163,7 +130,7 @@
      {
       return a({
        $:0,
-       $0:decode$2(msg)
+       $0:decode$1(msg)
       });
      };
      socket.onerror=function()
@@ -171,7 +138,7 @@
       a(Message.Error);
       return ko(new Global.Error("Could not connect to the server."));
      };
-     isOpen$1?ok(server):void 0;
+     isOpen?ok(server):void 0;
     }
     return Concurrency.FromContinuations(function($1,$2,$3)
     {
@@ -182,43 +149,10 @@
  };
  WithEncoding.FromWebSocketStateful=function(encode,decode,socket,agent,jsonEncoding)
  {
-  var p,p$1,decode$1,decode$2,flush,cache,isOpen,server,b;
-  function f(a)
-  {
-   return JSON.parse(a);
-  }
-  p=(p$1=jsonEncoding.$==0?[function(a)
-  {
-   return JSON.stringify(a);
-  },function(x)
-  {
-   return Json.Activate(f(x));
-  }]:[encode,decode],(decode$1=p$1[1],[p$1[0],function(msg)
-  {
-   return decode$1(msg.data);
-  }]));
-  decode$2=p[1];
-  flush=(cache=[],(isOpen=[false],(socket.onopen=function()
-  {
-   cache.push(Message.Open);
-   isOpen[0]=true;
-  },socket.onclose=function()
-  {
-   return cache.push(Message.Close);
-  },socket.onmessage=function(msg)
-  {
-   return cache.push({
-    $:0,
-    $0:decode$2(msg)
-   });
-  },socket.onerror=function()
-  {
-   return cache.push(Message.Error);
-  },function(post)
-  {
-   Seq.iter(post,cache);
-   return isOpen[0];
-  })));
+  var p,decode$1,flush,server,b;
+  p=Client.getEncoding(encode,decode,jsonEncoding);
+  decode$1=p[1];
+  flush=Client.cacheSocket(socket,decode$1);
   server=new WebSocketServer.New(socket,p[0]);
   b=null;
   return Concurrency.Delay(function()
@@ -228,8 +162,8 @@
     var func,agent$1;
     function a$1(ok,ko)
     {
-     var isOpen$1;
-     isOpen$1=flush(function(a$2)
+     var isOpen;
+     isOpen=flush(function(a$2)
      {
       agent$1.mailbox.AddLast(a$2);
       agent$1.resume();
@@ -249,7 +183,7 @@
      {
       agent$1.mailbox.AddLast({
        $:0,
-       $0:decode$2(msg)
+       $0:decode$1(msg)
       });
       return agent$1.resume();
      };
@@ -259,7 +193,7 @@
       agent$1.resume();
       return ko(new Global.Error("Could not connect to the server."));
      };
-     isOpen$1?ok(server):void 0;
+     isOpen?ok(server):void 0;
     }
     func=a[1];
     agent$1=Async.FoldAgent(a[0],function($1,$2)
@@ -272,5 +206,56 @@
     });
    });
   });
+ };
+ Client.getEncoding=function(encode,decode,jsonEncoding)
+ {
+  var p,decode$1;
+  function f(a)
+  {
+   return JSON.parse(a);
+  }
+  p=jsonEncoding.$==0?[function(a)
+  {
+   return JSON.stringify(a);
+  },function(x)
+  {
+   return Json.Activate(f(x));
+  }]:[encode,decode];
+  decode$1=p[1];
+  return[p[0],function(msg)
+  {
+   return decode$1(msg.data);
+  }];
+ };
+ Client.cacheSocket=function(socket,decode)
+ {
+  var cache,isOpen;
+  cache=[];
+  isOpen=[false];
+  socket.onopen=function()
+  {
+   cache.push(Message.Open);
+   isOpen[0]=true;
+  };
+  socket.onclose=function()
+  {
+   return cache.push(Message.Close);
+  };
+  socket.onmessage=function(msg)
+  {
+   return cache.push({
+    $:0,
+    $0:decode(msg)
+   });
+  };
+  socket.onerror=function()
+  {
+   return cache.push(Message.Error);
+  };
+  return function(post)
+  {
+   Seq.iter(post,cache);
+   return isOpen[0];
+  };
  };
 }());

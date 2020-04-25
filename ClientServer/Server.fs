@@ -5,8 +5,12 @@ open System.Reactive
 open FSharp.Control.Reactive
 open System.IO
 open System.Text
-open FSharp.Compiler.SourceCodeServices
+//open FSharp.Compiler.SourceCodeServices
+//open FSharp.Compiler.Interactive.Shell
+open FSharp.Compiler
+open FSharp.Compiler.AbstractIL
 open FSharp.Compiler.Interactive.Shell
+open FSharp.Compiler.Interactive.Shell.Settings
 open Swensen.Unquote.Extensions
 open System
 open System.IO
@@ -157,8 +161,15 @@ module Server =
         )
 
     Console.SetOut tw
-    let fsiConfig = FsiEvaluationSession.GetDefaultConfiguration()
-    let fsiSession = FsiEvaluationSession.Create(fsiConfig, allArgs, inStream, tw, tw)
+    //let fsiConfigOld = FsiEvaluationSession.GetDefaultConfiguration()
+    //let fsiSessionOld = FsiEvaluationSession.Create(fsiConfigOld, allArgs, inStream, tw, tw)
+
+    open FsiSession
+
+    let fsiSession = 
+        FsiEvaluationSession.Create (fsiConfig, [|"fsi.exe"; "/langversion:preview"|], inStream, tw, tw, collectible=false, legacyReferenceResolver=legacyReferenceResolver)
+
+
     let locker = new Object()
 
     type FSCMD = string
@@ -202,8 +213,8 @@ module Server =
                                     Message<'S2C> -> 
                                         Async<'State>)>
     *)
-    let os wsproc =
-        WebSharper.Owin.WebSocket.ProcessWebSocketConnection<int, int>(wsproc)
+    //let os wsproc =
+    //    WebSharper.Owin.WebSocket.ProcessWebSocketConnection<int, int>(wsproc)
     //let sfAgt : StatefulAgent<int, int, string * Owin.WebSocket.WebSocketConnection> =
     //    fun client -> async {
     //        let conn = client.Connection

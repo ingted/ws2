@@ -13,7 +13,7 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\anibal\.nuget\packages\fsharp.core\4.7.1</PkgFSharp_Core>
+    <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\anibal\.nuget\packages\fsharp.core\4.7.0</PkgFSharp_Core>
     <PkgWebSharper Condition=" '$(PkgWebSharper)' == '' ">C:\Users\anibal\.nuget\packages\websharper\4.6.1.381</PkgWebSharper>
     <PkgWebSharper_UI_Next Condition=" '$(PkgWebSharper_UI_Next)' == '' ">C:\Users\anibal\.nuget\packages\websharper.ui.next\4.6.1.220</PkgWebSharper_UI_Next>
     <PkgSystem_Xml_XDocument Condition=" '$(PkgSystem_Xml_XDocument)' == '' ">C:\Users\anibal\.nuget\packages\system.xml.xdocument\4.3.0</PkgSystem_Xml_XDocument>
@@ -24,6 +24,8 @@
     <PkgWebSharper_Owin Condition=" '$(PkgWebSharper_Owin)' == '' ">C:\Users\anibal\.nuget\packages\websharper.owin\4.6.0.189</PkgWebSharper_Owin>
     <PkgSuave Condition=" '$(PkgSuave)' == '' ">C:\Users\anibal\.nuget\packages\suave\2.5.6</PkgSuave>
     <PkgWebSharper_Suave Condition=" '$(PkgWebSharper_Suave)' == '' ">C:\Users\anibal\.nuget\packages\websharper.suave\4.6.0.246</PkgWebSharper_Suave>
+    <PkgCommonServiceLocator Condition=" '$(PkgCommonServiceLocator)' == '' ">C:\Users\anibal\.nuget\packages\commonservicelocator\1.3.0</PkgCommonServiceLocator>
+    <PkgWebSharper_Owin_WebSocket Condition=" '$(PkgWebSharper_Owin_WebSocket)' == '' ">C:\Users\anibal\.nuget\packages\websharper.owin.websocket\4.6.0.182</PkgWebSharper_Owin_WebSocket>
     <PkgIntelliFactory_Xml Condition=" '$(PkgIntelliFactory_Xml)' == '' ">C:\Users\anibal\.nuget\packages\intellifactory.xml\0.6.64.1</PkgIntelliFactory_Xml>
     <PkgWebSharper_Html Condition=" '$(PkgWebSharper_Html)' == '' ">C:\Users\anibal\.nuget\packages\websharper.html\4.6.0.170</PkgWebSharper_Html>
     <PkgWebSharper_FSharp Condition=" '$(PkgWebSharper_FSharp)' == '' ">C:\Users\anibal\.nuget\packages\websharper.fsharp\4.6.1.381</PkgWebSharper_FSharp>
@@ -38,13 +40,12 @@
     <PkgSystem_Reflection_Metadata Condition=" '$(PkgSystem_Reflection_Metadata)' == '' ">C:\Users\anibal\.nuget\packages\system.reflection.metadata\5.0.0-preview.2.20160.6</PkgSystem_Reflection_Metadata>
     <PkgSystem_Reactive Condition=" '$(PkgSystem_Reactive)' == '' ">C:\Users\anibal\.nuget\packages\system.reactive\4.4.1</PkgSystem_Reactive>
     <PkgSystem_Reactive_Core Condition=" '$(PkgSystem_Reactive_Core)' == '' ">C:\Users\anibal\.nuget\packages\system.reactive.core\4.4.1</PkgSystem_Reactive_Core>
-    <PkgCommonServiceLocator Condition=" '$(PkgCommonServiceLocator)' == '' ">C:\Users\anibal\.nuget\packages\commonservicelocator\2.0.5</PkgCommonServiceLocator>
+    <PkgOwin_WebSocket Condition=" '$(PkgOwin_WebSocket)' == '' ">C:\Users\anibal\.nuget\packages\owin.websocket\1.7.0</PkgOwin_WebSocket>
     <PkgMicrosoft_Owin_FileSystems Condition=" '$(PkgMicrosoft_Owin_FileSystems)' == '' ">C:\Users\anibal\.nuget\packages\microsoft.owin.filesystems\4.1.0</PkgMicrosoft_Owin_FileSystems>
     <PkgMicrosoft_Owin_StaticFiles Condition=" '$(PkgMicrosoft_Owin_StaticFiles)' == '' ">C:\Users\anibal\.nuget\packages\microsoft.owin.staticfiles\4.1.0</PkgMicrosoft_Owin_StaticFiles>
     <PkgMicrosoft_Owin_Hosting Condition=" '$(PkgMicrosoft_Owin_Hosting)' == '' ">C:\Users\anibal\.nuget\packages\microsoft.owin.hosting\4.1.0</PkgMicrosoft_Owin_Hosting>
     <PkgMicrosoft_Owin_Host_SystemWeb Condition=" '$(PkgMicrosoft_Owin_Host_SystemWeb)' == '' ">C:\Users\anibal\.nuget\packages\microsoft.owin.host.systemweb\4.1.0</PkgMicrosoft_Owin_Host_SystemWeb>
     <PkgMicrosoft_Owin_Host_HttpListener Condition=" '$(PkgMicrosoft_Owin_Host_HttpListener)' == '' ">C:\Users\anibal\.nuget\packages\microsoft.owin.host.httplistener\4.1.0</PkgMicrosoft_Owin_Host_HttpListener>
     <PkgFSharp_Control_Reactive Condition=" '$(PkgFSharp_Control_Reactive)' == '' ">C:\Users\anibal\.nuget\packages\fsharp.control.reactive\4.2.0</PkgFSharp_Control_Reactive>
-    <PkgFSharp_Compiler_Service Condition=" '$(PkgFSharp_Compiler_Service)' == '' ">C:\Users\anibal\.nuget\packages\fsharp.compiler.service\35.0.0</PkgFSharp_Compiler_Service>
   </PropertyGroup>
 </Project>

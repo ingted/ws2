@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "06qW4NloT6xkIA/ZHk9GT7EACyc3KiQS0zyv7Bj6FR+MFecVwsdy8ltybkOf+U4XQyszDpzGi+1WZNJL2FFiMg==",
+  "success": true,
+  "projectFilePath": "T:\\webfsi\\ws2\\replution142\\replution142.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\anibal\\.nuget\\packages\\fsharp.core\\4.7.1\\fsharp.core.4.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -98,17 +98,18 @@ module Site =
 
         let wc = 
             divAttr [] [
-                
+                //Endpoint.Create(url20, "/WS2", JsonEncoding.Readable)
+                brAttr [][]
                 divAttr [] [client <@ Client.fsiCmd () @>]
                 divAttr [
                     Attr.Create "id" "fsiResult" 
                 ] [
-                    divAttr [] [Doc.WebControl ws] 
+                    divAttr [attr.id "consoleWC"] [Doc.WebControl ws] 
                 ]
             ]
         Content.Page(
             Templating.MainTemplate()
-                .Title("wsInSuave")
+                .Title("wsFsi")
                 .MenuBar(docList)
                 .Body(wc)
                 .Doc()

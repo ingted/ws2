@@ -1,0 +1,639 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "replution142/1.0.0": {
+        "dependencies": {
+          "FSharp.Core": "4.7.1",
+          "fsc": "10.8.1.0",
+          "FSharp.Build": "10.8.1.0",
+          "FSharp.Compiler.Interactive.Settings": "10.8.1.0",
+          "FSharp.Compiler.Private": "10.8.1.0",
+          "FSharp.Compiler.Private.Scripting": "10.8.1.0",
+          "FSharp.Compiler.Private.Scripting.UnitTests": "10.8.1.0",
+          "FSharp.Compiler.Server.Shared": "10.8.1.0",
+          "FSharp.DependencyManager.Nuget": "4.7.0.0",
+          "fsiAnyCpu": "10.8.1.0",
+          "Interactive.DependencyManager": "10.8.1.0"
+        },
+        "runtime": {
+          "replution142.dll": {}
+        }
+      },
+      "FSharp.Core/4.7.1": {
+        "runtime": {
+          "lib/netstandard2.0/FSharp.Core.dll": {
+            "assemblyVersion": "4.7.0.0",
+            "fileVersion": "4.700.20.10408"
+          }
+        },
+        "resources": {
+          "lib/netstandard2.0/cs/FSharp.Core.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/netstandard2.0/de/FSharp.Core.resources.dll": {
+            "locale": "de"
+          },
+          "lib/netstandard2.0/es/FSharp.Core.resources.dll": {
+            "locale": "es"
+          },
+          "lib/netstandard2.0/fr/FSharp.Core.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/netstandard2.0/it/FSharp.Core.resources.dll": {
+            "locale": "it"
+          },
+          "lib/netstandard2.0/ja/FSharp.Core.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/netstandard2.0/ko/FSharp.Core.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/netstandard2.0/pl/FSharp.Core.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/netstandard2.0/pt-BR/FSharp.Core.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/netstandard2.0/ru/FSharp.Core.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/netstandard2.0/tr/FSharp.Core.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/netstandard2.0/zh-Hans/FSharp.Core.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/netstandard2.0/zh-Hant/FSharp.Core.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "fsc/10.8.1.0": {
+        "runtime": {
+          "fsc.exe": {
+            "assemblyVersion": "10.8.1.0",
+            "fileVersion": "42.42.42.42424"
+          }
+        }
+      },
+      "FSharp.Build/10.8.1.0": {
+        "runtime": {
+          "FSharp.Build.dll": {
+            "assemblyVersion": "10.8.1.0",
+            "fileVersion": "42.42.42.42424"
+          }
+        },
+        "resources": {
+          "cs/FSharp.Build.resources.dll": {
+            "locale": "cs"
+          },
+          "de/FSharp.Build.resources.dll": {
+            "locale": "de"
+          },
+          "es/FSharp.Build.resources.dll": {
+            "locale": "es"
+          },
+          "fr/FSharp.Build.resources.dll": {
+            "locale": "fr"
+          },
+          "it/FSharp.Build.resources.dll": {
+            "locale": "it"
+          },
+          "ja/FSharp.Build.resources.dll": {
+            "locale": "ja"
+          },
+          "ko/FSharp.Build.resources.dll": {
+            "locale": "ko"
+          },
+          "pl/FSharp.Build.resources.dll": {
+            "locale": "pl"
+          },
+          "pt-BR/FSharp.Build.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "ru/FSharp.Build.resources.dll": {
+            "locale": "ru"
+          },
+          "tr/FSharp.Build.resources.dll": {
+            "locale": "tr"
+          },
+          "zh-Hans/FSharp.Build.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "zh-Hant/FSharp.Build.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "FSharp.Compiler.Interactive.Settings/10.8.1.0": {
+        "runtime": {
+          "FSharp.Compiler.Interactive.Settings.dll": {
+            "assemblyVersion": "10.8.1.0",
+            "fileVersion": "42.42.42.42424"
+          }
+        },
+        "resources": {
+          "cs/FSharp.Compiler.Interactive.Settings.resources.dll": {
+            "locale": "cs"
+          },
+          "de/FSharp.Compiler.Interactive.Settings.resources.dll": {
+            "locale": "de"
+          },
+          "es/FSharp.Compiler.Interactive.Settings.resources.dll": {
+            "locale": "es"
+          },
+          "fr/FSharp.Compiler.Interactive.Settings.resources.dll": {
+            "locale": "fr"
+          },
+          "it/FSharp.Compiler.Interactive.Settings.resources.dll": {
+            "locale": "it"
+          },
+          "ja/FSharp.Compiler.Interactive.Settings.resources.dll": {
+            "locale": "ja"
+          },
+          "ko/FSharp.Compiler.Interactive.Settings.resources.dll": {
+            "locale": "ko"
+          },
+          "pl/FSharp.Compiler.Interactive.Settings.resources.dll": {
+            "locale": "pl"
+          },
+          "pt-BR/FSharp.Compiler.Interactive.Settings.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "ru/FSharp.Compiler.Interactive.Settings.resources.dll": {
+            "locale": "ru"
+          },
+          "tr/FSharp.Compiler.Interactive.Settings.resources.dll": {
+            "locale": "tr"
+          },
+          "zh-Hans/FSharp.Compiler.Interactive.Settings.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "zh-Hant/FSharp.Compiler.Interactive.Settings.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "FSharp.Compiler.Private/10.8.1.0": {
+        "runtime": {
+          "FSharp.Compiler.Private.dll": {
+            "assemblyVersion": "10.8.1.0",
+            "fileVersion": "42.42.42.42424"
+          }
+        },
+        "resources": {
+          "cs/FSharp.Compiler.Private.resources.dll": {
+            "locale": "cs"
+          },
+          "de/FSharp.Compiler.Private.resources.dll": {
+            "locale": "de"
+          },
+          "es/FSharp.Compiler.Private.resources.dll": {
+            "locale": "es"
+          },
+          "fr/FSharp.Compiler.Private.resources.dll": {
+            "locale": "fr"
+          },
+          "it/FSharp.Compiler.Private.resources.dll": {
+            "locale": "it"
+          },
+          "ja/FSharp.Compiler.Private.resources.dll": {
+            "locale": "ja"
+          },
+          "ko/FSharp.Compiler.Private.resources.dll": {
+            "locale": "ko"
+          },
+          "pl/FSharp.Compiler.Private.resources.dll": {
+            "locale": "pl"
+          },
+          "pt-BR/FSharp.Compiler.Private.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "ru/FSharp.Compiler.Private.resources.dll": {
+            "locale": "ru"
+          },
+          "tr/FSharp.Compiler.Private.resources.dll": {
+            "locale": "tr"
+          },
+          "zh-Hans/FSharp.Compiler.Private.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "zh-Hant/FSharp.Compiler.Private.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "FSharp.Compiler.Private.Scripting/10.8.1.0": {
+        "runtime": {
+          "FSharp.Compiler.Private.Scripting.dll": {
+            "assemblyVersion": "10.8.1.0",
+            "fileVersion": "42.42.42.42424"
+          }
+        }
+      },
+      "FSharp.Compiler.Private.Scripting.UnitTests/10.8.1.0": {
+        "runtime": {
+          "FSharp.Compiler.Private.Scripting.UnitTests.dll": {
+            "assemblyVersion": "10.8.1.0",
+            "fileVersion": "42.42.42.42424"
+          }
+        }
+      },
+      "FSharp.Compiler.Server.Shared/10.8.1.0": {
+        "runtime": {
+          "FSharp.Compiler.Server.Shared.dll": {
+            "assemblyVersion": "10.8.1.0",
+            "fileVersion": "42.42.42.42424"
+          }
+        }
+      },
+      "FSharp.DependencyManager.Nuget/4.7.0.0": {
+        "runtime": {
+          "FSharp.DependencyManager.Nuget.dll": {
+            "assemblyVersion": "4.7.0.0",
+            "fileVersion": "42.42.42.42424"
+          }
+        },
+        "resources": {
+          "cs/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "cs"
+          },
+          "de/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "de"
+          },
+          "es/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "es"
+          },
+          "fr/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "fr"
+          },
+          "it/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "it"
+          },
+          "ja/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "ja"
+          },
+          "ko/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "ko"
+          },
+          "pl/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "pl"
+          },
+          "pt-BR/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "ru/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "ru"
+          },
+          "tr/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "tr"
+          },
+          "zh-Hans/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "zh-Hant/FSharp.DependencyManager.Nuget.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "fsiAnyCpu/10.8.1.0": {
+        "runtime": {
+          "fsiAnyCpu.exe": {
+            "assemblyVersion": "10.8.1.0",
+            "fileVersion": "42.42.42.42424"
+          }
+        }
+      },
+      "Interactive.DependencyManager/10.8.1.0": {
+        "runtime": {
+          "Interactive.DependencyManager.dll": {
+            "assemblyVersion": "10.8.1.0",
+            "fileVersion": "42.42.42.42424"
+          }
+        },
+        "resources": {
+          "cs/Interactive.DependencyManager.resources.dll": {
+            "locale": "cs"
+          },
+          "de/Interactive.DependencyManager.resources.dll": {
+            "locale": "de"
+          },
+          "es/Interactive.DependencyManager.resources.dll": {
+            "locale": "es"
+          },
+          "fr/Interactive.DependencyManager.resources.dll": {
+            "locale": "fr"
+          },
+          "it/Interactive.DependencyManager.resources.dll": {
+            "locale": "it"
+          },
+          "ja/Interactive.DependencyManager.resources.dll": {
+            "locale": "ja"
+          },
+          "ko/Interactive.DependencyManager.resources.dll": {
+            "locale": "ko"
+          },
+          "pl/Interactive.DependencyManager.resources.dll": {
+            "locale": "pl"
+          },
+          "pt-BR/Interactive.DependencyManager.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "ru/Interactive.DependencyManager.resources.dll": {
+            "locale": "ru"
+          },
+          "tr/Interactive.DependencyManager.resources.dll": {
+            "locale": "tr"
+          },
+          "zh-Hans/Interactive.DependencyManager.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "zh-Hant/Interactive.DependencyManager.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "Microsoft.Build.Utilities.Core/15.1.0.0": {
+        "runtime": {
+          "Microsoft.Build.Utilities.Core.dll": {
+            "assemblyVersion": "15.1.0.0",
+            "fileVersion": "16.4.0.56501"
+          }
+        }
+      },
+      "Microsoft.Build.Framework/15.1.0.0": {
+        "runtime": {
+          "Microsoft.Build.Framework.dll": {
+            "assemblyVersion": "15.1.0.0",
+            "fileVersion": "16.4.0.56501"
+          }
+        }
+      },
+      "Microsoft.Build.Tasks.Core/15.1.0.0": {
+        "runtime": {
+          "Microsoft.Build.Tasks.Core.dll": {
+            "assemblyVersion": "15.1.0.0",
+            "fileVersion": "16.4.0.56501"
+          }
+        }
+      },
+      "Microsoft.Build/15.1.0.0": {
+        "runtime": {
+          "Microsoft.Build.dll": {
+            "assemblyVersion": "15.1.0.0",
+            "fileVersion": "16.4.0.56501"
+          }
+        }
+      },
+      "nunit.framework/3.11.0.0": {
+        "runtime": {
+          "nunit.framework.dll": {
+            "assemblyVersion": "3.11.0.0",
+            "fileVersion": "3.11.0.0"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.TestPlatform.ObjectModel/15.0.0.0": {
+        "runtime": {
+          "Microsoft.VisualStudio.TestPlatform.ObjectModel.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.0.0"
+          }
+        },
+        "resources": {
+          "cs/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll": {
+            "locale": "cs"
+          },
+          "de/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll": {
+            "locale": "de"
+          },
+          "es/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll": {
+            "locale": "es"
+          },
+          "fr/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll": {
+            "locale": "fr"
+          },
+          "it/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll": {
+            "locale": "it"
+          },
+          "ja/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll": {
+            "locale": "ja"
+          },
+          "ko/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll": {
+            "locale": "ko"
+          },
+          "pl/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll": {
+            "locale": "pl"
+          },
+          "pt-BR/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "ru/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll": {
+            "locale": "ru"
+          },
+          "tr/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll": {
+            "locale": "tr"
+          },
+          "zh-Hans/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "zh-Hant/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "System.CodeDom/4.0.0.0": {
+        "runtime": {
+          "System.CodeDom.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.6.25519.3"
+          }
+        }
+      },
+      "System.Resources.Extensions/4.0.0.0": {
+        "runtime": {
+          "System.Resources.Extensions.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.700.19.46214"
+          }
+        }
+      },
+      "Microsoft.TestPlatform.PlatformAbstractions/15.0.0.0": {
+        "runtime": {
+          "Microsoft.TestPlatform.PlatformAbstractions.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.0.0"
+          }
+        }
+      },
+      "Microsoft.TestPlatform.CoreUtilities/15.0.0.0": {
+        "runtime": {
+          "Microsoft.TestPlatform.CoreUtilities.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.0.0"
+          }
+        },
+        "resources": {
+          "cs/Microsoft.TestPlatform.CoreUtilities.resources.dll": {
+            "locale": "cs"
+          },
+          "de/Microsoft.TestPlatform.CoreUtilities.resources.dll": {
+            "locale": "de"
+          },
+          "es/Microsoft.TestPlatform.CoreUtilities.resources.dll": {
+            "locale": "es"
+          },
+          "fr/Microsoft.TestPlatform.CoreUtilities.resources.dll": {
+            "locale": "fr"
+          },
+          "it/Microsoft.TestPlatform.CoreUtilities.resources.dll": {
+            "locale": "it"
+          },
+          "ja/Microsoft.TestPlatform.CoreUtilities.resources.dll": {
+            "locale": "ja"
+          },
+          "ko/Microsoft.TestPlatform.CoreUtilities.resources.dll": {
+            "locale": "ko"
+          },
+          "pl/Microsoft.TestPlatform.CoreUtilities.resources.dll": {
+            "locale": "pl"
+          },
+          "pt-BR/Microsoft.TestPlatform.CoreUtilities.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "ru/Microsoft.TestPlatform.CoreUtilities.resources.dll": {
+            "locale": "ru"
+          },
+          "tr/Microsoft.TestPlatform.CoreUtilities.resources.dll": {
+            "locale": "tr"
+          },
+          "zh-Hans/Microsoft.TestPlatform.CoreUtilities.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "zh-Hant/Microsoft.TestPlatform.CoreUtilities.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "replution142/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FSharp.Core/4.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cQ4Dn5mFIWnJF8MmL49k2V6L8mtInDrXopskNFbpC4lsPdspTn7WzUQLylB4HU4tpi76ManXMVCAvtlYowTfHQ==",
+      "path": "fsharp.core/4.7.1",
+      "hashPath": "fsharp.core.4.7.1.nupkg.sha512"
+    },
+    "fsc/10.8.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FSharp.Build/10.8.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FSharp.Compiler.Interactive.Settings/10.8.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FSharp.Compiler.Private/10.8.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FSharp.Compiler.Private.Scripting/10.8.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FSharp.Compiler.Private.Scripting.UnitTests/10.8.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FSharp.Compiler.Server.Shared/10.8.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FSharp.DependencyManager.Nuget/4.7.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "fsiAnyCpu/10.8.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Interactive.DependencyManager/10.8.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Build.Utilities.Core/15.1.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Build.Framework/15.1.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Build.Tasks.Core/15.1.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Build/15.1.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "nunit.framework/3.11.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.VisualStudio.TestPlatform.ObjectModel/15.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.CodeDom/4.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Resources.Extensions/4.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.TestPlatform.PlatformAbstractions/15.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.TestPlatform.CoreUtilities/15.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

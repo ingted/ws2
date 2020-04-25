@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="fsc">
+      <HintPath>Z:\f-\replution\netcoreapp3.1\fsc.exe</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Build">
+      <HintPath>Z:\f-\replution\netcoreapp3.1\FSharp.Build.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Compiler.Interactive.Settings">
+      <HintPath>Z:\f-\replution\netcoreapp3.1\FSharp.Compiler.Interactive.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Compiler.Private">
+      <HintPath>Z:\f-\replution\netcoreapp3.1\FSharp.Compiler.Private.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Compiler.Private.Scripting">
+      <HintPath>Z:\f-\replution\netcoreapp3.1\FSharp.Compiler.Private.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Compiler.Private.Scripting.UnitTests">
+      <HintPath>Z:\f-\replution\netcoreapp3.1\FSharp.Compiler.Private.Scripting.UnitTests.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Compiler.Server.Shared">
+      <HintPath>Z:\f-\replution\netcoreapp3.1\FSharp.Compiler.Server.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.DependencyManager.Nuget">
+      <HintPath>Z:\f-\replution\netcoreapp3.1\FSharp.DependencyManager.Nuget.dll</HintPath>
+    </Reference>
+    <Reference Include="fsiAnyCpu">
+      <HintPath>Z:\f-\replution\netcoreapp3.1\fsiAnyCpu.exe</HintPath>
+    </Reference>
+    <Reference Include="Interactive.DependencyManager">
+      <HintPath>Z:\f-\replution\netcoreapp3.1\Interactive.DependencyManager.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="4.7.1" />
+  </ItemGroup>
+
+</Project>

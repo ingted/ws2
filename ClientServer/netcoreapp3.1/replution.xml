@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>replution</name></assembly>
+<members>
+<member name="M:Program.StartServer``1(FSharp.Compiler.Interactive.Shell.FsiEvaluationSession,``0)">
+<summary>
+ Starts the remoting server to handle interrupt reuests from a host tool.
+</summary>
+</member>
+</members>
+</doc>

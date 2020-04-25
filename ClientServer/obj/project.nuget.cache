@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ELqVIF00aWXPV6yFPZwmJMK4m4x1LTLoZnMZSGwvOfspvU08V6PSHgaU+NISPyM3z6cHFB2djKhQFcoXbAzNRg==",
+  "dgSpecHash": "5GnCrjbHGXWBkUYFMG1uGUojEVAXgBuIWYY3BpVcm48Dv5DJ6tHKyx363ZRgZfWhsJEjR1qClTqxrv/ibCQzPg==",
   "success": true,
-  "projectFilePath": "T:\\webfsi\\ClientServer\\ClientServer.fsproj",
+  "projectFilePath": "T:\\webfsi\\ws2\\ClientServer\\ClientServer.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\anibal\\.nuget\\packages\\commonservicelocator\\2.0.5\\commonservicelocator.2.0.5.nupkg.sha512",
     "C:\\Users\\anibal\\.nuget\\packages\\fsharp.compiler.service\\35.0.0\\fsharp.compiler.service.35.0.0.nupkg.sha512",

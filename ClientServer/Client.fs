@@ -99,7 +99,9 @@ module Client =
         divAttr [] [
             divAttr [][
                 Doc.Button "Send" [] submit.Trigger
-                Doc.Button "Clear Console" [] (fun () -> WebSharper.JQuery.JQuery.Of("#console").Empty().Ignore)
+                Doc.Button "Clear Console" [] (fun () -> 
+                                                    //WebSharper.JQuery.JQuery.Of("#consoleWC")
+                                                    WebSharper.JQuery.JQuery.Of("#console").Empty().Ignore)
                 brAttr [][]
                 Doc.InputArea [attr.style "width: 800px"; attr.``class`` "input"; attr.rows "10"; attr.value "printfn \"orz\""] rvInput
             ]

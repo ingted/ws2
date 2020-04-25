@@ -12,7 +12,7 @@
     <Compile Include="Startup.fs" />
     <Content Include="ws.txt" />
     <None Include="testFsi.fsx" />
-    <None Include="testFsi2.fsx" />
+    <None Include="testFsi2.fs" />
     <None Include="wsconfig.json" />
   </ItemGroup>
 
@@ -45,7 +45,6 @@
     <PackageReference Include="WebSharper.FSharp" Version="4.6.1.381" />    
     <PackageReference Include="WebSharper.Html" Version="4.6.0.170" />    
     <PackageReference Include="WebSharper.Owin" Version="4.6.0.189" />    
-    <PackageReference Include="WebSharper.Owin.WebSocket" Version="4.6.0.182" />    
     <PackageReference Include="WebSharper.Suave" Version="4.6.0.246" />
     <PackageReference Include="WebSharper.UI" Version="4.6.1.207" />
     <PackageReference Include="WebSharper.AspNetCore" Version="4.6.1.127" />
@@ -53,12 +52,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ws2\Owin.WebSocket\Owin.WebSocket.csproj" />
-    <ProjectReference Include="..\ws2\WebSharper.Owin.WebSocket\WebSharper.Owin.WebSocket.fsproj" />
+    <ProjectReference Include="..\Owin.WebSocket\Owin.WebSocket.csproj" />
+    <ProjectReference Include="..\WebSharper.Owin.WebSocket\WebSharper.Owin.WebSocket.fsproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Update="FSharp.Core" Version="4.7.1" />
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="powershell -c &quot;cp  -force -rec .\Main.html .\bin\Debug\net48    &quot;&#xD;&#xA;powershell -c &quot;cp  -force -rec .\main2.html .\bin\Debug\net48    &quot;&#xD;&#xA;powershell -c &quot;cp  -force -rec .\index.html .\bin\Debug\net48    &quot;&#xD;&#xA;powershell -c &quot;cp  -force -rec .\wwwroot\* .\bin\Debug\net48    &quot;" />
+  </Target>
 
 </Project>

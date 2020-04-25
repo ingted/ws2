@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "T:\\webfsi\\ClientServer\\ClientServer.fsproj": {}
+    "T:\\webfsi\\ws2\\ClientServer\\ClientServer.fsproj": {}
   },
   "projects": {
-    "T:\\webfsi\\ClientServer\\ClientServer.fsproj": {
+    "T:\\webfsi\\ws2\\ClientServer\\ClientServer.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "T:\\webfsi\\ClientServer\\ClientServer.fsproj",
+        "projectUniqueName": "T:\\webfsi\\ws2\\ClientServer\\ClientServer.fsproj",
         "projectName": "ClientServer",
-        "projectPath": "T:\\webfsi\\ClientServer\\ClientServer.fsproj",
+        "projectPath": "T:\\webfsi\\ws2\\ClientServer\\ClientServer.fsproj",
         "packagesPath": "C:\\Users\\anibal\\.nuget\\packages\\",
-        "outputPath": "T:\\webfsi\\ClientServer\\obj\\",
+        "outputPath": "T:\\webfsi\\ws2\\ClientServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\anibal\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -190,11 +190,6 @@
               "version": "[4.6.0.189, )",
               "generatePathProperty": true
             },
-            "WebSharper.Owin.WebSocket": {
-              "target": "Package",
-              "version": "[4.6.0.182, )",
-              "generatePathProperty": true
-            },
             "WebSharper.Suave": {
               "target": "Package",
               "version": "[4.6.0.246, )",
@@ -211,7 +206,7 @@
               "generatePathProperty": true
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100-preview.2.20176.6\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -267,11 +262,12 @@
               "version": "[1.0.0, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100-preview.2.20176.6\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
     "T:\\webfsi\\ws2\\WebSharper.Owin.WebSocket\\WebSharper.Owin.WebSocket.fsproj": {
+      "version": "1.0.0",
       "restore": {
         "projectUniqueName": "T:\\webfsi\\ws2\\WebSharper.Owin.WebSocket\\WebSharper.Owin.WebSocket.fsproj",
         "projectName": "WebSharper.Owin.WebSocket",

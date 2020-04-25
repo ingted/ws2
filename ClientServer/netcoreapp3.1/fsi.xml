@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>fsi</name></assembly>
+<members>
+<member name="P:FSharp.Compiler.Interactive.ReadLineConsole.Prompt">
+<summary>
+ Inset all inputs by this amount
+</summary>
+</member>
+<member name="T:FSharp.Compiler.Interactive.Options">
+<summary>
+ List of available optionsCache
+</summary>
+</member>
+<member name="T:FSharp.Compiler.Interactive.History">
+<summary>
+ Class managing the command History.
+</summary>
+</member>
+<member name="T:FSharp.Compiler.Interactive.Utils">
+<summary>
+ Cursor position management
+</summary>
+</member>
+<member name="T:FSharp.Compiler.Interactive.ConsoleOptions">
+<summary>
+ System.Console.ReadKey appears to return an ANSI character (not the expected the unicode character).
+ When this fix flag is true, this byte is converted to a char using the System.Console.InputEncoding.
+ This is a code-around for bug://1345.
+ Fixes to System.Console.ReadKey may break this code around, hence the option here.
+</summary>
+</member>
+<member name="M:Sample.FSharp.Compiler.Interactive.Main.StartServer``1(FSharp.Compiler.Interactive.Shell.FsiEvaluationSession,``0)">
+<summary>
+ Starts the remoting server to handle interrupt reuests from a host tool.
+</summary>
+</member>
+<member name="M:Sample.FSharp.Compiler.Interactive.Main.SetCurrentUICultureForThread(Microsoft.FSharp.Core.FSharpOption{System.Int32})">
+<summary>
+ Set the current ui culture for the current thread.
+</summary>
+</member>
+</members>
+</doc>

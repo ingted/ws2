@@ -7,7 +7,7 @@
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\anibal\.nuget\packages\</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.5.0</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.6.0</NuGetToolVersion>
   </PropertyGroup>
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -40,7 +40,6 @@
     <PkgSystem_Reflection_Metadata Condition=" '$(PkgSystem_Reflection_Metadata)' == '' ">C:\Users\anibal\.nuget\packages\system.reflection.metadata\5.0.0-preview.2.20160.6</PkgSystem_Reflection_Metadata>
     <PkgSystem_Reactive Condition=" '$(PkgSystem_Reactive)' == '' ">C:\Users\anibal\.nuget\packages\system.reactive\4.4.1</PkgSystem_Reactive>
     <PkgSystem_Reactive_Core Condition=" '$(PkgSystem_Reactive_Core)' == '' ">C:\Users\anibal\.nuget\packages\system.reactive.core\4.4.1</PkgSystem_Reactive_Core>
-    <PkgOwin_WebSocket Condition=" '$(PkgOwin_WebSocket)' == '' ">C:\Users\anibal\.nuget\packages\owin.websocket\1.7.0</PkgOwin_WebSocket>
     <PkgMicrosoft_Owin_FileSystems Condition=" '$(PkgMicrosoft_Owin_FileSystems)' == '' ">C:\Users\anibal\.nuget\packages\microsoft.owin.filesystems\4.1.0</PkgMicrosoft_Owin_FileSystems>
     <PkgMicrosoft_Owin_StaticFiles Condition=" '$(PkgMicrosoft_Owin_StaticFiles)' == '' ">C:\Users\anibal\.nuget\packages\microsoft.owin.staticfiles\4.1.0</PkgMicrosoft_Owin_StaticFiles>
     <PkgMicrosoft_Owin_Hosting Condition=" '$(PkgMicrosoft_Owin_Hosting)' == '' ">C:\Users\anibal\.nuget\packages\microsoft.owin.hosting\4.1.0</PkgMicrosoft_Owin_Hosting>

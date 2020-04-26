@@ -31,7 +31,6 @@
     <PackageReference Include="Microsoft.Owin.Hosting" Version="4.1.0" />
     <PackageReference Include="Microsoft.Owin.StaticFiles" Version="4.1.0" />
     <PackageReference Include="Owin" Version="1.0.0" />
-    <PackageReference Include="Owin.WebSocket" Version="1.7.0" />
     <PackageReference Include="Suave" Version="2.5.6" />
     <PackageReference Include="System.Buffers" Version="4.5.1" />
     <PackageReference Include="System.Collections.Immutable" Version="5.0.0-preview.2.20160.6" />
@@ -56,32 +55,30 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Owin.WebSocket\Owin.WebSocket.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="fsc">
-      <HintPath>Z:\f-\replution\netcoreapp3.1\fsc.exe</HintPath>
+      <HintPath>fsiLib\fsc.exe</HintPath>
     </Reference>
     <Reference Include="FSharp.Compiler.Interactive.Settings">
-      <HintPath>Z:\f-\replution\netcoreapp3.1\FSharp.Compiler.Interactive.Settings.dll</HintPath>
+      <HintPath>fsiLib\FSharp.Compiler.Interactive.Settings.dll</HintPath>
     </Reference>
     <Reference Include="FSharp.Compiler.Private">
-      <HintPath>Z:\f-\replution\netcoreapp3.1\FSharp.Compiler.Private.dll</HintPath>
-    </Reference>
-    <Reference Include="FSharp.Compiler.Private.Scripting">
-      <HintPath>Z:\f-\replution\netcoreapp3.1\FSharp.Compiler.Private.Scripting.dll</HintPath>
-    </Reference>
-    <Reference Include="FSharp.Compiler.Private.Scripting.UnitTests">
-      <HintPath>Z:\f-\replution\netcoreapp3.1\FSharp.Compiler.Private.Scripting.UnitTests.dll</HintPath>
+      <HintPath>fsiLib\FSharp.Compiler.Private.dll</HintPath>
     </Reference>
     <Reference Include="FSharp.Compiler.Server.Shared">
-      <HintPath>Z:\f-\replution\netcoreapp3.1\FSharp.Compiler.Server.Shared.dll</HintPath>
+      <HintPath>fsiLib\FSharp.Compiler.Server.Shared.dll</HintPath>
     </Reference>
     <Reference Include="FSharp.DependencyManager.Nuget">
-      <HintPath>Z:\f-\replution\netcoreapp3.1\FSharp.DependencyManager.Nuget.dll</HintPath>
+      <HintPath>fsiLib\FSharp.DependencyManager.Nuget.dll</HintPath>
     </Reference>
     <Reference Include="fsiAnyCpu">
-      <HintPath>Z:\f-\replution\netcoreapp3.1\fsiAnyCpu.exe</HintPath>
+      <HintPath>fsiLib\fsiAnyCpu.exe</HintPath>
     </Reference>
     <Reference Include="Interactive.DependencyManager">
-      <HintPath>Z:\f-\replution\netcoreapp3.1\Interactive.DependencyManager.dll</HintPath>
+      <HintPath>fsiLib\Interactive.DependencyManager.dll</HintPath>
     </Reference>
   </ItemGroup>
 

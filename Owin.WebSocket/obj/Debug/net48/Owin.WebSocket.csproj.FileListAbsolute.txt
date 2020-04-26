@@ -20,3 +20,15 @@ T:\webfsi\ws2\Owin.WebSocket\obj\Debug\net48\Owin.WebSocket.dll
 T:\webfsi\ws2\Owin.WebSocket\obj\Debug\net48\Owin.WebSocket.pdb
 T:\webfsi\ws2\Owin.WebSocket\bin\Debug\net48\CommonServiceLocator.dll
 T:\webfsi\ws2\Owin.WebSocket\obj\Debug\net48\Owin.WebSocket.csproj.CoreCompileInputs.cache
+Z:\ws2\Owin.WebSocket\bin\Debug\net48\Owin.WebSocket.dll
+Z:\ws2\Owin.WebSocket\bin\Debug\net48\Owin.WebSocket.pdb
+Z:\ws2\Owin.WebSocket\bin\Debug\net48\CommonServiceLocator.dll
+Z:\ws2\Owin.WebSocket\bin\Debug\net48\Microsoft.Owin.dll
+Z:\ws2\Owin.WebSocket\bin\Debug\net48\Owin.dll
+Z:\ws2\Owin.WebSocket\obj\Debug\net48\Owin.WebSocket.csprojAssemblyReference.cache
+Z:\ws2\Owin.WebSocket\obj\Debug\net48\Owin.WebSocket.csproj.CoreCompileInputs.cache
+Z:\ws2\Owin.WebSocket\obj\Debug\net48\Owin.WebSocket.AssemblyInfoInputs.cache
+Z:\ws2\Owin.WebSocket\obj\Debug\net48\Owin.WebSocket.AssemblyInfo.cs
+Z:\ws2\Owin.WebSocket\obj\Debug\net48\Owin.WebSocket.csproj.CopyComplete
+Z:\ws2\Owin.WebSocket\obj\Debug\net48\Owin.WebSocket.dll
+Z:\ws2\Owin.WebSocket\obj\Debug\net48\Owin.WebSocket.pdb

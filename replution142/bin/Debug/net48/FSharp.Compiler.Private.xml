@@ -11714,30 +11714,6 @@
  Indicates a script or source being edited or compiled. Uses reference assemblies (not implementation assemblies).
 </summary>
 </member>
-<member name="P:FSharp.Compiler.ToolLocationHelper.DotNetFrameworkSpec.GetPathToDotNetFrameworkReferenceAssemblies">
- <summary>
- Gets the full path of reference assemblies folder.
- i.e. "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\" for .net v4.5.
- </summary>
-</member>
-<member name="M:FSharp.Compiler.ToolLocationHelper.GetPathToDotNetFrameworkReferenceAssemblies(FSharp.Compiler.MsBuildAdapters.TargetDotNetFrameworkVersion)">
- <summary>
- Returns the path to the reference assemblies location for the given framework version.
- </summary>
- <param name="version">Version of the targeted .NET Framework</param>
- <returns>Path string.</returns>
-</member>
-<member name="T:FSharp.Compiler.MsBuildAdapters.DotNetFrameworkArchitecture">
- <summary>
- Used to specify the targeted bitness of the .NET Framework for some methods of ToolLocationHelper
- </summary>
-</member>
-<member name="T:FSharp.Compiler.MsBuildAdapters.TargetDotNetFrameworkVersion">
- <summary>
- Used to specify the targeted version of the .NET Framework for some methods of ToolLocationHelper.  This is meant to mimic
- the official version here: https://source.dot.net/#q=TargetDotNetFrameworkVersion.
- </summary>
-</member>
 <member name="P:FSharp.Compiler.PrettyNaming.FsiDynamicModulePrefix">
 <summary>
  The prefix of the names used for the fake namespace path added to all dynamic code entries in FSI.EXE
@@ -13458,6 +13434,11 @@
 <member name="T:FSharp.Compiler.AbstractIL.Internal.AsciiConstants">
 <summary>
  Various constants and utilities used when parsing the ILASM format for IL
+</summary>
+</member>
+<member name="T:FSharp.Compiler.AbstractIL.Internal.Support.PdbDocument">
+<summary>
+ PDB reader and associated types
 </summary>
 </member>
 <member name="M:FSharp.Compiler.AbstractIL.Internal.Support.linkNativeResources(Microsoft.FSharp.Collections.FSharpList{System.Byte[]},System.Int32)">
@@ -31631,6 +31612,11 @@ Get the signature for the value&apos;s XML documentation
 <member name="T:FSharp.Compiler.SourceCodeServices.UnresolvedReferencesSet">
  <summary>Unused in this API</summary>
 </member>
+<member name="T:FSharp.Compiler.SourceCodeServices.InterfaceData">
+<summary>
+ Capture information about an interface in ASTs
+</summary>
+</member>
 <member name="M:FSharp.Compiler.SourceCodeServices.BasicPatterns.|TraitCall|_|(FSharp.Compiler.SourceCodeServices.FSharpExpr)">
 <summary>
  Matches expressions for an unresolved call to a trait 
@@ -32482,6 +32468,38 @@ Get the signature for the value&apos;s XML documentation
 <member name="T:FSharp.Compiler.SourceCodeServices.ErrorResolutionHints">
 <summary>
  Exposes the string distance algorithm used to suggest names for mistyped identifiers.
+</summary>
+</member>
+<member name="M:FSharp.Compiler.SourceCodeServices.InterfaceStubGenerator.tryFindInterfaceDeclaration(FSharp.Compiler.Range.pos,FSharp.Compiler.SyntaxTree.ParsedInput)">
+<summary>
+ Find corresponding interface declaration at a given position
+</summary>
+</member>
+<member name="M:FSharp.Compiler.SourceCodeServices.InterfaceStubGenerator.formatInterface(System.Int32,System.Int32,System.String[],System.String,System.String,FSharp.Compiler.SourceCodeServices.FSharpDisplayContext,Microsoft.FSharp.Collections.FSharpSet{System.String},FSharp.Compiler.SourceCodeServices.FSharpEntity,System.Boolean)">
+<summary>
+ Generate stub implementation of an interface at a start column
+</summary>
+</member>
+<member name="M:FSharp.Compiler.SourceCodeServices.InterfaceStubGenerator.isInterface(FSharp.Compiler.SourceCodeServices.FSharpEntity)">
+<summary>
+ Check whether an entity is an interface or type abbreviation of an interface
+</summary>
+</member>
+<member name="M:FSharp.Compiler.SourceCodeServices.InterfaceStubGenerator.getMemberNameAndRanges(FSharp.Compiler.SourceCodeServices.InterfaceData)">
+<summary>
+ Get associated member names and ranges
+ In case of properties, intrinsic ranges might not be correct for the purpose of getting
+ positions of &apos;member&apos;, which indicate the indentation for generating new members
+</summary>
+</member>
+<member name="M:FSharp.Compiler.SourceCodeServices.InterfaceStubGenerator.hasNoInterfaceMember(FSharp.Compiler.SourceCodeServices.FSharpEntity)">
+<summary>
+ Check whether an interface is empty
+</summary>
+</member>
+<member name="M:FSharp.Compiler.SourceCodeServices.InterfaceStubGenerator.getInterfaceMembers(FSharp.Compiler.SourceCodeServices.FSharpEntity)">
+<summary>
+ Get members in the decreasing order of inheritance chain
 </summary>
 </member>
 <member name="P:FSharp.Compiler.SourceCodeServices.Structure.ScopeRange.CollapseRange">

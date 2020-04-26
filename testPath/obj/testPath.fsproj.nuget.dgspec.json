@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "T:\\webfsi\\ws2\\testPath\\testPath.fsproj": {}
+    "Z:\\ws2\\testPath\\testPath.fsproj": {}
   },
   "projects": {
-    "T:\\webfsi\\ws2\\testPath\\testPath.fsproj": {
+    "Z:\\ws2\\testPath\\testPath.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "T:\\webfsi\\ws2\\testPath\\testPath.fsproj",
+        "projectUniqueName": "Z:\\ws2\\testPath\\testPath.fsproj",
         "projectName": "testPath",
-        "projectPath": "T:\\webfsi\\ws2\\testPath\\testPath.fsproj",
+        "projectPath": "Z:\\ws2\\testPath\\testPath.fsproj",
         "packagesPath": "C:\\Users\\anibal\\.nuget\\packages\\",
-        "outputPath": "T:\\webfsi\\ws2\\testPath\\obj\\",
+        "outputPath": "Z:\\ws2\\testPath\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\anibal\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

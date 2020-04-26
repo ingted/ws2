@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rs/NNtwdxQT0rI02ktYbvYb2Vt6PckpuuopcBVKI1z8mRcexaM4JzdfWTsf98pymA/n7N5/f1gvacK4tc5bM5w==",
+  "dgSpecHash": "feMo32vycugGKA9D38ioiLx1l2sa3DmS1eShGVL2MmBd1ZbVdx0/2iwjQw8XaPB164fVkwmIlIUmPzE+DjqMFw==",
   "success": true,
-  "projectFilePath": "T:\\webfsi\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj",
+  "projectFilePath": "Z:\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anibal\\.nuget\\packages\\commonservicelocator\\2.0.5\\commonservicelocator.2.0.5.nupkg.sha512",
     "C:\\Users\\anibal\\.nuget\\packages\\microsoft.owin\\4.1.0\\microsoft.owin.4.1.0.nupkg.sha512",

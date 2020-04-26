@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    ".NETFramework,Version=v4.8": {
+    ".NETFramework,Version=v4.7.2": {
       "FSharp.Core/4.7.1": {
         "type": "package",
         "compile": {
@@ -53,7 +53,7 @@
         }
       }
     },
-    ".NETFramework,Version=v4.8/win7-x86": {
+    ".NETFramework,Version=v4.7.2/win7-x86": {
       "FSharp.Core/4.7.1": {
         "type": "package",
         "compile": {
@@ -155,7 +155,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETFramework,Version=v4.8": [
+    ".NETFramework,Version=v4.7.2": [
       "FSharp.Core >= 4.7.1"
     ]
   },
@@ -165,31 +165,31 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "T:\\webfsi\\ws2\\replution142\\replution142.fsproj",
+      "projectUniqueName": "Z:\\ws2\\replution142\\replution142.fsproj",
       "projectName": "replution142",
-      "projectPath": "T:\\webfsi\\ws2\\replution142\\replution142.fsproj",
+      "projectPath": "Z:\\ws2\\replution142\\replution142.fsproj",
       "packagesPath": "C:\\Users\\anibal\\.nuget\\packages\\",
-      "outputPath": "T:\\webfsi\\ws2\\replution142\\obj\\",
+      "outputPath": "Z:\\ws2\\replution142\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\anibal\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net48"
+        "net472"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net48": {
+        "net472": {
           "projectReferences": {}
         }
       }
     },
     "frameworks": {
-      "net48": {
+      "net472": {
         "dependencies": {
           "FSharp.Core": {
             "target": "Package",
@@ -197,7 +197,7 @@
             "generatePathProperty": true
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "T:\\webfsi\\ws2\\ClientServer\\ClientServer.fsproj": {}
+    "Z:\\ws2\\ClientServer\\ClientServer.fsproj": {}
   },
   "projects": {
-    "T:\\webfsi\\ws2\\ClientServer\\ClientServer.fsproj": {
+    "Z:\\ws2\\ClientServer\\ClientServer.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "T:\\webfsi\\ws2\\ClientServer\\ClientServer.fsproj",
+        "projectUniqueName": "Z:\\ws2\\ClientServer\\ClientServer.fsproj",
         "projectName": "ClientServer",
-        "projectPath": "T:\\webfsi\\ws2\\ClientServer\\ClientServer.fsproj",
+        "projectPath": "Z:\\ws2\\ClientServer\\ClientServer.fsproj",
         "packagesPath": "C:\\Users\\anibal\\.nuget\\packages\\",
-        "outputPath": "T:\\webfsi\\ws2\\ClientServer\\obj\\",
+        "outputPath": "Z:\\ws2\\ClientServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\anibal\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -91,11 +91,6 @@
             "Owin": {
               "target": "Package",
               "version": "[1.0.0, )",
-              "generatePathProperty": true
-            },
-            "Owin.WebSocket": {
-              "target": "Package",
-              "version": "[1.7.0, )",
               "generatePathProperty": true
             },
             "Suave": {
@@ -204,7 +199,7 @@
               "generatePathProperty": true
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

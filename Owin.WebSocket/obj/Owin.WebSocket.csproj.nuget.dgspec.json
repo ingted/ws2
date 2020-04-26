@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "T:\\webfsi\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj": {}
+    "Z:\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj": {}
   },
   "projects": {
-    "T:\\webfsi\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj": {
+    "Z:\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "T:\\webfsi\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj",
+        "projectUniqueName": "Z:\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj",
         "projectName": "Owin.WebSocket",
-        "projectPath": "T:\\webfsi\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj",
+        "projectPath": "Z:\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj",
         "packagesPath": "C:\\Users\\anibal\\.nuget\\packages\\",
-        "outputPath": "T:\\webfsi\\ws2\\Owin.WebSocket\\obj\\",
+        "outputPath": "Z:\\ws2\\Owin.WebSocket\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\anibal\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -51,7 +51,7 @@
               "version": "[1.0.0, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

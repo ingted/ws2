@@ -5,6 +5,10 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Include="App.config" />
     <None Include="snk.snk" />
@@ -55,31 +59,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\f-\src\fsharp\fsc\fsc.fsproj" />
+    <ProjectReference Include="..\..\f-\src\fsharp\FSharp.Compiler.Interactive.Settings\FSharp.Compiler.Interactive.Settings.fsproj" />
+    <ProjectReference Include="..\..\f-\src\fsharp\FSharp.Compiler.Private\FSharp.Compiler.Private.fsproj" />
+    <ProjectReference Include="..\..\f-\src\fsharp\FSharp.Compiler.Server.Shared\FSharp.Compiler.Server.Shared.fsproj" />
+    <ProjectReference Include="..\..\f-\src\fsharp\FSharp.DependencyManager.Nuget\FSharp.DependencyManager.Nuget.fsproj" />
+    <ProjectReference Include="..\..\f-\src\fsharp\fsiAnyCpu\fsiAnyCpu.fsproj" />
+    <ProjectReference Include="..\..\f-\src\fsharp\Interactive.DependencyManager\Interactive.DependencyManager.fsproj" />
     <ProjectReference Include="..\Owin.WebSocket\Owin.WebSocket.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="fsc">
-      <HintPath>fsiLib\fsc.exe</HintPath>
-    </Reference>
-    <Reference Include="FSharp.Compiler.Interactive.Settings">
-      <HintPath>fsiLib\FSharp.Compiler.Interactive.Settings.dll</HintPath>
-    </Reference>
-    <Reference Include="FSharp.Compiler.Private">
-      <HintPath>fsiLib\FSharp.Compiler.Private.dll</HintPath>
-    </Reference>
-    <Reference Include="FSharp.Compiler.Server.Shared">
-      <HintPath>fsiLib\FSharp.Compiler.Server.Shared.dll</HintPath>
-    </Reference>
-    <Reference Include="FSharp.DependencyManager.Nuget">
-      <HintPath>fsiLib\FSharp.DependencyManager.Nuget.dll</HintPath>
-    </Reference>
-    <Reference Include="fsiAnyCpu">
-      <HintPath>fsiLib\fsiAnyCpu.exe</HintPath>
-    </Reference>
-    <Reference Include="Interactive.DependencyManager">
-      <HintPath>fsiLib\Interactive.DependencyManager.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <ItemGroup>

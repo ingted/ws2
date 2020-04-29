@@ -119,9 +119,52 @@ let fsiSession : FsiEvaluationSession = FsiEvaluationSession.Create (fsiConfig, 
 let main argv =
     let a = 
         fsiSession.EvalInteractionNonThrowing """
-#r "nuget: Akka"
-open Akka
-printfn "123"
+#if INTERACTIVE
+#r "nuget: Akka.Cluster"
+#r "nuget: Akka.FSharp"
+#endif
+
+open System
+open System.IO
+open Akka.Actor
+open Akka.FSharp.Spawn
+open Akka.Cluster
+open Akka.FSharp
+
+let nodeName s = id s//sprintf "akkaNode-%s-%s-%s" s Environment.MachineName (Guid.NewGuid().ToString().Substring(0,5))
+
+let confCluster systemName port portSeed1 portSeed2 = 
+    Configuration.parse <| sprintf "
+    akka {
+        log-dead-letters  = off
+        log-dead-letters-during-shutdown = off
+        actor {
+              provider = \"Akka.Cluster.ClusterActorRefProvider, Akka.Cluster\"
+            }
+            remote {
+              log-remote-lifecycle-events = off
+              helios.tcp {
+                hostname = \"10.28.199.142\"
+                port = %d        
+              }
+            }
+            cluster {
+              roles = [\"seed\"]  # custom node roles
+              seed-nodes = [
+                \"akka.tcp://%s@10.28.199.142:%d\", 
+                \"akka.tcp://%s@10.28.112.112:%d\"
+              ]
+              # when node cannot be reached within 10 sec, mark is as down
+              auto-down-unreachable-after = 300s
+            }
+        }
+    }
+    " port systemName portSeed1 systemName portSeed2
+
+let clusterSystem sysName p1 ps1 ps2 = System.create sysName <| confCluster sysName p1 ps1 ps2
+
+
+let cs02 = clusterSystem "test" 4053 4053 4053
         """
     let b = a
     printfn "read: %s" <| Console.ReadLine() 

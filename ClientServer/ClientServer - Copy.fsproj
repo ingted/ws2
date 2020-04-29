@@ -1,0 +1,97 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="snk.snk" />
+    <Compile Include="FsiSession.fs" />
+    <Compile Include="Server.fs" />
+    <Compile Include="Client.fs" />
+    <Compile Include="Site.fs" />
+    <Compile Include="Startup.fs" />
+    <Content Include="ws.txt" />
+    <None Include="testFsi.fsx" />
+    <None Include="testFsi2.fs" />
+    <None Include="wsconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommonServiceLocator" Version="1.3.0" />
+    <PackageReference Include="FSharp.Control.Reactive" Version="4.2.0" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.23" />
+    <PackageReference Include="IntelliFactory.Xml" Version="0.6.64.1" />
+    <PackageReference Include="Microsoft.Owin" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Owin.FileSystems" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Owin.Host.HttpListener" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Owin.Hosting" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Owin.StaticFiles" Version="4.1.0" />
+    <PackageReference Include="Owin" Version="1.0.0" />
+    <PackageReference Include="Suave" Version="2.5.6" />
+    <PackageReference Include="System.Buffers" Version="4.5.1" />
+    <PackageReference Include="System.Collections.Immutable" Version="5.0.0-preview.2.20160.6" />
+    <PackageReference Include="System.Memory" Version="4.5.4" />
+    <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
+    <PackageReference Include="System.Reactive" Version="4.4.1" />
+    <PackageReference Include="System.Reactive.Core" Version="4.4.1" />
+    <PackageReference Include="System.Reflection.Metadata" Version="5.0.0-preview.2.20160.6" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+    <PackageReference Include="System.Xml.XDocument" Version="4.3.0" />
+    <PackageReference Include="Unquote" Version="5.0.0" />
+    <PackageReference Include="WebSharper" Version="4.6.1.381" />    
+    <PackageReference Include="WebSharper.FSharp" Version="4.6.1.381" />    
+    <PackageReference Include="WebSharper.Html" Version="4.6.0.170" />    
+    <PackageReference Include="WebSharper.Owin" Version="4.6.0.189" />    
+    <PackageReference Include="WebSharper.Owin.WebSocket" Version="4.6.0.182" />    
+    <PackageReference Include="WebSharper.Suave" Version="4.6.0.246" />
+    <PackageReference Include="WebSharper.UI" Version="4.6.1.207" />
+    <PackageReference Include="WebSharper.AspNetCore" Version="4.6.1.127" />
+    <PackageReference Include="WebSharper.UI.Next" Version="4.6.1.220" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Owin.WebSocket\Owin.WebSocket.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="fsc">
+      <HintPath>fsiLib\fsc.exe</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Compiler.Interactive.Settings">
+      <HintPath>fsiLib\FSharp.Compiler.Interactive.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Compiler.Private">
+      <HintPath>fsiLib\FSharp.Compiler.Private.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Compiler.Server.Shared">
+      <HintPath>fsiLib\FSharp.Compiler.Server.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.DependencyManager.Nuget">
+      <HintPath>fsiLib\FSharp.DependencyManager.Nuget.dll</HintPath>
+    </Reference>
+    <Reference Include="fsiAnyCpu">
+      <HintPath>fsiLib\fsiAnyCpu.exe</HintPath>
+    </Reference>
+    <Reference Include="Interactive.DependencyManager">
+      <HintPath>fsiLib\Interactive.DependencyManager.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="4.7.0" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="powershell -c &quot;cp  -force -rec .\Main.html .\bin\Debug\net48    &quot;&#xD;&#xA;powershell -c &quot;cp  -force -rec .\main2.html .\bin\Debug\net48    &quot;&#xD;&#xA;powershell -c &quot;cp  -force -rec .\index.html .\bin\Debug\net48    &quot;&#xD;&#xA;powershell -c &quot;cp  -force -rec .\wwwroot\* .\bin\Debug\net48    &quot;" />
+  </Target>
+
+</Project>

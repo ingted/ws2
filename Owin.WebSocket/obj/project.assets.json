@@ -103,6 +103,7 @@
       "outputPath": "Z:\\ws2\\Owin.WebSocket\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
+        "Z:\\f-\\NuGet.Config",
         "C:\\Users\\anibal\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -110,8 +111,23 @@
         "net48"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://dotnet.myget.org/F/interactive-window/api/v3/index.json": {},
+        "https://dotnet.myget.org/F/roslyn-master-nightly/api/v3/index.json": {},
+        "https://dotnet.myget.org/F/roslyn-tools/api/v3/index.json": {},
+        "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {},
+        "https://dotnet.myget.org/F/symreader-converter/api/v3/index.json": {},
+        "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
+        "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {},
+        "https://myget.org/F/roslyn_concord/api/v3/index.json": {},
+        "https://myget.org/F/vs-devcore/api/v3/index.json": {},
+        "https://myget.org/F/vs-editor/api/v3/index.json": {},
+        "https://pkgs.dev.azure.com/azure-public/vside/_packaging/vs-impl/nuget/v3/index.json": {},
+        "https://pkgs.dev.azure.com/azure-public/vside/_packaging/vssdk/nuget/v3/index.json": {},
+        "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-eng/nuget/v3/index.json": {},
+        "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet5-transport/nuget/v3/index.json": {},
+        "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet5/nuget/v3/index.json": {},
+        "https://www.myget.org/F/fsharp-daily/api/v3/index.json": {}
       },
       "frameworks": {
         "net48": {

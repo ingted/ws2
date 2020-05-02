@@ -179,15 +179,16 @@ module Server =
                 let rec f () =
                     async {
                         let! (cmd, channel) = agt.Receive ()
-                        let rst, err = fsiSession.EvalInteractionNonThrowing cmd
-                        match rst with
-                        | Choice1Of2 (Some value) ->
-                            if value.ReflectionValue = null then channel.Reply <| None else
-                            channel.Reply <| Some (MessageFromServer_String (value.ReflectionValue.ToString()))
-                        | Choice1Of2 None ->
-                            channel.Reply <| None
-                        | Choice2Of2 exn ->
-                            channel.Reply <| Some (MessageFromServer_String (exn.Message))
+                        //let rst, err = fsiSession.EvalInteractionNonThrowing cmd
+                        let rst = fsiSession.EvalInteraction cmd
+                        //match rst with
+                        //| Choice1Of2 (Some value) ->
+                        //    if value.ReflectionValue = null then channel.Reply <| None else
+                        //    channel.Reply <| Some (MessageFromServer_String (value.ReflectionValue.ToString()))
+                        //| Choice1Of2 None ->
+                        //    channel.Reply <| None
+                        //| Choice2Of2 exn ->
+                        //    channel.Reply <| Some (MessageFromServer_String (exn.Message))
                         return! f ()
                     }
                 f ()

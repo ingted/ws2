@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rET4CnwGmyUNrFvFUA65kfz7ATxA9Vio1aqHNuh+oFtC6XDq3lKHrwzlsHlHm0CpLXnBLOH/59ncErUxA24ynQ==",
+  "dgSpecHash": "dc3qiNwAl/7KsC2tYBzpvMFcPT5R4M855eTZEmFnSXrSW+pUJJZJPJ7TKbpKZA+qzw90l9D4WZmAC3RQRhbPww==",
   "success": true,
   "projectFilePath": "Z:\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj",
   "expectedPackageFiles": [

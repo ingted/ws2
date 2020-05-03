@@ -125,8 +125,8 @@ module Program =
                                 ServerRootDirectory = rootDirectory,
                                 Sitelet = Some (Site.Main ep ep2),
                                 Debug = true))
-                        .UseWebSocket(ep20, Server.Start 2, maxMessageSize = 1000)
-                        .UseWebSocket(ep00, server1, maxMessageSize = 1000)                        
+                        .UseWebSocket(ep20, Server.Start 2, maxMessageSize = 100000)
+                        .UseWebSocket(ep00, server1, maxMessageSize = 100000)                        
                         .UseStaticFiles(
                             StaticFileOptions(
                                 FileSystem = PhysicalFileSystem(rootDirectory)))

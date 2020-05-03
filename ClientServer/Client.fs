@@ -83,18 +83,38 @@ module Client =
     [<JavaScript>]
     let fsiCmd () =
         let rvInput = Var.Create ""
+        let rvHisCmd = Var.Create ([||]:string[])
+        let curPos = Var.Create 0
         let submit = Submitter.CreateOption rvInput.View
+        let hisCmd = Submitter.CreateOption rvHisCmd.View
+        //let nxtCmd = Submitter.CreateOption rvHisCmd.View
         
         let vReversed =
             submit.View.MapAsync(function
                 | None -> async { return "" }
-                | Some input -> Server.fsiExecute input
+                | Some input -> 
+                                rvHisCmd.Value <- Array.append rvHisCmd.Value [|input|]
+                                curPos.Value <- curPos.Value + 1
+                                Server.fsiExecute input
                     //let svr = ttc<string, string> "ws://localhost:8080/WS2"
                     //async {
                     //    //svr.Post input
                     //    return "post done" + input
                     //}
             )
+        let getHisCmd =
+            hisCmd.View.MapAsync(function
+                | None -> Server.getHisCmds ()
+                | Some v when v.Length = 0 -> Server.getHisCmds ()
+                | Some v ->
+                    async {return v}
+            )
+
+        //let getNextCmd =
+        //    nxtCmd.View.MapAsync(function
+        //        | None -> Server.getHisCmds ()
+        //        | Some v -> async {return v}
+        //    )
 
         divAttr [] [
             divAttr [][
@@ -102,12 +122,46 @@ module Client =
                 Doc.Button "Clear Console" [] (fun () -> 
                                                     //WebSharper.JQuery.JQuery.Of("#consoleWC")
                                                     WebSharper.JQuery.JQuery.Of("#console").Empty().Ignore)
+                Doc.Button "Clear Command" [] (fun () -> 
+                                                    WebSharper.JQuery.JQuery.Of("#fsiCmd").Val("").Ignore)
+                Doc.Button "Last Command" [] (fun () -> 
+                                                    async {
+                                                        let! hc = Server.getHisCmd ()
+                                                        WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(hc).Ignore
+                                                    } |> Async.Start
+                                                    )
+                Doc.Button "Previous Command" [] (fun () -> 
+                                                            //let curCmdStr = 
+                                                            if rvHisCmd.Value.Length = 0 then 
+                                                                async {
+                                                                    let! hcs = Server.getHisCmds ()
+                                                                    rvHisCmd.Value <- hcs
+                                                                    if rvHisCmd.Value.Length > 0 then
+                                                                        curPos.Value <- rvHisCmd.Value.Length - 1
+                                                                    rvInput.Value <- rvHisCmd.Value.[curPos.Value]
+                                                                    }|> Async.Start
+                                                                
+                                                            else                                                                    
+                                                                if curPos.Value = 0 then //rvHisCmd.Value.Length - 1 then 
+                                                                    curPos.Value <- rvHisCmd.Value.Length - 1
+                                                                else 
+                                                                    curPos.Value <- curPos.Value - 1
+                                                                let ccs = rvHisCmd.Value.[curPos.Value]
+                                                                rvInput.Value <- ccs
+                                                            hisCmd.Trigger ()
+                                                            
+                                                            //WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(curCmdStr).Ignore
+
+                                                            )
+                //Doc.Button "Next Command" [] nxtCmd.Trigger
                 brAttr [][]
-                Doc.InputArea [attr.style "width: 800px"; attr.``class`` "input"; attr.rows "10"; attr.value "printfn \"orz\""] rvInput
+                Doc.InputArea [attr.id "fsiCmd"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10"; attr.value "printfn \"orz\""] rvInput
             ]
             hrAttr [] []
             h4Attr [attr.``class`` "text-muted"] [text "The server responded:"]
             divAttr [(*attr.``class`` "jumbotron"*)] [h1Attr [] [textView vReversed]]
+            
+            //divAttr [] [h1Attr [] [textView (getHisCmd |> View.map (fun strArray ->     ))]]
         ]
 
 

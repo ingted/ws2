@@ -96,6 +96,58 @@ module Server =
     let inStream = new StringReader("")
     let outStream = new StringWriter(sbOut)
     let errStream = new StringWriter(sbErr)
+    let chrHisCmd = new IO.DirectoryInfo("./hisCmd")
+    if not chrHisCmd.Exists then
+        chrHisCmd.Create ()
+                                         
+    type UniversalDict () = 
+        static member val cmdHistory = 
+                                        //let cmdList = new ConcurrentQueue<string> ()
+                                        let cd = new ConcurrentDictionary<int, string>()
+                                        //let cq = new ConcurrentQueue<string>()
+                                        
+                                        let hisFiles = 
+                                            chrHisCmd.GetFiles ()
+                                            |> Array.sortBy (fun fi -> fi.Name)
+                                        hisFiles
+                                        |> Array.iteri (fun i fi ->
+                                            let content = IO.File.ReadAllText fi.FullName
+                                            cd.AddOrUpdate (
+                                                i,
+                                                (fun _ -> content),
+                                                (fun key curV -> content)
+                                            ) |> ignore
+                                        )
+                                        printfn "cmdHisRoot: %A" chrHisCmd.FullName
+
+                                        
+                                        cd with get,set
+
+
+    
+    [<Rpc>]
+    let getHisCmd () =
+        async {
+            let c = 
+                if UniversalDict.cmdHistory.Count = 0 then "history empty"
+                else  UniversalDict.cmdHistory.Values |> Seq.last
+            return c
+        }
+
+    [<Rpc>]
+    let getHisCmds () =
+        async {
+            let c = 
+                UniversalDict.cmdHistory 
+                |> Seq.sortBy (fun kvp ->
+                    kvp.Key
+                )
+                |> Seq.map (fun kvp ->
+                    kvp.Value
+                )
+                |> Seq.toArray
+            return c
+        }
 
     // Build command line arguments & start FSI session
     let argv = [|"C:\\fsi.exe"|]
@@ -179,16 +231,29 @@ module Server =
                 let rec f () =
                     async {
                         let! (cmd, channel) = agt.Receive ()
-                        //let rst, err = fsiSession.EvalInteractionNonThrowing cmd
-                        let rst = fsiSession.EvalInteraction cmd
-                        //match rst with
-                        //| Choice1Of2 (Some value) ->
-                        //    if value.ReflectionValue = null then channel.Reply <| None else
-                        //    channel.Reply <| Some (MessageFromServer_String (value.ReflectionValue.ToString()))
-                        //| Choice1Of2 None ->
-                        //    channel.Reply <| None
-                        //| Choice2Of2 exn ->
-                        //    channel.Reply <| Some (MessageFromServer_String (exn.Message))
+                        UniversalDict.cmdHistory.TryAdd (UniversalDict.cmdHistory.Count, cmd) |> ignore
+                        async {
+                            let fis = chrHisCmd.GetFiles () |> Seq.sortByDescending (fun fi -> fi.Name) |> Seq.cache
+                            let fNm = 
+                                if fis |> Seq.length = 0 then 0
+                                else 
+                                    let maxCmd = fis |> Seq.head
+                                    (Int32.Parse maxCmd.Name) + 1
+                            IO.File.WriteAllText(chrHisCmd.FullName + @"\" + fNm.ToString (), cmd)
+                            }
+                            |> Async.Catch
+                            |> Async.Ignore
+                            |> Async.Start
+                        let rst, err = fsiSession.EvalInteractionNonThrowing cmd
+                        //let rst = fsiSession.EvalInteraction cmd
+                        match rst with
+                        | Choice1Of2 (Some value) ->
+                            if value.ReflectionValue = null then channel.Reply <| None else
+                            channel.Reply <| Some (MessageFromServer_String (value.ReflectionValue.ToString()))
+                        | Choice1Of2 None ->
+                            channel.Reply <| None
+                        | Choice2Of2 exn ->
+                            channel.Reply <| Some (MessageFromServer_String (exn.Message))
                         return! f ()
                     }
                 f ()

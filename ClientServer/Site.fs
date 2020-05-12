@@ -28,11 +28,11 @@ module Templating =
                 aAttr [attr.href (ctx.Link act)] [text txt]
              ]
         [
-            "Home" => EndPoint.Home
-            "About" => EndPoint.About
-            "WebSocket" => EndPoint.WS
+            //"Home" => EndPoint.Home
+            //"About" => EndPoint.About
+            //"WebSocket" => EndPoint.WS
             "FSI" => EndPoint.FSI
-            "FSIOLD" => EndPoint.FSIOLD
+            //"FSIOLD" => EndPoint.FSIOLD
         ]
 
     let Main ctx endPoint (title: string) (body: Doc list) =
@@ -98,7 +98,7 @@ module Site =
 
         let wc = 
             divAttr [] [
-                //Endpoint.Create(url20, "/WS2", JsonEncoding.Readable)
+                divAttr [] [client <@ Client.protoCmd () @>]
                 brAttr [][]
                 divAttr [] [client <@ Client.fsiCmd () @>]
                 divAttr [
@@ -148,10 +148,10 @@ module Site =
     let Main serverSend serverReceive =
         Application.MultiPage (fun ctx endpoint ->
             match endpoint with
-            | EndPoint.Home -> HomePage ctx
-            | EndPoint.About -> AboutPage ctx
-            | EndPoint.WS -> Socketing serverSend serverReceive ctx
+            //| EndPoint.Home -> HomePage ctx
+            //| EndPoint.About -> AboutPage ctx
+            //| EndPoint.WS -> Socketing serverSend serverReceive ctx
             | EndPoint.FSI -> FSIPage serverSend serverReceive ctx
-            | EndPoint.FSIOLD -> FSIOLDPage ctx
+            //| EndPoint.FSIOLD -> FSIOLDPage ctx
         )
     //let s = Sitelet.New

@@ -464,3 +464,15 @@ Z:\ws2\ClientServer\obj\Debug\net48\ClientServer.AssemblyInfo.fs
 Z:\ws2\ClientServer\obj\Debug\net48\ClientServer.fsproj.CopyComplete
 Z:\ws2\ClientServer\obj\Debug\net48\ClientServer.exe
 Z:\ws2\ClientServer\obj\Debug\net48\ClientServer.pdb
+Z:\ws2\ClientServer\bin\Debug\net48\gRTB.exe
+Z:\ws2\ClientServer\bin\Debug\net48\proto.exe
+Z:\ws2\ClientServer\bin\Debug\net48\Newtonsoft.Json.dll
+Z:\ws2\ClientServer\bin\Debug\net48\Google.Protobuf.dll
+Z:\ws2\ClientServer\bin\Debug\net48\gRTB.pdb
+Z:\ws2\ClientServer\bin\Debug\net48\gRTB.exe.config
+Z:\ws2\ClientServer\bin\Debug\net48\proto.pdb
+Z:\ws2\ClientServer\bin\Debug\net48\proto.xml
+Z:\ws2\ClientServer\bin\Debug\net48\proto.exe.config
+Z:\ws2\ClientServer\bin\Debug\net48\Newtonsoft.Json.xml
+Z:\ws2\ClientServer\bin\Debug\net48\Google.Protobuf.pdb
+Z:\ws2\ClientServer\bin\Debug\net48\Google.Protobuf.xml

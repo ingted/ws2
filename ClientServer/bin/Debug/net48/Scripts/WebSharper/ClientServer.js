@@ -260,7 +260,7 @@
        });
       }
      else
-      throw new MatchFailureException.New("Client.fs",106,33);
+      throw new MatchFailureException.New("Client.fs",154,33);
    }
    else
     return(new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getHisCmds:-118046996",[]);
@@ -302,6 +302,60 @@
    })),null):(curPos.c===0?Var.Set(curPos,Arrays.length(rvHisCmd.c)-1):Var.Set(curPos,curPos.c-1),Var.Set(rvInput,Arrays.get(rvHisCmd.c,curPos.c)));
    hisCmd.Trigger();
   }),Doc.Element("br",[],[]),Doc.InputArea([AttrProxy.Create("id","fsiCmd"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10"),AttrProxy.Create("value","printfn \"orz\"")],rvInput)]),Doc.Element("hr",[],[]),Doc.Element("h4",[AttrProxy.Create("class","text-muted")],[Doc.TextNode("The server responded:")]),Doc.Element("div",[],[Doc.Element("h1",[],[Doc.TextView(vReversed)])])]);
+ };
+ Client.protoCmd=function()
+ {
+  var jsI,protoI,bidderI,bidderR,jsubmit,bidderSubmit,j2pExecution;
+  jsI=Var.Create$1("");
+  protoI=Var.Create$1(".\\default.proto.encoded");
+  bidderI=Var.Create$1("http://192.168.101.12:18880/bid");
+  bidderR=Var.Create$1("");
+  jsubmit=Submitter.CreateOption(jsI.v);
+  bidderSubmit=Submitter.CreateOption(bidderI.v);
+  j2pExecution=View.MapAsync(function(a)
+  {
+   var b;
+   return a!=null&&a.$==1?(new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.j2p:2040152023",[Global.String($("#jsId").val()),Global.String($("#protoId").val())]):(b=null,Concurrency.Delay(function()
+   {
+    return Concurrency.Return("");
+   }));
+  },jsubmit.view);
+  return Doc.Element("div",[],[Doc.Element("div",[],[Doc.Button("js2Proto",[],function()
+  {
+   jsubmit.Trigger();
+  }),Doc.Button("proto2js",[],function()
+  {
+   var b;
+   Concurrency.Start((b=null,Concurrency.Delay(function()
+   {
+    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.p2j:-1840423385",[Global.String($("#protoId").val())]),function(a)
+    {
+     $("#jsId").val(a);
+     return Concurrency.Zero();
+    });
+   })),null);
+  }),Doc.Button("Clear js",[],function()
+  {
+   $("#jsId").val("");
+  }),Doc.Button("Clear proto",[],function()
+  {
+   $("#protoId").val("");
+  }),Doc.Button("Post proto",[],function()
+  {
+   var b;
+   bidderSubmit.Trigger();
+   Concurrency.Start((b=null,Concurrency.Delay(function()
+   {
+    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.postBidderDoubleClicker:2040152023",[Global.String($("#bidderId").val()),Global.String($("#protoId").val())]),function(a)
+    {
+     $("#bidderRespId").val(a);
+     return Concurrency.Zero();
+    });
+   })),null);
+  }),Doc.Button("Clear result",[],function()
+  {
+   $("#bidderRespId").val("");
+  }),Doc.Element("br",[],[]),Doc.InputArea([AttrProxy.Create("id","jsId"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10")],jsI),Doc.InputArea([AttrProxy.Create("id","protoId"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","1")],protoI),Doc.InputArea([AttrProxy.Create("id","bidderId"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","1")],bidderI)]),Doc.Element("hr",[],[]),Doc.Element("h4",[AttrProxy.Create("class","text-muted")],[Doc.TextNode("Server execution:")]),Doc.Element("div",[],[Doc.Element("h1",[],[Doc.TextView(j2pExecution)])]),Doc.Element("h4",[AttrProxy.Create("class","text-muted")],[Doc.TextNode("Bidder response:")]),Doc.InputArea([AttrProxy.Create("id","bidderRespId"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10")],bidderR)]);
  };
  Client.m2=function()
  {

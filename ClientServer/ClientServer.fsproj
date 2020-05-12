@@ -66,6 +66,8 @@
     <ProjectReference Include="..\..\f-\src\fsharp\FSharp.DependencyManager.Nuget\FSharp.DependencyManager.Nuget.fsproj" />
     <ProjectReference Include="..\..\f-\src\fsharp\fsiAnyCpu\fsiAnyCpu.fsproj" />
     <ProjectReference Include="..\..\f-\src\fsharp\Interactive.DependencyManager\Interactive.DependencyManager.fsproj" />
+    <ProjectReference Include="..\..\froto\gRTB\gRTB.csproj" />
+    <ProjectReference Include="..\..\froto\proto\proto.fsproj" />
     <ProjectReference Include="..\Owin.WebSocket\Owin.WebSocket.csproj" />
   </ItemGroup>
 

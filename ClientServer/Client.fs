@@ -63,23 +63,76 @@ module Client =
             ]
         ]
 
-    //let ttc<'T, 'S> () =
-    //    let encode, decode = getEncoding encode decode jsonEncoding
-    //    let flush = cacheSocket socket decode
-    //    let endpoint = Endpoint<'T, 'S>.CreateRemote(url="")
-    //    let socket = new WebSocket(endpoint.URI)
-    //    let server = Client.WebSocketServer(socket, encode)
-    //    server
+    [<JavaScript>]
+    let protoCmd () =
 
-    //[<JavaScript>]
-    //let ttc<'T, 'S> urlStr =
-    //    let encode, decode = getEncoding0 ()
-    //    let endpoint = Endpoint<'T, 'S>.CreateRemote(url=urlStr)
-    //    let socket = new WebSocket(endpoint.URI)
-    //    let flush = cacheSocket socket decode
-    //    let isOpen = flush agent.Post
-    //    let server = Client.WebSocketServer(socket, encode)
-    //    server
+        let jsI = Var.Create ""
+        let protoI = Var.Create ".\\default.proto.encoded"
+        let bidderI = Var.Create "http://192.168.101.12:18880/bid"
+        let bidderR = Var.Create ""
+        //async {
+        //    WebSharper.JQuery.JQuery.Of("#protoId").Val(".\\default.proto.encoded").Ignore
+        //    let! jStr = Server.p2j (WebSharper.JQuery.JQuery.Of("#protoId").Text())
+        //    WebSharper.JQuery.JQuery.Of("#jsId").Val(jStr).Ignore
+        //} |> Async.Start 
+        let jsubmit = Submitter.CreateOption jsI.View
+        let bidderSubmit = Submitter.CreateOption bidderI.View
+        //let psubmit = Submitter.CreateOption protoI.View 
+        
+        let j2pExecution = 
+            jsubmit.View.MapAsync(function
+                        | None -> async { return "" }
+                        | Some input -> 
+                                       Server.j2p (WebSharper.JQuery.JQuery.Of("#jsId").Val().ToString()) (WebSharper.JQuery.JQuery.Of("#protoId").Val().ToString())
+                    )
+        //let bidderExecution = 
+        //    bidderSubmit.View.MapAsync(function
+        //                | None -> async { return "" }
+        //                | Some input -> 
+        //                               Server.postBidderDoubleClicker (WebSharper.JQuery.JQuery.Of("#bidderId").Val().ToString()) (WebSharper.JQuery.JQuery.Of("#protoId").Val().ToString())
+        //            )
+
+
+        divAttr [] [
+            divAttr [][
+                Doc.Button "js2Proto" [] jsubmit.Trigger
+                Doc.Button "proto2js" [] (fun () ->
+                                            async {
+                                                let! jStr = Server.p2j (WebSharper.JQuery.JQuery.Of("#protoId").Val().ToString())
+                                                WebSharper.JQuery.JQuery.Of("#jsId").Val(jStr).Ignore
+                                            } |> Async.Start                                                    
+                                            )
+                Doc.Button "Clear js" [] (fun () -> 
+                                                    //WebSharper.JQuery.JQuery.Of("#consoleWC")
+                                                    WebSharper.JQuery.JQuery.Of("#jsId").Val("").Ignore)
+                Doc.Button "Clear proto" [] (fun () -> 
+                                                    WebSharper.JQuery.JQuery.Of("#protoId").Val("").Ignore)
+                
+                Doc.Button "Post proto" [] (fun () ->
+                                                    bidderSubmit.Trigger ()
+                                                    async {
+                                                        let! jStr = Server.postBidderDoubleClicker (WebSharper.JQuery.JQuery.Of("#bidderId").Val().ToString()) (WebSharper.JQuery.JQuery.Of("#protoId").Val().ToString())
+                                                        WebSharper.JQuery.JQuery.Of("#bidderRespId").Val(jStr).Ignore
+                                                        } |> Async.Start  
+                                                        )
+                Doc.Button "Clear result" [] (fun () -> 
+                    WebSharper.JQuery.JQuery.Of("#bidderRespId").Val("").Ignore)
+                brAttr [][]
+                Doc.InputArea [attr.id "jsId"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10" ] jsI
+                Doc.InputArea [attr.id "protoId"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "1" ] protoI
+                Doc.InputArea [attr.id "bidderId"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "1" ] bidderI
+                
+            ]
+            hrAttr [] []
+            h4Attr [attr.``class`` "text-muted"] [text "Server execution:"]
+            divAttr [(*attr.``class`` "jumbotron"*)] [h1Attr [] [textView j2pExecution]]
+            h4Attr [attr.``class`` "text-muted"] [text "Bidder response:"]
+            Doc.InputArea [attr.id "bidderRespId"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10" ] bidderR
+            //divAttr [(*attr.``class`` "jumbotron"*)] [Doc.InputArea [] [textView bidderExecution]]
+            
+            //divAttr [] [h1Attr [] [textView (getHisCmd |> View.map (fun strArray ->     ))]]
+        ]
+
     [<JavaScript>]
     let fsiCmd () =
         let rvInput = Var.Create ""
@@ -96,11 +149,6 @@ module Client =
                                 rvHisCmd.Value <- Array.append rvHisCmd.Value [|input|]
                                 curPos.Value <- curPos.Value + 1
                                 Server.fsiExecute input
-                    //let svr = ttc<string, string> "ws://localhost:8080/WS2"
-                    //async {
-                    //    //svr.Post input
-                    //    return "post done" + input
-                    //}
             )
         let getHisCmd =
             hisCmd.View.MapAsync(function
@@ -109,12 +157,6 @@ module Client =
                 | Some v ->
                     async {return v}
             )
-
-        //let getNextCmd =
-        //    nxtCmd.View.MapAsync(function
-        //        | None -> Server.getHisCmds ()
-        //        | Some v -> async {return v}
-        //    )
 
         divAttr [] [
             divAttr [][

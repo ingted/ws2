@@ -1,0 +1,8 @@
+#r @"nuget: FParsec"
+#r @"nuget: Froto.Parser"
+#r @"nuget: Froto.Serialization"
+open FParsec
+open Froto.Parser
+open Froto.Parser.Ast
+open Froto.Parser.Parse.Parsers
+456

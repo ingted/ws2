@@ -19,6 +19,8 @@ open System.Text
 open System.Collections.Concurrent
 open System.Reactive.Subjects
 open FSharp.Control.Reactive
+open vpon.protobuf
+open System.Net
 
 type TwOrSub =
 | TW of TextWriter
@@ -123,6 +125,44 @@ module Server =
                                         
                                         cd with get,set
 
+    [<Rpc>]
+    let postBidderDoubleClicker (url:string) protoBin =
+        //let url = "http://www.snee.com/xml/crud/posttest.cgi"
+        
+        // Create & configure HTTP web request
+        async {
+            try
+                let req = HttpWebRequest.Create(url) :?> HttpWebRequest 
+                req.ProtocolVersion <- HttpVersion.Version10
+                req.Method <- "POST"
+        
+                // Encode body with POST data as array of bytes
+                let postBytes = File.ReadAllBytes protoBin
+                req.ContentType <- @"application/octet-stream"
+                req.ContentLength <- int64 postBytes.Length
+                req.Host <- "google-adx.vpadn.com"
+
+                // Write data to the request
+                let reqStream = req.GetRequestStream() 
+                reqStream.Write(postBytes, 0, postBytes.Length)
+                reqStream.Close()
+        
+                // Obtain response and download the resulting page 
+                // (The sample contains the first & last name from POST data)
+                let resp = req.GetResponse() 
+                let stream = resp.GetResponseStream() 
+                use memoryStream = new MemoryStream()
+        
+                stream.CopyTo(memoryStream)
+                let ba = memoryStream.ToArray()
+                return brArr2Json ba
+            with
+            | exn -> return exn.Message
+        }
+
+
+
+        
 
     
     [<Rpc>]
@@ -270,7 +310,31 @@ module Server =
             }
 
     
+    [<Rpc>]
+    let j2p (input:string) (protoPath:string) =
+        async {
+            try 
+                json2bin input protoPath
+                return "ok"
+            with
+            | exn ->
+                printfn "%s" exn.Message
+                return exn.Message
+            
+            }
 
+    [<Rpc>]
+    let p2j (protoPath:string) =
+        async {
+            try 
+                
+                return (bin2json protoPath)
+            with
+            | exn ->
+                printfn "%s" exn.Message
+                return exn.Message
+            
+            }
     
     (*
         type StatefulAgent<'S2C, 'C2S, 'State> = 

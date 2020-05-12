@@ -1369,6 +1369,15 @@
           "bin/placeholder/fsiAnyCpu.dll": {}
         }
       },
+      "gRTB/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/gRTB.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/gRTB.dll": {}
+        }
+      },
       "Interactive.DependencyManager/10.8.1-dev": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.7.2",
@@ -1414,6 +1423,15 @@
         },
         "runtime": {
           "bin/placeholder/Owin.WebSocket.dll": {}
+        }
+      },
+      "proto/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/proto.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/proto.dll": {}
         }
       }
     }
@@ -4233,6 +4251,11 @@
       "path": "../../f-/src/fsharp/fsiAnyCpu/fsiAnyCpu.fsproj",
       "msbuildProject": "../../f-/src/fsharp/fsiAnyCpu/fsiAnyCpu.fsproj"
     },
+    "gRTB/1.0.0": {
+      "type": "project",
+      "path": "../../froto/gRTB/gRTB.csproj",
+      "msbuildProject": "../../froto/gRTB/gRTB.csproj"
+    },
     "Interactive.DependencyManager/10.8.1-dev": {
       "type": "project",
       "path": "../../f-/src/fsharp/Interactive.DependencyManager/Interactive.DependencyManager.fsproj",
@@ -4242,6 +4265,11 @@
       "type": "project",
       "path": "../Owin.WebSocket/Owin.WebSocket.csproj",
       "msbuildProject": "../Owin.WebSocket/Owin.WebSocket.csproj"
+    },
+    "proto/1.0.0": {
+      "type": "project",
+      "path": "../../froto/proto/proto.fsproj",
+      "msbuildProject": "../../froto/proto/proto.fsproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4286,7 +4314,9 @@
       "WebSharper.UI >= 4.6.1.207",
       "WebSharper.UI.Next >= 4.6.1.220",
       "fsc >= 10.8.1-dev",
-      "fsiAnyCpu >= 10.8.1-dev"
+      "fsiAnyCpu >= 10.8.1-dev",
+      "gRTB >= 1.0.0",
+      "proto >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4351,6 +4381,12 @@
             },
             "Z:\\f-\\src\\fsharp\\Interactive.DependencyManager\\Interactive.DependencyManager.fsproj": {
               "projectPath": "Z:\\f-\\src\\fsharp\\Interactive.DependencyManager\\Interactive.DependencyManager.fsproj"
+            },
+            "Z:\\froto\\gRTB\\gRTB.csproj": {
+              "projectPath": "Z:\\froto\\gRTB\\gRTB.csproj"
+            },
+            "Z:\\froto\\proto\\proto.fsproj": {
+              "projectPath": "Z:\\froto\\proto\\proto.fsproj"
             },
             "Z:\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj": {
               "projectPath": "Z:\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj"

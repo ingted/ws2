@@ -1875,6 +1875,26 @@
         }
       }
     },
+    "Z:\\froto\\gRTB\\gRTB.csproj": {
+      "restore": {
+        "projectUniqueName": "Z:\\froto\\gRTB\\gRTB.csproj",
+        "projectName": "gRTB",
+        "projectPath": "Z:\\froto\\gRTB\\gRTB.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "Z:\\froto\\proto\\proto.fsproj": {
+      "restore": {
+        "projectUniqueName": "Z:\\froto\\proto\\proto.fsproj",
+        "projectName": "proto",
+        "projectPath": "Z:\\froto\\proto\\proto.fsproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
     "Z:\\ws2\\ClientServer\\ClientServer.fsproj": {
       "version": "1.0.0",
       "restore": {
@@ -1934,6 +1954,12 @@
               },
               "Z:\\f-\\src\\fsharp\\Interactive.DependencyManager\\Interactive.DependencyManager.fsproj": {
                 "projectPath": "Z:\\f-\\src\\fsharp\\Interactive.DependencyManager\\Interactive.DependencyManager.fsproj"
+              },
+              "Z:\\froto\\gRTB\\gRTB.csproj": {
+                "projectPath": "Z:\\froto\\gRTB\\gRTB.csproj"
+              },
+              "Z:\\froto\\proto\\proto.fsproj": {
+                "projectPath": "Z:\\froto\\proto\\proto.fsproj"
               },
               "Z:\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj": {
                 "projectPath": "Z:\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj"

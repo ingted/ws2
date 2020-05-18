@@ -97,8 +97,11 @@ module Server =
     let outStream = new StringWriter(sbOut)
     let errStream = new StringWriter(sbErr)
     let chrHisCmd = new IO.DirectoryInfo("./hisCmd")
+    let chrNamedScripts = new IO.DirectoryInfo("./namedScripts")
     if not chrHisCmd.Exists then
         chrHisCmd.Create ()
+    if not chrNamedScripts.Exists then
+        chrNamedScripts.Create ()
                                          
     type UniversalDict () = 
         static member val cmdHistory = 
@@ -122,7 +125,24 @@ module Server =
 
                                         
                                         cd with get,set
+        static member val namedScripts = 
+                                        let cd = new ConcurrentDictionary<string, string>()
+                                        
+                                        let namedScriptFiles = 
+                                            chrNamedScripts.GetFiles ()
+                                            |> Array.sortBy (fun fi -> fi.Name)
+                                        namedScriptFiles
+                                        |> Array.iter (fun fi ->
+                                            let content = IO.File.ReadAllText fi.FullName
+                                            cd.AddOrUpdate (
+                                                fi.Name.Replace(fi.Extension, ""),
+                                                (fun _ -> content),
+                                                (fun key curV -> content)
+                                            ) |> ignore
+                                        )
 
+                                        
+                                        cd with get,set
 
     
     [<Rpc>]
@@ -131,6 +151,38 @@ module Server =
             let c = 
                 if UniversalDict.cmdHistory.Count = 0 then "history empty"
                 else  UniversalDict.cmdHistory.Values |> Seq.last
+            return c
+        }
+
+    [<Rpc>]
+    let getNamedScript name =
+        async {
+            let c = 
+                if not <| UniversalDict.namedScripts.ContainsKey name then "script not existed"
+                else
+                    let s = ref ""
+                    if UniversalDict.namedScripts.TryGetValue(name, s) then s.Value
+                    else 
+                        "script get failed"
+            return c
+        }
+
+    [<Rpc>]
+    let upsertNamedScript name script =
+        async {
+            let c = 
+                try 
+                    let fi = new FileInfo(chrNamedScripts.FullName + @"\" + name)
+                    if fi.Exists then fi.Delete ()
+                    File.WriteAllText(fi.FullName, script, Encoding.Unicode)
+                    UniversalDict.namedScripts.AddOrUpdate(
+                                                            name, 
+                                                            (fun name -> script),
+                                                            (fun _ _ -> script)
+                                                            )
+                with
+                | exn ->
+                    exn.Message
             return c
         }
 

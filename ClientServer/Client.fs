@@ -83,6 +83,7 @@ module Client =
     [<JavaScript>]
     let fsiCmd () =
         let rvInput = Var.Create ""
+        let nScript = Var.Create "named script"
         let rvHisCmd = Var.Create ([||]:string[])
         let curPos = Var.Create 0
         let submit = Submitter.CreateOption rvInput.View
@@ -153,13 +154,27 @@ module Client =
                                                             //WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(curCmdStr).Ignore
 
                                                             )
-                //Doc.Button "Next Command" [] nxtCmd.Trigger
+                Doc.Button "Get Script" [] (fun () -> 
+                    async {
+                        let! ns = Server.getNamedScript (WebSharper.JQuery.JQuery.Of("#nScript").Val().ToString())
+                        WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(ns).Ignore
+                    } |> Async.Start
+                    )
+                Doc.Button "Save Script" [] (fun () -> 
+                    async {
+                        let! hc = Server.upsertNamedScript (WebSharper.JQuery.JQuery.Of("#nScript").Val().ToString()) (WebSharper.JQuery.JQuery.Of("#fsiCmd").Val().ToString())
+                        WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(hc).Ignore
+                    } |> Async.Start
+                    )
                 brAttr [][]
+                Doc.InputArea [attr.id "nScript"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "1" ] nScript
                 Doc.InputArea [attr.id "fsiCmd"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10"; attr.value "printfn \"orz\""] rvInput
+                
             ]
             hrAttr [] []
             h4Attr [attr.``class`` "text-muted"] [text "The server responded:"]
             divAttr [(*attr.``class`` "jumbotron"*)] [h1Attr [] [textView vReversed]]
+            //divAttr [(*attr.``class`` "jumbotron"*)] [Doc.BindView (fun _ -> divAttr [][] ) vReversed]
             
             //divAttr [] [h1Attr [] [textView (getHisCmd |> View.map (fun strArray ->     ))]]
         ]

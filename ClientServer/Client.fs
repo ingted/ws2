@@ -84,6 +84,7 @@ module Client =
     let fsiCmd () =
         let rvInput = Var.Create ""
         let rvHisCmd = Var.Create ([||]:string[])
+        let nScript = Var.Create "named script"
         let curPos = Var.Create 0
         let submit = Submitter.CreateOption rvInput.View
         let hisCmd = Submitter.CreateOption rvHisCmd.View
@@ -153,8 +154,20 @@ module Client =
                                                             //WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(curCmdStr).Ignore
 
                                                             )
-                //Doc.Button "Next Command" [] nxtCmd.Trigger
+                Doc.Button "Get Script" [] (fun () -> 
+                    async {
+                        let! ns = Server.getNamedScript (WebSharper.JQuery.JQuery.Of("#nScript").Val().ToString())
+                        WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(ns).Ignore
+                    } |> Async.Start
+                    )
+                Doc.Button "Save Script" [] (fun () -> 
+                    async {
+                        let! hc = Server.upsertNamedScript (WebSharper.JQuery.JQuery.Of("#nScript").Val().ToString()) (WebSharper.JQuery.JQuery.Of("#fsiCmd").Val().ToString())
+                        WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(hc).Ignore
+                    } |> Async.Start
+                    )
                 brAttr [][]
+                Doc.InputArea [attr.id "nScript"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "1" ] nScript
                 Doc.InputArea [attr.id "fsiCmd"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10"; attr.value "printfn \"orz\""] rvInput
             ]
             hrAttr [] []

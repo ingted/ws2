@@ -228,9 +228,10 @@
  };
  Client.fsiCmd=function()
  {
-  var rvInput,rvHisCmd,curPos,submit,hisCmd,vReversed;
+  var rvInput,rvHisCmd,nScript,curPos,submit,hisCmd,vReversed;
   rvInput=Var.Create$1("");
   rvHisCmd=Var.Create$1([]);
+  nScript=Var.Create$1("named script");
   curPos=Var.Create$1(0);
   submit=Submitter.CreateOption(rvInput.v);
   hisCmd=Submitter.CreateOption(rvHisCmd.v);
@@ -260,7 +261,7 @@
        });
       }
      else
-      throw new MatchFailureException.New("Client.fs",106,33);
+      throw new MatchFailureException.New("Client.fs",107,33);
    }
    else
     return(new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getHisCmds:-118046996",[]);
@@ -301,7 +302,29 @@
     });
    })),null):(curPos.c===0?Var.Set(curPos,Arrays.length(rvHisCmd.c)-1):Var.Set(curPos,curPos.c-1),Var.Set(rvInput,Arrays.get(rvHisCmd.c,curPos.c)));
    hisCmd.Trigger();
-  }),Doc.Element("br",[],[]),Doc.InputArea([AttrProxy.Create("id","fsiCmd"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10"),AttrProxy.Create("value","printfn \"orz\"")],rvInput)]),Doc.Element("hr",[],[]),Doc.Element("h4",[AttrProxy.Create("class","text-muted")],[Doc.TextNode("The server responded:")]),Doc.Element("div",[],[Doc.Element("h1",[],[Doc.TextView(vReversed)])])]);
+  }),Doc.Button("Get Script",[],function()
+  {
+   var b;
+   Concurrency.Start((b=null,Concurrency.Delay(function()
+   {
+    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getNamedScript:-1840423385",[Global.String($("#nScript").val())]),function(a)
+    {
+     $("#fsiCmd").val(a);
+     return Concurrency.Zero();
+    });
+   })),null);
+  }),Doc.Button("Save Script",[],function()
+  {
+   var b;
+   Concurrency.Start((b=null,Concurrency.Delay(function()
+   {
+    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.upsertNamedScript:2040152023",[Global.String($("#nScript").val()),Global.String($("#fsiCmd").val())]),function(a)
+    {
+     $("#fsiCmd").val(a);
+     return Concurrency.Zero();
+    });
+   })),null);
+  }),Doc.Element("br",[],[]),Doc.InputArea([AttrProxy.Create("id","nScript"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","1")],nScript),Doc.InputArea([AttrProxy.Create("id","fsiCmd"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10"),AttrProxy.Create("value","printfn \"orz\"")],rvInput)]),Doc.Element("hr",[],[]),Doc.Element("h4",[AttrProxy.Create("class","text-muted")],[Doc.TextNode("The server responded:")]),Doc.Element("div",[],[Doc.Element("h1",[],[Doc.TextView(vReversed)])])]);
  };
  Client.m2=function()
  {

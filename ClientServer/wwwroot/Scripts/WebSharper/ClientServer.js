@@ -231,6 +231,7 @@
   var rvInput,rvHisCmd,nScript,curPos,submit,hisCmd,vReversed;
   rvInput=Var.Create$1("");
   rvHisCmd=Var.Create$1([]);
+  Var.Create$1([]);
   nScript=Var.Create$1("named script");
   curPos=Var.Create$1(0);
   submit=Submitter.CreateOption(rvInput.v);
@@ -261,7 +262,7 @@
        });
       }
      else
-      throw new MatchFailureException.New("Client.fs",107,33);
+      throw new MatchFailureException.New("Client.fs",108,33);
    }
    else
     return(new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getHisCmds:-118046996",[]);
@@ -321,6 +322,23 @@
     return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.upsertNamedScript:2040152023",[Global.String($("#nScript").val()),Global.String($("#fsiCmd").val())]),function(a)
     {
      $("#fsiCmd").val(a);
+     return Concurrency.Zero();
+    });
+   })),null);
+  }),Doc.Button("List Script",[],function()
+  {
+   var b;
+   Concurrency.Start((b=null,Concurrency.Delay(function()
+   {
+    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.listNamedScripts:-118046996",[]),function(a)
+    {
+     var s;
+     s=Arrays.fold(function(str,item)
+     {
+      return str!==""?str+"\r\n"+item:item;
+     },"",a);
+     $("#nScript").val("");
+     $("#fsiCmd").val(s);
      return Concurrency.Zero();
     });
    })),null);

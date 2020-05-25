@@ -84,6 +84,7 @@ module Client =
     let fsiCmd () =
         let rvInput = Var.Create ""
         let rvHisCmd = Var.Create ([||]:string[])
+        let filterResult = Var.Create ([||]:string[])
         let nScript = Var.Create "named script"
         let curPos = Var.Create 0
         let submit = Submitter.CreateOption rvInput.View
@@ -164,6 +165,14 @@ module Client =
                     async {
                         let! hc = Server.upsertNamedScript (WebSharper.JQuery.JQuery.Of("#nScript").Val().ToString()) (WebSharper.JQuery.JQuery.Of("#fsiCmd").Val().ToString())
                         WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(hc).Ignore
+                    } |> Async.Start
+                    )
+                Doc.Button "List Script" [] (fun () -> 
+                    async {
+                        let! hc = Server.listNamedScripts ()
+                        let s = hc |> Array.fold (fun str item -> if str <> "" then str + "\r\n" + item else item) ""
+                        WebSharper.JQuery.JQuery.Of("#nScript").Val("").Ignore
+                        WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(s).Ignore
                     } |> Async.Start
                     )
                 brAttr [][]

@@ -264,6 +264,19 @@ module Server =
             return c
         }
 
+    [<Rpc>]
+    let listNamedScripts () =
+        async {
+            let c = 
+                try 
+                    UniversalDict.namedScripts.Keys |> Seq.toArray
+                with
+                | exn ->
+                    printfn "%s" exn.Message
+                    [|"NAMEDSCRIPT IS EMPTY"|]
+            return c
+        }
+
     Console.SetOut tw
     //let fsiConfigOld = FsiEvaluationSession.GetDefaultConfiguration()
     //let fsiSessionOld = FsiEvaluationSession.Create(fsiConfigOld, allArgs, inStream, tw, tw)

@@ -106,15 +106,13 @@ module Program =
             //    b.ToString()
             use server = 
                 let url = "http://*:8080/"
-                let url2 = "http://10.28.199.142:8080/"
-                let url20 = "http://0.0.0.0:8080/"
-                let ep = Endpoint.Create(url2, "/WS", JsonEncoding.Readable)
-                let ep2 = Endpoint.Create(url2, "/WS2", JsonEncoding.Readable)
-                let ep00 = Endpoint.Create(url20, "/WS", JsonEncoding.Readable)
-                let ep20 = Endpoint.Create(url20, "/WS2", JsonEncoding.Readable)
+                //let url2 = "http://10.28.199.142:8080/"
+                let url20 = "http://localhost:8080/"
+                let connPort1 = Endpoint.Create(url20, "/WS", JsonEncoding.Readable)
+                let connPort2 = Endpoint.Create(url20, "/WS2", JsonEncoding.Readable)
+                let listenPort1 = Endpoint.Create(url20, "/WS", JsonEncoding.Readable)
+                let listenPort2 = Endpoint.Create(url20, "/WS2", JsonEncoding.Readable)
                 WebApp.Start(url, fun appB ->
-                    let server1 = Server.Start 1
-                    
                     let rootDirectory =
                         System.IO.Path.Combine(
                             System.IO.Directory.GetCurrentDirectory(),
@@ -123,10 +121,10 @@ module Program =
                     appB.UseWebSharper(
                             WebSharperOptions(
                                 ServerRootDirectory = rootDirectory,
-                                Sitelet = Some (Site.Main ep ep2),
+                                Sitelet = Some (Site.Main connPort1 connPort2),
                                 Debug = true))
-                        .UseWebSocket(ep20, Server.Start 2, maxMessageSize = 100000)
-                        .UseWebSocket(ep00, server1, maxMessageSize = 100000)                        
+                        .UseWebSocket(listenPort2, Server.Start 2, maxMessageSize = 100000)
+                        .UseWebSocket(listenPort1, Server.Start 1, maxMessageSize = 100000)                        
                         .UseStaticFiles(
                             StaticFileOptions(
                                 FileSystem = PhysicalFileSystem(rootDirectory)))

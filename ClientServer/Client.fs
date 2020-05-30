@@ -81,10 +81,42 @@ module Client =
     //    let server = Client.WebSocketServer(socket, encode)
     //    server
     [<JavaScript>]
+    let filterResult = Var.Create ([||]:string[])
+    [<JavaScript>]
+    let filterKeyWord = Var.Create ""
+
+    [<JavaScript>]
     let fsiCmd () =
         let rvInput = Var.Create ""
         let rvHisCmd = Var.Create ([||]:string[])
-        let filterResult = Var.Create ([||]:string[])
+        
+
+        //let filterResultFlattened =  
+        //    Var.Lens filterResult (fun arr -> 
+        //                                let reg = new RegExp(filterKeyWord.Value)
+        //                                arr
+        //                                |> Array.filter (fun s ->
+        //                                    reg.Test s
+        //                                ) 
+        //                                |> String.concat "," ) (fun n s -> 
+        //        [|s|] |> Array.append n
+        //    )
+
+        let filterResultFlattened =  
+            filterResult.Lens (
+                fun arr -> 
+                    let reg = new RegExp(filterKeyWord.Value)
+                    arr
+                    |> Array.filter (fun s ->
+                        reg.Test s
+                    ) 
+                    |> String.concat "," 
+            ) (
+                fun n s -> 
+                    [|s|] |> Array.append n
+            )
+        
+
         let nScript = Var.Create "named script"
         let curPos = Var.Create 0
         let submit = Submitter.CreateOption rvInput.View
@@ -95,6 +127,8 @@ module Client =
             submit.View.MapAsync(function
                 | None -> async { return "" }
                 | Some input -> 
+                                //let reg = new RegExp("23")
+                                //Var.Set filterResult ([|input|]|>Array.filter (fun s -> reg.Test s))
                                 rvHisCmd.Value <- Array.append rvHisCmd.Value [|input|]
                                 curPos.Value <- curPos.Value + 1
                                 Server.fsiExecute input
@@ -117,75 +151,85 @@ module Client =
         //        | None -> Server.getHisCmds ()
         //        | Some v -> async {return v}
         //    )
-
-        divAttr [] [
-            divAttr [][
-                Doc.Button "Send" [] submit.Trigger
-                Doc.Button "Clear Console" [] (fun () -> 
-                                                    //WebSharper.JQuery.JQuery.Of("#consoleWC")
-                                                    WebSharper.JQuery.JQuery.Of("#console").Empty().Ignore)
-                Doc.Button "Clear Command" [] (fun () -> 
-                                                    WebSharper.JQuery.JQuery.Of("#fsiCmd").Val("").Ignore)
-                Doc.Button "Last Command" [] (fun () -> 
-                                                    async {
-                                                        let! hc = Server.getHisCmd ()
-                                                        WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(hc).Ignore
-                                                    } |> Async.Start
-                                                    )
-                Doc.Button "Previous Command" [] (fun () -> 
-                                                            //let curCmdStr = 
-                                                            if rvHisCmd.Value.Length = 0 then 
-                                                                async {
-                                                                    let! hcs = Server.getHisCmds ()
-                                                                    rvHisCmd.Value <- hcs
-                                                                    if rvHisCmd.Value.Length > 0 then
-                                                                        curPos.Value <- rvHisCmd.Value.Length - 1
-                                                                    rvInput.Value <- rvHisCmd.Value.[curPos.Value]
-                                                                    }|> Async.Start
+        let filterBox = 
+            (Doc.Input [attr.id "fKW"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "1"] filterKeyWord).OnBlur(fun e1 e2 ->
+                   WebSharper.JQuery.JQuery.Of("#filteredResult").Val(filterResultFlattened.Value).Ignore
+            )
+        let content =
+            divAttr [] [
+                divAttr [][
+                    Doc.Button "Send" [] submit.Trigger
+                    Doc.Button "Clear Console" [] (fun () -> 
+                                                        //WebSharper.JQuery.JQuery.Of("#consoleWC")
+                                                        WebSharper.JQuery.JQuery.Of("#console").Empty().Ignore)
+                    Doc.Button "Clear Command" [] (fun () -> 
+                                                        WebSharper.JQuery.JQuery.Of("#fsiCmd").Val("").Ignore)
+                    Doc.Button "Last Command" [] (fun () -> 
+                                                        async {
+                                                            let! hc = Server.getHisCmd ()
+                                                            WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(hc).Ignore
+                                                        } |> Async.Start
+                                                        )
+                    Doc.Button "Previous Command" [] (fun () -> 
+                                                                //let curCmdStr = 
+                                                                if rvHisCmd.Value.Length = 0 then 
+                                                                    async {
+                                                                        let! hcs = Server.getHisCmds ()
+                                                                        rvHisCmd.Value <- hcs
+                                                                        if rvHisCmd.Value.Length > 0 then
+                                                                            curPos.Value <- rvHisCmd.Value.Length - 1
+                                                                        rvInput.Value <- rvHisCmd.Value.[curPos.Value]
+                                                                        }|> Async.Start
                                                                 
-                                                            else                                                                    
-                                                                if curPos.Value = 0 then //rvHisCmd.Value.Length - 1 then 
-                                                                    curPos.Value <- rvHisCmd.Value.Length - 1
-                                                                else 
-                                                                    curPos.Value <- curPos.Value - 1
-                                                                let ccs = rvHisCmd.Value.[curPos.Value]
-                                                                rvInput.Value <- ccs
-                                                            hisCmd.Trigger ()
+                                                                else                                                                    
+                                                                    if curPos.Value = 0 then //rvHisCmd.Value.Length - 1 then 
+                                                                        curPos.Value <- rvHisCmd.Value.Length - 1
+                                                                    else 
+                                                                        curPos.Value <- curPos.Value - 1
+                                                                    let ccs = rvHisCmd.Value.[curPos.Value]
+                                                                    rvInput.Value <- ccs
+                                                                hisCmd.Trigger ()
                                                             
-                                                            //WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(curCmdStr).Ignore
+                                                                //WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(curCmdStr).Ignore
 
-                                                            )
-                Doc.Button "Get Script" [] (fun () -> 
-                    async {
-                        let! ns = Server.getNamedScript (WebSharper.JQuery.JQuery.Of("#nScript").Val().ToString())
-                        WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(ns).Ignore
-                    } |> Async.Start
-                    )
-                Doc.Button "Save Script" [] (fun () -> 
-                    async {
-                        let! hc = Server.upsertNamedScript (WebSharper.JQuery.JQuery.Of("#nScript").Val().ToString()) (WebSharper.JQuery.JQuery.Of("#fsiCmd").Val().ToString())
-                        WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(hc).Ignore
-                    } |> Async.Start
-                    )
-                Doc.Button "List Script" [] (fun () -> 
-                    async {
-                        let! hc = Server.listNamedScripts ()
-                        let s = hc |> Array.fold (fun str item -> if str <> "" then str + "\r\n" + item else item) ""
-                        WebSharper.JQuery.JQuery.Of("#nScript").Val("").Ignore
-                        WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(s).Ignore
-                    } |> Async.Start
-                    )
-                brAttr [][]
-                Doc.InputArea [attr.id "nScript"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "1" ] nScript
-                Doc.InputArea [attr.id "fsiCmd"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10"; attr.value "printfn \"orz\""] rvInput
-            ]
-            hrAttr [] []
-            h4Attr [attr.``class`` "text-muted"] [text "The server responded:"]
-            divAttr [(*attr.``class`` "jumbotron"*)] [h1Attr [] [textView vReversed]]
+                                                                )
+                    Doc.Button "Get Script" [] (fun () -> 
+                        async {
+                            let! ns = Server.getNamedScript (WebSharper.JQuery.JQuery.Of("#nScript").Val().ToString())
+                            WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(ns).Ignore
+                        } |> Async.Start
+                        )
+                    Doc.Button "Save Script" [] (fun () -> 
+                        async {
+                            let! hc = Server.upsertNamedScript (WebSharper.JQuery.JQuery.Of("#nScript").Val().ToString()) (WebSharper.JQuery.JQuery.Of("#fsiCmd").Val().ToString())
+                            WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(hc).Ignore
+                        } |> Async.Start
+                        )
+                    Doc.Button "List Script" [] (fun () -> 
+                        async {
+                            let! hc = Server.listNamedScripts ()
+                            let s = hc |> Array.fold (fun str item -> if str <> "" then str + "\r\n" + item else item) ""
+                            WebSharper.JQuery.JQuery.Of("#nScript").Val("").Ignore
+                            WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(s).Ignore
+                        } |> Async.Start
+                        )
+                    Doc.Button "Clear Result Cache" [] (fun () -> 
+                        filterResult.Value <- Array.empty
+                        )
+                    brAttr [][]
+                    filterBox
+                    Doc.InputArea [attr.id "nScript"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "1" ] nScript
+                    Doc.InputArea [attr.id "fsiCmd"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10"; attr.value "printfn \"orz\""] rvInput
+                ]
+                hrAttr [] []
+                Doc.InputArea [attr.id "filteredResult"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10"] filterResultFlattened
+                h4Attr [attr.``class`` "text-muted"] [text "The server responded:"]            
+                divAttr [(*attr.``class`` "jumbotron"*)] [h1Attr [] [textView vReversed]]
             
-            //divAttr [] [h1Attr [] [textView (getHisCmd |> View.map (fun strArray ->     ))]]
-        ]
+                //divAttr [] [h1Attr [] [textView (getHisCmd |> View.map (fun strArray ->     ))]]
+            ]
 
+        content
 
     [<JavaScript>]
     let WS (endpoint : Endpoint<Server.S2CMessage, Server.C2SMessage>) =
@@ -260,6 +304,7 @@ module Client =
         let container = Pre []
         let writen fmt =
             Printf.ksprintf (fun s ->
+                Var.Set filterResult ([|s + "\n"|] |> Array.append filterResult.Value)
                 JS.Document.CreateTextNode(s + "\n")
                 |> container.Dom.AppendChild
                 |> ignore

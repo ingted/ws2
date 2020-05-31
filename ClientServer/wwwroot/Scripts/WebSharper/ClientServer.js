@@ -276,7 +276,7 @@
        });
       }
      else
-      throw new MatchFailureException.New("Client.fs",208,33);
+      throw new MatchFailureException.New("Client.fs",246,33);
    }
    else
     return(new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getHisCmds:-118046996",[]);
@@ -372,16 +372,93 @@
  {
   var b;
   Var.Set(Client.content(),"");
+  Client.edpnt().c.get_Connection().close();
+  Var.Set(Client.edpnt(),null);
   b=null;
   return Concurrency.Delay(function()
   {
+   var console,cs;
+   function writen(fmt)
+   {
+    return fmt(function(s)
+    {
+     var a;
+     Var.Set(Client.filterResult(),Client.filterResult().c.concat([s+"\n"]));
+     a=self.document.createTextNode(s+"\n");
+     cs.append.apply(cs,[a]);
+    });
+   }
+   $("#consoleWC").empty();
+   console=Doc.InputArea([AttrProxy.Create("id","console"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10")],Client.content());
+   cs=$("#console");
    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getPort:1510873242",[uri]),function(a)
    {
-    $("#console").remove();
-    Doc.RunById("consoleWC",Client.Send2(a));
+    var b$1;
+    Concurrency.Start((b$1=null,Concurrency.Delay(function()
+    {
+     return Concurrency.Bind(WithEncoding.ConnectStateful(function(a$1)
+     {
+      return JSON.stringify((ClientServer_JsonEncoder.j())(a$1));
+     },function(a$1)
+     {
+      return(ClientServer_JsonDecoder.j())(JSON.parse(a$1));
+     },a,function()
+     {
+      var b$2;
+      b$2=null;
+      return Concurrency.Delay(function()
+      {
+       return Concurrency.Return([0,function(state)
+       {
+        return function(msg)
+        {
+         var b$3;
+         b$3=null;
+         return Concurrency.Delay(function()
+         {
+          var data;
+          return msg.$==3?(writen(function($1)
+          {
+           return $1("WebSocket connection closed.");
+          }),Concurrency.Return(state)):msg.$==2?(writen(function($1)
+          {
+           return $1("WebSocket connection open.");
+          }),Concurrency.Return(state)):msg.$==1?(writen(function($1)
+          {
+           return $1("WebSocket connection error!");
+          }),Concurrency.Return(state)):(data=msg.$0,Concurrency.Combine(data.$==3?(((writen(Runtime.Curried3(function($1,$2,$3)
+          {
+           return $1("MessageFromServer_String "+Utils.toSafe($2)+" \r\n(state: "+Global.String($3)+")");
+          })))(data.$0))(state),Concurrency.Zero()):(writen(function($1)
+          {
+           return $1("invalidMessage");
+          }),Concurrency.Zero()),Concurrency.Delay(function()
+          {
+           return Concurrency.Return(state+1);
+          })));
+         });
+        };
+       }]);
+      });
+     }),function(a$1)
+     {
+      Var.Set(Client.edpnt(),a$1);
+      a$1.Post({
+       $:3,
+       $0:"kickOff"
+      });
+      return Concurrency.Zero();
+     });
+    })),null);
+    Doc.RunById("consoleWC",console);
     return Concurrency.Zero();
    });
   });
+ };
+ Client.edpnt=function()
+ {
+  SC$1.$cctor();
+  return SC$1.edpnt;
  };
  Client.Send2=function(serverReceive)
  {
@@ -396,7 +473,7 @@
     container.elt.appendChild(x);
    });
   }
-  container=Doc.InputArea([AttrProxy.Create("id","container"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10")],Client.content());
+  container=Doc.InputArea([AttrProxy.Create("id","console"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10")],Client.content());
   Concurrency.Start((b=null,Concurrency.Delay(function()
   {
    return Concurrency.Bind(WithEncoding.ConnectStateful(function(a)
@@ -452,7 +529,6 @@
     return Concurrency.Zero();
    });
   })),null);
-  container.SetAttribute("id","console");
   return container;
  };
  Client.content=function()
@@ -521,6 +597,7 @@
   SC$1.filterResult=Var.Create$1([]);
   SC$1.filterKeyWord=Var.Create$1("");
   SC$1.content=Var.Create$1("");
+  SC$1.edpnt=Var.CreateWaiting();
  };
  GeneratedPrintf.p=function($1)
  {

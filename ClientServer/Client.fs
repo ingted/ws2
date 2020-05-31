@@ -88,10 +88,12 @@ module Client =
     [<JavaScript>]
     let content = Var.Create ""
 
+    
+
     [<JavaScript>]
     let Send2 (serverReceive : Endpoint<Server.S2CMessage, Server.C2SMessage>) =
         let container = 
-            Doc.InputArea [attr.id "container"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10"] content
+            Doc.InputArea [attr.id "console"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10"] content
         let writen fmt =
             Printf.ksprintf (fun s ->
                 Var.Set filterResult ([|s + "\n"|] |> Array.append filterResult.Value)
@@ -100,9 +102,8 @@ module Client =
                 |> ignore
             ) fmt
         async {
-            do
-                ()
-
+            //do
+            //    ()
             let! server =
                 ConnectStateful serverReceive <| fun server -> async {
                     return 0, fun state msg -> async {
@@ -124,30 +125,67 @@ module Client =
                             return state
                     }
                 }
-    
-            //let lotsOfHellos = "HELLO" |> Array.create 1000
-            //let lotsOf123s = 123 |> Array.create 1000
             server.Post (Server.MessageFromClient "kickOff")
-            //while true do
-            //    do! FSharp.Control.Async.Sleep 1000
-            //    server.Post (Server.Req3 {name = {FirstName = "John"; LastName = "Doe"}; age = 42})
-                //do! FSharp.Control.Async.Sleep 1000
-                //server.Post (Server.Request1 [| "HELLO" |])
-                //do! FSharp.Control.Async.Sleep 1000
-                //server.Post (Server.Request2 lotsOf123s)
         }
         |> FSharp.Control.Async.Start
-        
-        container.SetAttribute("id", "console")
+
         container
+
+    [<JavaScript>]
+    let edpnt:Var<WebSocketServer<Server.S2CMessage, Server.C2SMessage>> = Var.CreateWaiting ()
 
     [<JavaScript>]
     let Send3 (uri:string) = 
         content.Value <- ""
-        async {            
-            let! c = Server.getPort uri               
-            WebSharper.JQuery.JQuery.Of("#console").Remove().Ignore
-            Doc.RunById "consoleWC" (Send2 c :> Doc)
+        edpnt.Value.Connection.Close()
+        edpnt.Value <- Unchecked.defaultof<WebSocketServer<Server.S2CMessage, Server.C2SMessage>>
+        async {      
+            //if (WebSharper.JQuery.JQuery.Of("#console").Length > 0) then
+                //JS.Alert("orz")
+            WebSharper.JQuery.JQuery.Of("#consoleWC").Empty().Ignore
+            //else
+            //    ()
+            let console = 
+                Doc.InputArea [attr.id "console"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10"] content
+            let cs = WebSharper.JQuery.JQuery.Of("#console")
+            let writen fmt =
+                Printf.ksprintf (fun s ->
+                    Var.Set filterResult ([|s + "\n"|] |> Array.append filterResult.Value)                    
+                    cs.Append(JS.Document.CreateTextNode(s + "\n"), Array.empty).Ignore
+                    //|> console.Dom.AppendChild
+                    //|> ignore
+                ) fmt
+            let! serverReceive = Server.getPort uri
+            async {
+                let! server =
+                    ConnectStateful serverReceive <| fun server -> async {
+                        return 0, fun state msg -> async {
+                            match msg with
+                            | Message data ->
+                                match data with
+                                | Server.MessageFromServer_String x -> writen "MessageFromServer_String %s \r\n(state: %i)" x state
+                                | _ ->
+                                    writen "invalidMessage"
+                                return (state + 1)
+                            | Close ->
+                                writen "WebSocket connection closed."
+                                return state
+                            | Open ->
+                                writen "WebSocket connection open."
+                                return state
+                            | Error ->
+                                writen "WebSocket connection error!"
+                                return state
+                        }
+                    }
+                edpnt.Value <- server
+                server.Post (Server.MessageFromClient "kickOff")
+                
+            } |> Async.Start
+            //Doc.RunById "consoleWC" (Send2 c :> Doc)
+            
+            //console.SetAttribute("id", "console")
+            Doc.RunById "consoleWC" (console :> Doc)
         }
 
     [<JavaScript>]

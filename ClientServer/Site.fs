@@ -105,7 +105,9 @@ module Site =
                     Attr.Create "id" "fsiResult" 
                 ] [
                     //divAttr [attr.id "consoleWC"] [Doc.WebControl ws] 
-                    divAttr [attr.id "consoleWC"] []
+                    divAttr [attr.id "consoleWC"] [
+                        textareaAttr [attr.id "console"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10"] []
+                    ]
                 ]
             ]
         Content.Page(

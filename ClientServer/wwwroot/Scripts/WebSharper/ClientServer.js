@@ -1,7 +1,7 @@
 (function()
 {
  "use strict";
- var Global,testFrom0,Client,SC$1,GeneratedPrintf,ClientServer_JsonEncoder,ClientServer_JsonDecoder,WebSharper,UI,Next,Var,Html,Client$1,Tags,Concurrency,Owin,WebSocket,Client$2,WithEncoding,JSON,IntelliFactory,Runtime,Utils,$,Strings,Arrays,Submitter,View,Remoting,AjaxRemotingProvider,MatchFailureException,Doc,AttrProxy,ClientSideJson,Provider;
+ var Global,testFrom0,Client,SC$1,GeneratedPrintf,ClientServer_JsonEncoder,ClientServer_JsonDecoder,WebSharper,UI,Next,Var,Html,Client$1,Tags,Concurrency,Owin,WebSocket,Client$2,WithEncoding,JSON,IntelliFactory,Runtime,Utils,$,Strings,Arrays,Submitter,View,Remoting,AjaxRemotingProvider,MatchFailureException,Doc,AttrProxy,Unchecked,ClientSideJson,Provider;
  Global=self;
  testFrom0=Global.testFrom0=Global.testFrom0||{};
  Client=testFrom0.Client=testFrom0.Client||{};
@@ -35,6 +35,7 @@
  MatchFailureException=WebSharper&&WebSharper.MatchFailureException;
  Doc=Next&&Next.Doc;
  AttrProxy=Next&&Next.AttrProxy;
+ Unchecked=WebSharper&&WebSharper.Unchecked;
  ClientSideJson=WebSharper&&WebSharper.ClientSideJson;
  Provider=ClientSideJson&&ClientSideJson.Provider;
  Client.Send=function(serverReceive)
@@ -237,7 +238,7 @@
   {
    var reg;
    reg=new Global.RegExp(Client.filterKeyWord().c);
-   return Strings.concat(",",Arrays.filter(function(s)
+   return Strings.concat("",Arrays.filter(function(s)
    {
     return reg.test(s);
    },arr));
@@ -276,7 +277,7 @@
        });
       }
      else
-      throw new MatchFailureException.New("Client.fs",208,33);
+      throw new MatchFailureException.New("Client.fs",218,33);
    }
    else
     return(new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getHisCmds:-118046996",[]);
@@ -371,32 +372,31 @@
  Client.Send3=function(uri)
  {
   var b;
-  Var.Set(Client.content(),"");
+  !Unchecked.Equals(Client.socketServer().c,null)?Client.socketServer().c.$0.get_Connection().close():void 0;
   b=null;
   return Concurrency.Delay(function()
   {
    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getPort:1510873242",[uri]),function(a)
    {
-    $("#console").remove();
-    Doc.RunById("consoleWC",Client.Send2(a));
+    $("#console").empty().ready(function()
+    {
+     return Client.Send2(a);
+    });
     return Concurrency.Zero();
    });
   });
  };
  Client.Send2=function(serverReceive)
  {
-  var container,b;
+  var b;
   function writen(fmt)
   {
    return fmt(function(s)
    {
-    var x;
     Var.Set(Client.filterResult(),Client.filterResult().c.concat([s+"\n"]));
-    x=self.document.createTextNode(s+"\n");
-    container.elt.appendChild(x);
+    Doc.RunAppendById("console",Doc.TextNode(s+"\n"));
    });
   }
-  container=Doc.InputArea([AttrProxy.Create("id","container"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10")],Client.content());
   Concurrency.Start((b=null,Concurrency.Delay(function()
   {
    return Concurrency.Bind(WithEncoding.ConnectStateful(function(a)
@@ -445,6 +445,10 @@
     });
    }),function(a)
    {
+    Var.Set(Client.socketServer(),{
+     $:1,
+     $0:a
+    });
     a.Post({
      $:3,
      $0:"kickOff"
@@ -452,8 +456,11 @@
     return Concurrency.Zero();
    });
   })),null);
-  container.SetAttribute("id","console");
-  return container;
+ };
+ Client.socketServer=function()
+ {
+  SC$1.$cctor();
+  return SC$1.socketServer;
  };
  Client.content=function()
  {
@@ -521,6 +528,7 @@
   SC$1.filterResult=Var.Create$1([]);
   SC$1.filterKeyWord=Var.Create$1("");
   SC$1.content=Var.Create$1("");
+  SC$1.socketServer=Var.Create$1(null);
  };
  GeneratedPrintf.p=function($1)
  {

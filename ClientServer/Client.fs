@@ -89,20 +89,25 @@ module Client =
     let content = Var.Create ""
 
     [<JavaScript>]
+    let socketServer:Var<WebSocketServer<Server.S2CMessage, Server.C2SMessage> option> = Var.Create None
+
+    [<JavaScript>]
     let Send2 (serverReceive : Endpoint<Server.S2CMessage, Server.C2SMessage>) =
-        let container = 
-            Doc.InputArea [attr.id "container"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10"] content
+        //let container = 
+        //    Doc.InputArea [attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10"] content
+        
         let writen fmt =
             Printf.ksprintf (fun s ->
                 Var.Set filterResult ([|s + "\n"|] |> Array.append filterResult.Value)
-                JS.Document.CreateTextNode(s + "\n")
-                |> container.Dom.AppendChild
-                |> ignore
+                Doc.RunAppendById "console" (Doc.TextNode (s + "\n"))
+                //JS.Document.CreateTextNode(s + "\n")
+                //|> container.Dom.AppendChild
+                //|> ignore
             ) fmt
         async {
             do
                 ()
-
+            
             let! server =
                 ConnectStateful serverReceive <| fun server -> async {
                     return 0, fun state msg -> async {
@@ -127,6 +132,7 @@ module Client =
     
             //let lotsOfHellos = "HELLO" |> Array.create 1000
             //let lotsOf123s = 123 |> Array.create 1000
+            socketServer.Value <- Some server
             server.Post (Server.MessageFromClient "kickOff")
             //while true do
             //    do! FSharp.Control.Async.Sleep 1000
@@ -138,16 +144,20 @@ module Client =
         }
         |> FSharp.Control.Async.Start
         
-        container.SetAttribute("id", "console")
-        container
+        //container.SetAttribute("id", "console")
+        //container
 
     [<JavaScript>]
     let Send3 (uri:string) = 
-        content.Value <- ""
+        //content.Value <- ""
+        if socketServer.Value <> None then
+            socketServer.Value.Value.Connection.Close ()
         async {            
             let! c = Server.getPort uri               
-            WebSharper.JQuery.JQuery.Of("#console").Remove().Ignore
-            Doc.RunById "consoleWC" (Send2 c :> Doc)
+            WebSharper.JQuery.JQuery.Of("#console").Empty().Ready(fun () ->
+                //Doc.RunById "consoleWC" (Send2 c :> Doc)
+                Send2 c
+                ).Ignore
         }
 
     [<JavaScript>]
@@ -175,7 +185,7 @@ module Client =
                     |> Array.filter (fun s ->
                         reg.Test s
                     ) 
-                    |> String.concat "," 
+                    |> String.concat "" 
             ) (
                 fun n s -> 
                     [|s|] |> Array.append n

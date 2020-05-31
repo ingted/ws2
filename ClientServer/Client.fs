@@ -84,7 +84,80 @@ module Client =
     let filterResult = Var.Create ([||]:string[])
     [<JavaScript>]
     let filterKeyWord = Var.Create ""
+    [<JavaScript>]
+    let conn1 = Var.Create "http://localhost:8080/"
+    [<JavaScript>]
+    let conn2 = Var.Create "http://localhost:8080/"
 
+    [<JavaScript>]
+    let Send (serverReceive : Endpoint<Server.S2CMessage, Server.C2SMessage>) =
+        //let encode, decode = getEncoding encode decode jsonEncoding
+        //let flush = cacheSocket socket decode
+        //let socket = new WebSocket(serverReceive.URI)
+        //let server = WebSocketServer(serverReceive, encode)
+
+
+
+        let container = Pre []
+        let writen fmt =
+            Printf.ksprintf (fun s ->
+                Var.Set filterResult ([|s + "\n"|] |> Array.append filterResult.Value)
+                JS.Document.CreateTextNode(s + "\n")
+                |> container.Dom.AppendChild
+                |> ignore
+            ) fmt
+        async {
+            do
+                ()
+
+            let! server =
+                ConnectStateful serverReceive <| fun server -> async {
+                    return 0, fun state msg -> async {
+                        match msg with
+                        | Message data ->
+                            match data with
+                            | Server.MessageFromServer_String x -> writen "MessageFromServer_String %s \r\n(state: %i)" x state
+                            | _ ->
+                                writen "invalidMessage"
+                            return (state + 1)
+                        | Close ->
+                            writen "WebSocket connection closed."
+                            return state
+                        | Open ->
+                            writen "WebSocket connection open."
+                            return state
+                        | Error ->
+                            writen "WebSocket connection error!"
+                            return state
+                    }
+                }
+    
+            //let lotsOfHellos = "HELLO" |> Array.create 1000
+            //let lotsOf123s = 123 |> Array.create 1000
+            server.Post (Server.MessageFromClient "kickOff")
+            //while true do
+            //    do! FSharp.Control.Async.Sleep 1000
+            //    server.Post (Server.Req3 {name = {FirstName = "John"; LastName = "Doe"}; age = 42})
+                //do! FSharp.Control.Async.Sleep 1000
+                //server.Post (Server.Request1 [| "HELLO" |])
+                //do! FSharp.Control.Async.Sleep 1000
+                //server.Post (Server.Request2 lotsOf123s)
+        }
+        |> FSharp.Control.Async.Start
+        
+        container.SetAttribute("id", "console")
+
+        let htmlElem = JQuery.JQuery.Of(container.Html).Get(0)
+        let doc = Doc.Static (htmlElem :?> _)
+        doc
+
+
+    [<JavaScript>]
+    let Send2 () =
+        let connPort1 = Endpoint.Create(conn1.Value, "/WS", JsonEncoding.Readable)
+        let connPort2 = Endpoint.Create(conn2.Value, "/WS2", JsonEncoding.Readable)
+        let elt = Send connPort2
+        elt
     [<JavaScript>]
     let fsiCmd () =
         let rvInput = Var.Create ""
@@ -216,6 +289,11 @@ module Client =
                     Doc.Button "Clear Result Cache" [] (fun () -> 
                         filterResult.Value <- Array.empty
                         )
+                    //Doc.Button "connFsi" [] (fun () -> 
+                    //    async {
+                    //        Send2()
+                    //    } |> Async.Start
+                    //    )
                     brAttr [][]
                     filterBox
                     Doc.InputArea [attr.id "nScript"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "1" ] nScript
@@ -225,7 +303,7 @@ module Client =
                 Doc.InputArea [attr.id "filteredResult"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10"] filterResultFlattened
                 h4Attr [attr.``class`` "text-muted"] [text "The server responded:"]            
                 divAttr [(*attr.``class`` "jumbotron"*)] [h1Attr [] [textView vReversed]]
-            
+                (Send2 ())
                 //divAttr [] [h1Attr [] [textView (getHisCmd |> View.map (fun strArray ->     ))]]
             ]
 
@@ -292,63 +370,6 @@ module Client =
 
         container
 
-    [<JavaScript>]
-    let Send (serverReceive : Endpoint<Server.S2CMessage, Server.C2SMessage>) =
-        //let encode, decode = getEncoding encode decode jsonEncoding
-        //let flush = cacheSocket socket decode
-        //let socket = new WebSocket(serverReceive.URI)
-        //let server = WebSocketServer(serverReceive, encode)
 
-
-
-        let container = Pre []
-        let writen fmt =
-            Printf.ksprintf (fun s ->
-                Var.Set filterResult ([|s + "\n"|] |> Array.append filterResult.Value)
-                JS.Document.CreateTextNode(s + "\n")
-                |> container.Dom.AppendChild
-                |> ignore
-            ) fmt
-        async {
-            do
-                ()
-
-            let! server =
-                ConnectStateful serverReceive <| fun server -> async {
-                    return 0, fun state msg -> async {
-                        match msg with
-                        | Message data ->
-                            match data with
-                            | Server.MessageFromServer_String x -> writen "MessageFromServer_String %s \r\n(state: %i)" x state
-                            | _ ->
-                                writen "invalidMessage"
-                            return (state + 1)
-                        | Close ->
-                            writen "WebSocket connection closed."
-                            return state
-                        | Open ->
-                            writen "WebSocket connection open."
-                            return state
-                        | Error ->
-                            writen "WebSocket connection error!"
-                            return state
-                    }
-                }
-    
-            //let lotsOfHellos = "HELLO" |> Array.create 1000
-            //let lotsOf123s = 123 |> Array.create 1000
-            server.Post (Server.MessageFromClient "kickOff")
-            //while true do
-            //    do! FSharp.Control.Async.Sleep 1000
-            //    server.Post (Server.Req3 {name = {FirstName = "John"; LastName = "Doe"}; age = 42})
-                //do! FSharp.Control.Async.Sleep 1000
-                //server.Post (Server.Request1 [| "HELLO" |])
-                //do! FSharp.Control.Async.Sleep 1000
-                //server.Post (Server.Request2 lotsOf123s)
-        }
-        |> FSharp.Control.Async.Start
-        
-        container.SetAttribute("id", "console")
-        container
 
     

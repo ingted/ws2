@@ -30,7 +30,6 @@
           "https://dotnet.myget.org/F/roslyn-tools/api/v3/index.json": {},
           "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {},
           "https://dotnet.myget.org/F/symreader-converter/api/v3/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
           "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {},
           "https://myget.org/F/roslyn_concord/api/v3/index.json": {},
           "https://myget.org/F/vs-devcore/api/v3/index.json": {},
@@ -260,7 +259,6 @@
           "https://dotnet.myget.org/F/roslyn-tools/api/v3/index.json": {},
           "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {},
           "https://dotnet.myget.org/F/symreader-converter/api/v3/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
           "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {},
           "https://myget.org/F/roslyn_concord/api/v3/index.json": {},
           "https://myget.org/F/vs-devcore/api/v3/index.json": {},
@@ -473,7 +471,6 @@
           "https://dotnet.myget.org/F/roslyn-tools/api/v3/index.json": {},
           "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {},
           "https://dotnet.myget.org/F/symreader-converter/api/v3/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
           "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {},
           "https://myget.org/F/roslyn_concord/api/v3/index.json": {},
           "https://myget.org/F/vs-devcore/api/v3/index.json": {},
@@ -629,7 +626,6 @@
           "https://dotnet.myget.org/F/roslyn-tools/api/v3/index.json": {},
           "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {},
           "https://dotnet.myget.org/F/symreader-converter/api/v3/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
           "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {},
           "https://myget.org/F/roslyn_concord/api/v3/index.json": {},
           "https://myget.org/F/vs-devcore/api/v3/index.json": {},
@@ -1009,7 +1005,6 @@
           "https://dotnet.myget.org/F/roslyn-tools/api/v3/index.json": {},
           "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {},
           "https://dotnet.myget.org/F/symreader-converter/api/v3/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
           "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {},
           "https://myget.org/F/roslyn_concord/api/v3/index.json": {},
           "https://myget.org/F/vs-devcore/api/v3/index.json": {},
@@ -1098,7 +1093,6 @@
           "https://dotnet.myget.org/F/roslyn-tools/api/v3/index.json": {},
           "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {},
           "https://dotnet.myget.org/F/symreader-converter/api/v3/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
           "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {},
           "https://myget.org/F/roslyn_concord/api/v3/index.json": {},
           "https://myget.org/F/vs-devcore/api/v3/index.json": {},
@@ -1265,7 +1259,6 @@
           "https://dotnet.myget.org/F/roslyn-tools/api/v3/index.json": {},
           "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {},
           "https://dotnet.myget.org/F/symreader-converter/api/v3/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
           "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {},
           "https://myget.org/F/roslyn_concord/api/v3/index.json": {},
           "https://myget.org/F/vs-devcore/api/v3/index.json": {},
@@ -1464,7 +1457,6 @@
           "https://dotnet.myget.org/F/roslyn-tools/api/v3/index.json": {},
           "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {},
           "https://dotnet.myget.org/F/symreader-converter/api/v3/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
           "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {},
           "https://myget.org/F/roslyn_concord/api/v3/index.json": {},
           "https://myget.org/F/vs-devcore/api/v3/index.json": {},
@@ -1565,7 +1557,6 @@
           "https://dotnet.myget.org/F/roslyn-tools/api/v3/index.json": {},
           "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {},
           "https://dotnet.myget.org/F/symreader-converter/api/v3/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
           "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {},
           "https://myget.org/F/roslyn_concord/api/v3/index.json": {},
           "https://myget.org/F/vs-devcore/api/v3/index.json": {},
@@ -1899,7 +1890,6 @@
           "https://dotnet.myget.org/F/roslyn-tools/api/v3/index.json": {},
           "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {},
           "https://dotnet.myget.org/F/symreader-converter/api/v3/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
           "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {},
           "https://myget.org/F/roslyn_concord/api/v3/index.json": {},
           "https://myget.org/F/vs-devcore/api/v3/index.json": {},
@@ -1934,9 +1924,6 @@
               },
               "Z:\\f-\\src\\fsharp\\Interactive.DependencyManager\\Interactive.DependencyManager.fsproj": {
                 "projectPath": "Z:\\f-\\src\\fsharp\\Interactive.DependencyManager\\Interactive.DependencyManager.fsproj"
-              },
-              "Z:\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj": {
-                "projectPath": "Z:\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj"
               }
             }
           }
@@ -2003,6 +1990,11 @@
             "Owin": {
               "target": "Package",
               "version": "[1.0.0, )",
+              "generatePathProperty": true
+            },
+            "Owin.WebSocket": {
+              "target": "Package",
+              "version": "[1.7.0, )",
               "generatePathProperty": true
             },
             "Suave": {
@@ -2109,73 +2101,6 @@
               "target": "Package",
               "version": "[4.6.1.220, )",
               "generatePathProperty": true
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "Z:\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "Z:\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj",
-        "projectName": "Owin.WebSocket",
-        "projectPath": "Z:\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj",
-        "packagesPath": "C:\\Users\\anibal\\.nuget\\packages\\",
-        "outputPath": "Z:\\ws2\\Owin.WebSocket\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "Z:\\f-\\NuGet.Config",
-          "C:\\Users\\anibal\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net48"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {},
-          "https://dotnet.myget.org/F/interactive-window/api/v3/index.json": {},
-          "https://dotnet.myget.org/F/roslyn-master-nightly/api/v3/index.json": {},
-          "https://dotnet.myget.org/F/roslyn-tools/api/v3/index.json": {},
-          "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {},
-          "https://dotnet.myget.org/F/symreader-converter/api/v3/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
-          "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {},
-          "https://myget.org/F/roslyn_concord/api/v3/index.json": {},
-          "https://myget.org/F/vs-devcore/api/v3/index.json": {},
-          "https://myget.org/F/vs-editor/api/v3/index.json": {},
-          "https://pkgs.dev.azure.com/azure-public/vside/_packaging/vs-impl/nuget/v3/index.json": {},
-          "https://pkgs.dev.azure.com/azure-public/vside/_packaging/vssdk/nuget/v3/index.json": {},
-          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-eng/nuget/v3/index.json": {},
-          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet5-transport/nuget/v3/index.json": {},
-          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet5/nuget/v3/index.json": {},
-          "https://www.myget.org/F/fsharp-daily/api/v3/index.json": {}
-        },
-        "frameworks": {
-          "net48": {
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net48": {
-          "dependencies": {
-            "CommonServiceLocator": {
-              "target": "Package",
-              "version": "[2.0.5, )"
-            },
-            "Microsoft.Owin": {
-              "target": "Package",
-              "version": "[4.1.0, )"
-            },
-            "Owin": {
-              "target": "Package",
-              "version": "[1.0.0, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"

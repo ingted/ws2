@@ -435,6 +435,19 @@
           "lib/net40/Owin.dll": {}
         }
       },
+      "Owin.WebSocket/1.7.0": {
+        "type": "package",
+        "dependencies": {
+          "CommonServiceLocator": "1.3.0",
+          "Microsoft.Owin": "3.0.1"
+        },
+        "compile": {
+          "lib/net45/Owin.WebSocket.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Owin.WebSocket.dll": {}
+        }
+      },
       "Suave/2.5.6": {
         "type": "package",
         "dependencies": {
@@ -1400,21 +1413,6 @@
         "runtime": {
           "bin/placeholder/Interactive.DependencyManager.dll": {}
         }
-      },
-      "Owin.WebSocket/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.8",
-        "dependencies": {
-          "CommonServiceLocator": "2.0.5",
-          "Microsoft.Owin": "4.1.0",
-          "Owin": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Owin.WebSocket.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Owin.WebSocket.dll": {}
-        }
       }
     }
   },
@@ -1931,6 +1929,18 @@
         "lib/net40/Owin.dll",
         "owin.1.0.0.nupkg.sha512",
         "owin.nuspec"
+      ]
+    },
+    "Owin.WebSocket/1.7.0": {
+      "sha512": "pkNiHlIj/wiGSfV85uy87E4wgY3u1bEdTOjotA/tIOYw7qTa4gJKY/XjlBNrq5LOKxshZN4in99pjlXWYjliOQ==",
+      "type": "package",
+      "path": "owin.websocket/1.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Owin.WebSocket.dll",
+        "owin.websocket.1.7.0.nupkg.sha512",
+        "owin.websocket.nuspec"
       ]
     },
     "Suave/2.5.6": {
@@ -4237,11 +4247,6 @@
       "type": "project",
       "path": "../../f-/src/fsharp/Interactive.DependencyManager/Interactive.DependencyManager.fsproj",
       "msbuildProject": "../../f-/src/fsharp/Interactive.DependencyManager/Interactive.DependencyManager.fsproj"
-    },
-    "Owin.WebSocket/1.0.0": {
-      "type": "project",
-      "path": "../Owin.WebSocket/Owin.WebSocket.csproj",
-      "msbuildProject": "../Owin.WebSocket/Owin.WebSocket.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4263,7 +4268,7 @@
       "Microsoft.Owin.Hosting >= 4.1.0",
       "Microsoft.Owin.StaticFiles >= 4.1.0",
       "Owin >= 1.0.0",
-      "Owin.WebSocket >= 1.0.0",
+      "Owin.WebSocket >= 1.7.0",
       "Suave >= 2.5.6",
       "System.Buffers >= 4.5.1",
       "System.Collections.Immutable >= 5.0.0-preview.2.20160.6",
@@ -4316,7 +4321,6 @@
         "https://dotnet.myget.org/F/roslyn-tools/api/v3/index.json": {},
         "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {},
         "https://dotnet.myget.org/F/symreader-converter/api/v3/index.json": {},
-        "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
         "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {},
         "https://myget.org/F/roslyn_concord/api/v3/index.json": {},
         "https://myget.org/F/vs-devcore/api/v3/index.json": {},
@@ -4351,9 +4355,6 @@
             },
             "Z:\\f-\\src\\fsharp\\Interactive.DependencyManager\\Interactive.DependencyManager.fsproj": {
               "projectPath": "Z:\\f-\\src\\fsharp\\Interactive.DependencyManager\\Interactive.DependencyManager.fsproj"
-            },
-            "Z:\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj": {
-              "projectPath": "Z:\\ws2\\Owin.WebSocket\\Owin.WebSocket.csproj"
             }
           }
         }
@@ -4420,6 +4421,11 @@
           "Owin": {
             "target": "Package",
             "version": "[1.0.0, )",
+            "generatePathProperty": true
+          },
+          "Owin.WebSocket": {
+            "target": "Package",
+            "version": "[1.7.0, )",
             "generatePathProperty": true
           },
           "Suave": {
@@ -4531,17 +4537,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package downgrade: CommonServiceLocator from 2.0.5 to 1.3. Reference the package directly from the project to select a different version. \r\n ClientServer -> Owin.WebSocket -> CommonServiceLocator (>= 2.0.5) \r\n ClientServer -> CommonServiceLocator (>= 1.3.0)",
-      "libraryId": "CommonServiceLocator",
-      "targetGraphs": [
-        ".NETFramework,Version=v4.8"
-      ]
-    }
-  ]
+  }
 }

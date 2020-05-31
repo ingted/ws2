@@ -94,7 +94,7 @@ module Site =
 
     let FSIPage serverSend serverReceive ctx =
         let docList = Templating.MenuBar ctx EndPoint.FSI 
-        let ws = ClientSide <@ Client.Send serverReceive @>
+        //let ws = ClientSide <@ Client.Send serverReceive @>
 
         let wc = 
             divAttr [] [
@@ -104,7 +104,8 @@ module Site =
                 divAttr [
                     Attr.Create "id" "fsiResult" 
                 ] [
-                    divAttr [attr.id "consoleWC"] [Doc.WebControl ws] 
+                    //divAttr [attr.id "consoleWC"] [Doc.WebControl ws] 
+                    divAttr [attr.id "consoleWC"] []
                 ]
             ]
         Content.Page(

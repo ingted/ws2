@@ -464,3 +464,4 @@ Z:\ws2\ClientServer\obj\Debug\net48\ClientServer.AssemblyInfo.fs
 Z:\ws2\ClientServer\obj\Debug\net48\ClientServer.fsproj.CopyComplete
 Z:\ws2\ClientServer\obj\Debug\net48\ClientServer.exe
 Z:\ws2\ClientServer\obj\Debug\net48\ClientServer.pdb
+Z:\ws2\ClientServer\obj\Debug\net48\ClientServer.fsproj.CoreCompileInputs.cache

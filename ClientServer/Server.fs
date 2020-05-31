@@ -277,6 +277,14 @@ module Server =
             return c
         }
 
+    [<Rpc>]
+    let getPort (uriStr:string) =
+        async {
+            let connPort2 : WebSharper.Owin.WebSocket.Endpoint<S2CMessage, C2SMessage> = WebSharper.Owin.WebSocket.Endpoint.Create(uriStr, "/WS2", WebSharper.Owin.WebSocket.JsonEncoding.Readable)
+            return connPort2
+        }
+
+
     Console.SetOut tw
     //let fsiConfigOld = FsiEvaluationSession.GetDefaultConfiguration()
     //let fsiSessionOld = FsiEvaluationSession.Create(fsiConfigOld, allArgs, inStream, tw, tw)

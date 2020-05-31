@@ -117,7 +117,6 @@
         "https://dotnet.myget.org/F/roslyn-tools/api/v3/index.json": {},
         "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {},
         "https://dotnet.myget.org/F/symreader-converter/api/v3/index.json": {},
-        "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
         "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {},
         "https://myget.org/F/roslyn_concord/api/v3/index.json": {},
         "https://myget.org/F/vs-devcore/api/v3/index.json": {},

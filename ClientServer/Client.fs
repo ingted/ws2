@@ -86,6 +86,71 @@ module Client =
     let filterKeyWord = Var.Create ""
 
     [<JavaScript>]
+    let content = Var.Create ""
+
+    [<JavaScript>]
+    let Send2 (serverReceive : Endpoint<Server.S2CMessage, Server.C2SMessage>) =
+        let container = 
+            Doc.InputArea [attr.id "container"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10"] content
+        let writen fmt =
+            Printf.ksprintf (fun s ->
+                Var.Set filterResult ([|s + "\n"|] |> Array.append filterResult.Value)
+                JS.Document.CreateTextNode(s + "\n")
+                |> container.Dom.AppendChild
+                |> ignore
+            ) fmt
+        async {
+            do
+                ()
+
+            let! server =
+                ConnectStateful serverReceive <| fun server -> async {
+                    return 0, fun state msg -> async {
+                        match msg with
+                        | Message data ->
+                            match data with
+                            | Server.MessageFromServer_String x -> writen "MessageFromServer_String %s \r\n(state: %i)" x state
+                            | _ ->
+                                writen "invalidMessage"
+                            return (state + 1)
+                        | Close ->
+                            writen "WebSocket connection closed."
+                            return state
+                        | Open ->
+                            writen "WebSocket connection open."
+                            return state
+                        | Error ->
+                            writen "WebSocket connection error!"
+                            return state
+                    }
+                }
+    
+            //let lotsOfHellos = "HELLO" |> Array.create 1000
+            //let lotsOf123s = 123 |> Array.create 1000
+            server.Post (Server.MessageFromClient "kickOff")
+            //while true do
+            //    do! FSharp.Control.Async.Sleep 1000
+            //    server.Post (Server.Req3 {name = {FirstName = "John"; LastName = "Doe"}; age = 42})
+                //do! FSharp.Control.Async.Sleep 1000
+                //server.Post (Server.Request1 [| "HELLO" |])
+                //do! FSharp.Control.Async.Sleep 1000
+                //server.Post (Server.Request2 lotsOf123s)
+        }
+        |> FSharp.Control.Async.Start
+        
+        container.SetAttribute("id", "console")
+        container
+
+    [<JavaScript>]
+    let Send3 (uri:string) = 
+        content.Value <- ""
+        async {            
+            let! c = Server.getPort uri               
+            WebSharper.JQuery.JQuery.Of("#console").Remove().Ignore
+            Doc.RunById "consoleWC" (Send2 c :> Doc)
+        }
+
+    [<JavaScript>]
     let fsiCmd () =
         let rvInput = Var.Create ""
         let rvHisCmd = Var.Create ([||]:string[])
@@ -118,6 +183,7 @@ module Client =
         
 
         let nScript = Var.Create "named script"
+        let webSocket2 = Var.Create "http://localhost:8080/"
         let curPos = Var.Create 0
         let submit = Submitter.CreateOption rvInput.View
         let hisCmd = Submitter.CreateOption rvHisCmd.View
@@ -216,6 +282,13 @@ module Client =
                     Doc.Button "Clear Result Cache" [] (fun () -> 
                         filterResult.Value <- Array.empty
                         )
+                    brAttr [][]
+                    Doc.Button "ConnectTo" [] (fun () -> 
+                        Send3 (WebSharper.JQuery.JQuery.Of("#webSocket2").Val().ToString()) |> Async.Start
+                        )
+                    brAttr [][]
+                    Doc.InputArea [attr.id "webSocket2"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "1" ] webSocket2
+                    
                     brAttr [][]
                     filterBox
                     Doc.InputArea [attr.id "nScript"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "1" ] nScript
@@ -351,4 +424,3 @@ module Client =
         container.SetAttribute("id", "console")
         container
 
-    

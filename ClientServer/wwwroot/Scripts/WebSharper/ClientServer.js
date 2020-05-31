@@ -230,7 +230,7 @@
  };
  Client.fsiCmd=function()
  {
-  var rvInput,rvHisCmd,filterResultFlattened,nScript,curPos,submit,hisCmd,vReversed,filterBox;
+  var rvInput,rvHisCmd,filterResultFlattened,nScript,webSocket2,curPos,submit,hisCmd,vReversed,filterBox;
   rvInput=Var.Create$1("");
   rvHisCmd=Var.Create$1([]);
   filterResultFlattened=Var.Lens(Client.filterResult(),function(arr)
@@ -246,6 +246,7 @@
    return n.concat([s]);
   });
   nScript=Var.Create$1("named script");
+  webSocket2=Var.Create$1("http://localhost:8080/");
   curPos=Var.Create$1(0);
   submit=Submitter.CreateOption(rvInput.v);
   hisCmd=Submitter.CreateOption(rvHisCmd.v);
@@ -275,7 +276,7 @@
        });
       }
      else
-      throw new MatchFailureException.New("Client.fs",142,33);
+      throw new MatchFailureException.New("Client.fs",208,33);
    }
    else
     return(new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getHisCmds:-118046996",[]);
@@ -362,7 +363,102 @@
   }),Doc.Button("Clear Result Cache",[],function()
   {
    Var.Set(Client.filterResult(),[]);
-  }),Doc.Element("br",[],[]),filterBox,Doc.InputArea([AttrProxy.Create("id","nScript"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","1")],nScript),Doc.InputArea([AttrProxy.Create("id","fsiCmd"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10"),AttrProxy.Create("value","printfn \"orz\"")],rvInput)]),Doc.Element("hr",[],[]),Doc.InputArea([AttrProxy.Create("id","filteredResult"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10")],filterResultFlattened),Doc.Element("h4",[AttrProxy.Create("class","text-muted")],[Doc.TextNode("The server responded:")]),Doc.Element("div",[],[Doc.Element("h1",[],[Doc.TextView(vReversed)])])]);
+  }),Doc.Element("br",[],[]),Doc.Button("ConnectTo",[],function()
+  {
+   Concurrency.Start(Client.Send3(Global.String($("#webSocket2").val())),null);
+  }),Doc.Element("br",[],[]),Doc.InputArea([AttrProxy.Create("id","webSocket2"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","1")],webSocket2),Doc.Element("br",[],[]),filterBox,Doc.InputArea([AttrProxy.Create("id","nScript"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","1")],nScript),Doc.InputArea([AttrProxy.Create("id","fsiCmd"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10"),AttrProxy.Create("value","printfn \"orz\"")],rvInput)]),Doc.Element("hr",[],[]),Doc.InputArea([AttrProxy.Create("id","filteredResult"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10")],filterResultFlattened),Doc.Element("h4",[AttrProxy.Create("class","text-muted")],[Doc.TextNode("The server responded:")]),Doc.Element("div",[],[Doc.Element("h1",[],[Doc.TextView(vReversed)])])]);
+ };
+ Client.Send3=function(uri)
+ {
+  var b;
+  Var.Set(Client.content(),"");
+  b=null;
+  return Concurrency.Delay(function()
+  {
+   return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getPort:1510873242",[uri]),function(a)
+   {
+    $("#console").remove();
+    Doc.RunById("consoleWC",Client.Send2(a));
+    return Concurrency.Zero();
+   });
+  });
+ };
+ Client.Send2=function(serverReceive)
+ {
+  var container,b;
+  function writen(fmt)
+  {
+   return fmt(function(s)
+   {
+    var x;
+    Var.Set(Client.filterResult(),Client.filterResult().c.concat([s+"\n"]));
+    x=self.document.createTextNode(s+"\n");
+    container.elt.appendChild(x);
+   });
+  }
+  container=Doc.InputArea([AttrProxy.Create("id","container"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10")],Client.content());
+  Concurrency.Start((b=null,Concurrency.Delay(function()
+  {
+   return Concurrency.Bind(WithEncoding.ConnectStateful(function(a)
+   {
+    return JSON.stringify((ClientServer_JsonEncoder.j())(a));
+   },function(a)
+   {
+    return(ClientServer_JsonDecoder.j())(JSON.parse(a));
+   },serverReceive,function()
+   {
+    var b$1;
+    b$1=null;
+    return Concurrency.Delay(function()
+    {
+     return Concurrency.Return([0,function(state)
+     {
+      return function(msg)
+      {
+       var b$2;
+       b$2=null;
+       return Concurrency.Delay(function()
+       {
+        var data;
+        return msg.$==3?(writen(function($1)
+        {
+         return $1("WebSocket connection closed.");
+        }),Concurrency.Return(state)):msg.$==2?(writen(function($1)
+        {
+         return $1("WebSocket connection open.");
+        }),Concurrency.Return(state)):msg.$==1?(writen(function($1)
+        {
+         return $1("WebSocket connection error!");
+        }),Concurrency.Return(state)):(data=msg.$0,Concurrency.Combine(data.$==3?(((writen(Runtime.Curried3(function($1,$2,$3)
+        {
+         return $1("MessageFromServer_String "+Utils.toSafe($2)+" \r\n(state: "+Global.String($3)+")");
+        })))(data.$0))(state),Concurrency.Zero()):(writen(function($1)
+        {
+         return $1("invalidMessage");
+        }),Concurrency.Zero()),Concurrency.Delay(function()
+        {
+         return Concurrency.Return(state+1);
+        })));
+       });
+      };
+     }]);
+    });
+   }),function(a)
+   {
+    a.Post({
+     $:3,
+     $0:"kickOff"
+    });
+    return Concurrency.Zero();
+   });
+  })),null);
+  container.SetAttribute("id","console");
+  return container;
+ };
+ Client.content=function()
+ {
+  SC$1.$cctor();
+  return SC$1.content;
  };
  Client.filterKeyWord=function()
  {
@@ -424,6 +520,7 @@
   SC$1.$cctor=Global.ignore;
   SC$1.filterResult=Var.Create$1([]);
   SC$1.filterKeyWord=Var.Create$1("");
+  SC$1.content=Var.Create$1("");
  };
  GeneratedPrintf.p=function($1)
  {

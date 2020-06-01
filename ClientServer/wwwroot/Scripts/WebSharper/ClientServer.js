@@ -72,7 +72,7 @@
        b$2=null;
        return Concurrency.Delay(function()
        {
-        var data;
+        var data,jd;
         return msg.$==3?(writen(function($1)
         {
          return $1("WebSocket connection closed.");
@@ -82,10 +82,10 @@
         }),Concurrency.Return(state)):msg.$==1?(writen(function($1)
         {
          return $1("WebSocket connection error!");
-        }),Concurrency.Return(state)):(data=msg.$0,Concurrency.Combine(data.$==3?(((writen(Runtime.Curried3(function($1,$2,$3)
+        }),Concurrency.Return(state)):(data=msg.$0,Concurrency.Combine(data.$==3?(jd=new Global.Date(),((((writen(Runtime.Curried(function($1,$2,$3,$4)
         {
-         return $1("MessageFromServer_String "+Utils.toSafe($2)+" \r\n(state: "+Global.String($3)+")");
-        })))(data.$0))(state),Concurrency.Zero()):(writen(function($1)
+         return $1("["+Utils.toSafe($2)+"]["+Global.String($3)+"] "+Utils.toSafe($4));
+        },4)))(jd.toTimeString()))(state))(data.$0),Concurrency.Zero())):(writen(function($1)
         {
          return $1("invalidMessage");
         }),Concurrency.Zero()),Concurrency.Delay(function()
@@ -277,7 +277,7 @@
        });
       }
      else
-      throw new MatchFailureException.New("Client.fs",218,33);
+      throw new MatchFailureException.New("Client.fs",224,33);
    }
    else
     return(new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getHisCmds:-118046996",[]);
@@ -376,17 +376,20 @@
   b=null;
   return Concurrency.Delay(function()
   {
-   return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getPort:1510873242",[uri]),function(a)
+   return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.MD5Hash:-1840423385",[uri]),function(a)
    {
-    $("#console").empty().ready(function()
+    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getPort:1510873242",[uri]),function(a$1)
     {
-     return Client.Send2(a);
+     $("#console").empty().ready(function()
+     {
+      return Client.Send2(a$1,a);
+     });
+     return Concurrency.Zero();
     });
-    return Concurrency.Zero();
    });
   });
  };
- Client.Send2=function(serverReceive)
+ Client.Send2=function(serverReceive,hostHash)
  {
   var b;
   function writen(fmt)
@@ -419,7 +422,7 @@
        b$2=null;
        return Concurrency.Delay(function()
        {
-        var data;
+        var data,jd;
         return msg.$==3?(writen(function($1)
         {
          return $1("WebSocket connection closed.");
@@ -429,10 +432,10 @@
         }),Concurrency.Return(state)):msg.$==1?(writen(function($1)
         {
          return $1("WebSocket connection error!");
-        }),Concurrency.Return(state)):(data=msg.$0,Concurrency.Combine(data.$==3?(((writen(Runtime.Curried3(function($1,$2,$3)
+        }),Concurrency.Return(state)):(data=msg.$0,Concurrency.Combine(data.$==3?(jd=new Global.Date(),((((((((((writen(Runtime.Curried(function($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
         {
-         return $1("MessageFromServer_String "+Utils.toSafe($2)+" \r\n(state: "+Global.String($3)+")");
-        })))(data.$0))(state),Concurrency.Zero()):(writen(function($1)
+         return $1("["+Utils.toSafe($2)+"]["+Global.String($3)+"-"+Global.String($4)+"-"+Global.String($5)+" "+Global.String($6)+":"+Global.String($7)+":"+Global.String($8)+"]["+Global.String($9)+"] "+Utils.toSafe($10));
+        },10)))(hostHash))(jd.getFullYear()))(jd.getMonth()))(jd.getUTCDay()))(jd.getUTCHours()))(jd.getUTCHours()))(jd.getUTCSeconds()))(state))(data.$0),Concurrency.Zero())):(writen(function($1)
         {
          return $1("invalidMessage");
         }),Concurrency.Zero()),Concurrency.Delay(function()

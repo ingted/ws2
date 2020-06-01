@@ -342,8 +342,18 @@ module Server =
             | _ -> return "invalidMsg"
             }
 
-    
-
+    [<Rpc>]
+    let MD5Hash (input : string) =
+        async {
+            use md5 = System.Security.Cryptography.MD5.Create()
+            return (
+                input
+                |> System.Text.Encoding.ASCII.GetBytes
+                |> md5.ComputeHash
+                |> Seq.map (fun c -> c.ToString("X2"))
+                |> Seq.reduce (+)
+            )
+        }
     
     (*
         type StatefulAgent<'S2C, 'C2S, 'State> = 

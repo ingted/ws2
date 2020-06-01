@@ -92,7 +92,7 @@ module Client =
     let socketServer:Var<WebSocketServer<Server.S2CMessage, Server.C2SMessage> option> = Var.Create None
 
     [<JavaScript>]
-    let Send2 (serverReceive : Endpoint<Server.S2CMessage, Server.C2SMessage>) =
+    let Send2 (serverReceive : Endpoint<Server.S2CMessage, Server.C2SMessage>) hostHash =
         //let container = 
         //    Doc.InputArea [attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10"] content
         
@@ -114,7 +114,11 @@ module Client =
                         match msg with
                         | Message data ->
                             match data with
-                            | Server.MessageFromServer_String x -> writen "MessageFromServer_String %s \r\n(state: %i)" x state
+                            //| Server.MessageFromServer_String x -> writen "[%s][%s][%i] %s" hostHash (System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")) state x
+                            | Server.MessageFromServer_String x -> 
+                                let jd = new WebSharper.JavaScript.Date()
+                                //writen "[%s][%A][%i] %s" hostHash (System.DateTime.Now.ToLongDateString() + " " + System.DateTime.Now.ToLongTimeString()) state x
+                                writen "[%s][%i-%i-%i %i:%i:%i][%i] %s" hostHash (jd.GetFullYear()) (jd.GetMonth()) (jd.GetUTCDay()) (jd.GetUTCHours()) (jd.GetUTCHours()) (jd.GetUTCSeconds()) state x
                             | _ ->
                                 writen "invalidMessage"
                             return (state + 1)
@@ -152,11 +156,13 @@ module Client =
         //content.Value <- ""
         if socketServer.Value <> None then
             socketServer.Value.Value.Connection.Close ()
+        
         async {            
+            let! hostHash = Server.MD5Hash uri
             let! c = Server.getPort uri               
             WebSharper.JQuery.JQuery.Of("#console").Empty().Ready(fun () ->
                 //Doc.RunById "consoleWC" (Send2 c :> Doc)
-                Send2 c
+                Send2 c hostHash
                 ).Ignore
         }
 
@@ -402,7 +408,10 @@ module Client =
                         match msg with
                         | Message data ->
                             match data with
-                            | Server.MessageFromServer_String x -> writen "MessageFromServer_String %s \r\n(state: %i)" x state
+                            | Server.MessageFromServer_String x -> 
+                                let jd = new WebSharper.JavaScript.Date()
+                                //writen "[%s][%A][%i] %s" hostHash (System.DateTime.Now.ToLongDateString() + " " + System.DateTime.Now.ToLongTimeString()) state x
+                                writen "[%s][%i] %s" (jd.ToTimeString()) state x
                             | _ ->
                                 writen "invalidMessage"
                             return (state + 1)

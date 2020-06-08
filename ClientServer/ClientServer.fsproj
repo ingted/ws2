@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="testCluster.fs" />
     <None Include="App.config" />
     <None Include="snk.snk" />
     <Compile Include="FsiSession.fs" />

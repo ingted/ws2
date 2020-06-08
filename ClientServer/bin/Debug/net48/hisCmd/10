@@ -1,1 +1,14 @@
-123
+#if INTERACTIVE
+#r "nuget: Akka.Cluster"
+#r "nuget: Akka.FSharp"
+#else
+module akkaTest
+#endif
+
+open System
+open System.IO
+open Akka.Actor
+open Akka.FSharp.Spawn
+open Akka.Cluster
+open Akka.FSharp
+open Akka.Routing

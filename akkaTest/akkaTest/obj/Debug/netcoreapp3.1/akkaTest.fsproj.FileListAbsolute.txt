@@ -1,0 +1,6 @@
+Z:\ws2\akkaTest\akkaTest\bin\Debug\netcoreapp3.1\akkaTest.deps.json
+Z:\ws2\akkaTest\akkaTest\bin\Debug\netcoreapp3.1\akkaTest.dll
+Z:\ws2\akkaTest\akkaTest\obj\Debug\netcoreapp3.1\akkaTest.fsprojAssemblyReference.cache
+Z:\ws2\akkaTest\akkaTest\obj\Debug\netcoreapp3.1\akkaTest.fsproj.CoreCompileInputs.cache
+Z:\ws2\akkaTest\akkaTest\obj\Debug\netcoreapp3.1\akkaTest.AssemblyInfoInputs.cache
+Z:\ws2\akkaTest\akkaTest\obj\Debug\netcoreapp3.1\akkaTest.AssemblyInfo.fs

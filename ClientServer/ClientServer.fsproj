@@ -10,6 +10,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="j.js" />
+    <Content Include="main2.html" />
+    <Content Include="Main.html" />
     <None Include="testCluster.fs" />
     <None Include="App.config" />
     <None Include="snk.snk" />

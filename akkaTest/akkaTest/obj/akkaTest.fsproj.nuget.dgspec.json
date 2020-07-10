@@ -88,6 +88,11 @@
               "version": "[1.4.7, )",
               "generatePathProperty": true
             },
+            "Akka.Serialization.Hyperion": {
+              "target": "Package",
+              "version": "[1.4.7, )",
+              "generatePathProperty": true
+            },
             "Akka.Streams": {
               "target": "Package",
               "version": "[1.4.7, )",
@@ -96,6 +101,11 @@
             "FSharp.Core": {
               "target": "Package",
               "version": "[4.7.2, )",
+              "generatePathProperty": true
+            },
+            "Hyperion": {
+              "target": "Package",
+              "version": "[0.9.15, )",
               "generatePathProperty": true
             }
           },
@@ -114,7 +124,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

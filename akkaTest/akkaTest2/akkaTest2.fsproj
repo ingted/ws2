@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="App.config" />
+    <Compile Include="testCluster.fs" />
+  </ItemGroup>
+
+  <ItemGroup />
+
+  <ItemGroup>
+    <PackageReference Include="Hyperion" Version="0.9.15" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\akka.net\src\contrib\cluster\Akka.Cluster.Sharding\Akka.Cluster.Sharding.csproj" />
+    <ProjectReference Include="..\..\..\akka.net\src\contrib\cluster\Akka.Cluster.Tools\Akka.Cluster.Tools.csproj" />
+    <ProjectReference Include="..\..\..\akka.net\src\contrib\serializers\Akka.Serialization.Hyperion\Akka.Serialization.Hyperion.csproj" />
+    <ProjectReference Include="..\..\..\akka.net\src\core\Akka.Cluster\Akka.Cluster.csproj" />
+    <ProjectReference Include="..\..\..\akka.net\src\core\Akka.FSharp\Akka.FSharp.fsproj" />
+    <ProjectReference Include="..\..\..\akka.net\src\core\Akka.Persistence.FSharp\Akka.Persistence.FSharp.fsproj" />
+    <ProjectReference Include="..\..\..\akka.net\src\core\Akka.Persistence\Akka.Persistence.csproj" />
+    <ProjectReference Include="..\..\..\akka.net\src\core\Akka.Remote\Akka.Remote.csproj" />
+    <ProjectReference Include="..\..\..\akka.net\src\core\Akka\Akka.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="4.7.2" />
+  </ItemGroup>
+
+</Project>

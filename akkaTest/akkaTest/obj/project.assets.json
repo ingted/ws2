@@ -150,6 +150,19 @@
           "lib/netstandard2.0/Akka.Remote.dll": {}
         }
       },
+      "Akka.Serialization.Hyperion/1.4.7": {
+        "type": "package",
+        "dependencies": {
+          "Akka": "1.4.7",
+          "Hyperion": "0.9.15"
+        },
+        "compile": {
+          "lib/netstandard2.0/Akka.Serialization.Hyperion.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Akka.Serialization.Hyperion.dll": {}
+        }
+      },
       "Akka.Streams/1.4.7": {
         "type": "package",
         "dependencies": {
@@ -340,6 +353,19 @@
           "lib/netstandard2.0/Google.Protobuf.dll": {}
         }
       },
+      "Hyperion/0.9.15": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "System.Runtime": "4.3.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Hyperion.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Hyperion.dll": {}
+        }
+      },
       "LightningDB/0.11.0": {
         "type": "package",
         "compile": {
@@ -368,6 +394,15 @@
             "assetType": "native",
             "rid": "win-x86"
           }
+        }
+      },
+      "Microsoft.CSharp/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
         }
       },
       "Microsoft.Extensions.DependencyInjection.Abstractions/1.1.0": {
@@ -418,7 +453,7 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.NETCore.Targets/1.1.0": {
+      "Microsoft.NETCore.Targets/1.1.3": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -1468,11 +1503,11 @@
           "ref/netstandard1.0/System.Resources.ResourceManager.dll": {}
         }
       },
-      "System.Runtime/4.3.0": {
+      "System.Runtime/4.3.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.0"
+          "Microsoft.NETCore.Platforms": "1.1.1",
+          "Microsoft.NETCore.Targets": "1.1.3"
         },
         "compile": {
           "ref/netstandard1.5/System.Runtime.dll": {}
@@ -2218,6 +2253,19 @@
         "lib/netstandard2.0/Akka.Remote.xml"
       ]
     },
+    "Akka.Serialization.Hyperion/1.4.7": {
+      "sha512": "6V2W4u8pqGzAjNgmrY697C8HrtxJ3KwmMroxuyVf8mOXqYO4Xk8Wkmr+1rth+AxMxV2oChisG/KaoKLwX8xZow==",
+      "type": "package",
+      "path": "akka.serialization.hyperion/1.4.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "akka.serialization.hyperion.1.4.7.nupkg.sha512",
+        "akka.serialization.hyperion.nuspec",
+        "lib/netstandard2.0/Akka.Serialization.Hyperion.dll",
+        "lib/netstandard2.0/Akka.Serialization.Hyperion.xml"
+      ]
+    },
     "Akka.Streams/1.4.7": {
       "sha512": "EYnoozuovZMV04gb2f/hWkjvhNw8uhqxuO49nM3LHxxt3HqWYIZ22T0gdZyRdaJALcB7YaEghuswrt+Iy55o9w==",
       "type": "package",
@@ -2411,6 +2459,20 @@
         "lib/netstandard2.0/Google.Protobuf.xml"
       ]
     },
+    "Hyperion/0.9.15": {
+      "sha512": "hjOVwVigs60oJtgc39Gkrna1ur1nEfxCEm4FuEgNDI9By79bYzu3fIo8r5ZRX7DH/loUhoURlfD8qH501RpVnw==",
+      "type": "package",
+      "path": "hyperion/0.9.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "hyperion.0.9.15.nupkg.sha512",
+        "hyperion.nuspec",
+        "lib/net45/Hyperion.dll",
+        "lib/netstandard1.6/Hyperion.dll",
+        "lib/netstandard2.0/Hyperion.dll"
+      ]
+    },
     "LightningDB/0.11.0": {
       "sha512": "5t7HRNsss7It4OsjI2rCpXVdHw4RcyROeeA3erBnqCHqORPWzUIxJg056PwjAh1m0szxRLjaSm0HJMGq7v5UOQ==",
       "type": "package",
@@ -2426,6 +2488,76 @@
         "runtimes/osx/native/lmdb.dylib",
         "runtimes/win-x64/native/lmdb.dll",
         "runtimes/win-x86/native/lmdb.dll"
+      ]
+    },
+    "Microsoft.CSharp/4.7.0": {
+      "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
+      "type": "package",
+      "path": "microsoft.csharp/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/Microsoft.CSharp.dll",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.3/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.xml",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/uap10.0.16299/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "microsoft.csharp.4.7.0.nupkg.sha512",
+        "microsoft.csharp.nuspec",
+        "paket-installmodel.cache",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/Microsoft.CSharp.dll",
+        "ref/netcore50/Microsoft.CSharp.xml",
+        "ref/netcore50/de/Microsoft.CSharp.xml",
+        "ref/netcore50/es/Microsoft.CSharp.xml",
+        "ref/netcore50/fr/Microsoft.CSharp.xml",
+        "ref/netcore50/it/Microsoft.CSharp.xml",
+        "ref/netcore50/ja/Microsoft.CSharp.xml",
+        "ref/netcore50/ko/Microsoft.CSharp.xml",
+        "ref/netcore50/ru/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hans/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hant/Microsoft.CSharp.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.0/Microsoft.CSharp.dll",
+        "ref/netstandard1.0/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/de/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/es/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/fr/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/it/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ja/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ko/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ru/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hans/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hant/Microsoft.CSharp.xml",
+        "ref/netstandard2.0/Microsoft.CSharp.dll",
+        "ref/netstandard2.0/Microsoft.CSharp.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/uap10.0.16299/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "Microsoft.Extensions.DependencyInjection.Abstractions/1.1.0": {
@@ -2485,17 +2617,17 @@
         "version.txt"
       ]
     },
-    "Microsoft.NETCore.Targets/1.1.0": {
-      "sha512": "aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
+    "Microsoft.NETCore.Targets/1.1.3": {
+      "sha512": "3Wrmi0kJDzClwAC+iBdUBpEKmEle8FQNsCs77fkiOIw/9oYA07bL1EZNX0kQ2OMN3xpwvl0vAtOCYY3ndDNlhQ==",
       "type": "package",
-      "path": "microsoft.netcore.targets/1.1.0",
+      "path": "microsoft.netcore.targets/1.1.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
-        "microsoft.netcore.targets.1.1.0.nupkg.sha512",
+        "microsoft.netcore.targets.1.1.3.nupkg.sha512",
         "microsoft.netcore.targets.nuspec",
         "runtime.json"
       ]
@@ -5150,10 +5282,10 @@
         "system.resources.resourcemanager.nuspec"
       ]
     },
-    "System.Runtime/4.3.0": {
-      "sha512": "JufQi0vPQ0xGnAczR13AUFglDyVYt4Kqnz1AZaiKZ5+GICq0/1MH/mO/eAJHt/mHW1zjKBJd7kV26SrxddAhiw==",
+    "System.Runtime/4.3.1": {
+      "sha512": "abhfv1dTK6NXOmu4bgHIONxHyEqFjW8HwXPmpY9gmll+ix9UNo4XDcmzJn6oLooftxNssVHdJC1pGT9jkSynQg==",
       "type": "package",
-      "path": "system.runtime/4.3.0",
+      "path": "system.runtime/4.3.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5171,6 +5303,7 @@
         "lib/xamarinmac20/_._",
         "lib/xamarintvos10/_._",
         "lib/xamarinwatchos10/_._",
+        "paket-installmodel.cache",
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
         "ref/net45/_._",
@@ -5238,7 +5371,7 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.runtime.4.3.0.nupkg.sha512",
+        "system.runtime.4.3.1.nupkg.sha512",
         "system.runtime.nuspec"
       ]
     },
@@ -6844,8 +6977,10 @@
       "Akka.Persistence >= 1.4.7",
       "Akka.Persistence.Sql.Common >= 1.4.7",
       "Akka.Remote >= 1.4.7",
+      "Akka.Serialization.Hyperion >= 1.4.7",
       "Akka.Streams >= 1.4.7",
-      "FSharp.Core >= 4.7.2"
+      "FSharp.Core >= 4.7.2",
+      "Hyperion >= 0.9.15"
     ]
   },
   "packageFolders": {
@@ -6935,6 +7070,11 @@
             "version": "[1.4.7, )",
             "generatePathProperty": true
           },
+          "Akka.Serialization.Hyperion": {
+            "target": "Package",
+            "version": "[1.4.7, )",
+            "generatePathProperty": true
+          },
           "Akka.Streams": {
             "target": "Package",
             "version": "[1.4.7, )",
@@ -6943,6 +7083,11 @@
           "FSharp.Core": {
             "target": "Package",
             "version": "[4.7.2, )",
+            "generatePathProperty": true
+          },
+          "Hyperion": {
+            "target": "Package",
+            "version": "[0.9.15, )",
             "generatePathProperty": true
           }
         },
@@ -6961,7 +7106,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

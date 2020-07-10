@@ -166,11 +166,35 @@ module Client =
                 ).Ignore
         }
 
+
+    type JHelper =
+        static member add (l:JSObject, r: JSObject) =
+            Array.append (box l :?> JSObject[]) (box r :?> JSObject[])
+
+        static member append (o:JSObject) (key:string) (arr:JSObject) =
+            let oa = 
+                if (o.GetJS(key):?>JSObject) = JavaScript.Undefined.Value then
+                    o.[key] <- Array.empty<JSObject>                
+                o.[key]:?>JSObject
+            let oat = (box <| JHelper.add(oa, arr)):?> JSObject
+            ((box o) :?> JSObject).SetJS(key, oat)
+            o
+
     [<JavaScript>]
     let fsiCmd () =
         let rvInput = Var.Create ""
         let rvHisCmd = Var.Create ([||]:string[])
-        
+        let o = new JSObject()
+        let g = Array.empty<JSObject>
+        o.["g"] <- g
+        //o.["ttc"] <- g
+        let p123 = (Json.Parse "123") :?> JSObject
+        let o123 = (o.["g"]:?>JSObject[]) |> Array.append [|(Json.Parse "123") :?> JSObject|]
+        JS.Alert (Json.Serialize o123)
+        //(o.["g"]) <- ((o.["g"]:?>JSObject[]) |> Array.append [|(Json.Parse "123") :?> JSObject|])
+
+        JS.Alert (Json.Serialize <| JHelper.add(((Json.Parse "[123]") :?> JSObject),  ((Json.Parse "[456]") :?> JSObject)))
+        JS.Alert (Json.Serialize <| JHelper.append o "ttc" ((Json.Parse "[789]") :?> JSObject))
 
         //let filterResultFlattened =  
         //    Var.Lens filterResult (fun arr -> 
@@ -199,26 +223,40 @@ module Client =
         
 
         let nScript = Var.Create "named script"
+        let singleCommand = Var.Create ""
         let webSocket2 = Var.Create "http://localhost:8080/"
         let curPos = Var.Create 0
         let submit = Submitter.CreateOption rvInput.View
+        let submitSingle = Submitter.CreateOption singleCommand.View
         let hisCmd = Submitter.CreateOption rvHisCmd.View
         //let nxtCmd = Submitter.CreateOption rvHisCmd.View
         
+        let submitFun = 
+            function
+                            | None -> async { return "" }
+                            | Some input -> 
+                                            //let reg = new RegExp("23")
+                                            //Var.Set filterResult ([|input|]|>Array.filter (fun s -> reg.Test s))
+                                            rvHisCmd.Value <- Array.append rvHisCmd.Value [|input|]
+                                            curPos.Value <- curPos.Value + 1
+                                            Server.fsiExecute input
+                                //let svr = ttc<string, string> "ws://localhost:8080/WS2"
+                                //async {
+                                //    //svr.Post input
+                                //    return "post done" + input
+                                //}
+                        
         let vReversed =
-            submit.View.MapAsync(function
-                | None -> async { return "" }
-                | Some input -> 
-                                //let reg = new RegExp("23")
-                                //Var.Set filterResult ([|input|]|>Array.filter (fun s -> reg.Test s))
-                                rvHisCmd.Value <- Array.append rvHisCmd.Value [|input|]
-                                curPos.Value <- curPos.Value + 1
-                                Server.fsiExecute input
-                    //let svr = ttc<string, string> "ws://localhost:8080/WS2"
-                    //async {
-                    //    //svr.Post input
-                    //    return "post done" + input
-                    //}
+            View.Sequence (
+                seq [
+                    submit.View.MapAsync submitFun
+                    submitSingle.View.MapAsync submitFun
+                    ]
+                    )
+            |> View.Map (fun strSeq -> 
+                let s1 = strSeq |> Seq.item 0
+                let s2 = strSeq |> Seq.item 1
+                s1 + " " + s2
             )
         let getHisCmd =
             hisCmd.View.MapAsync(function
@@ -241,6 +279,7 @@ module Client =
             divAttr [] [
                 divAttr [][
                     Doc.Button "Send" [] submit.Trigger
+                    Doc.Button "SendSingle" [] submitSingle.Trigger
                     Doc.Button "Clear Console" [] (fun () -> 
                                                         //WebSharper.JQuery.JQuery.Of("#consoleWC")
                                                         WebSharper.JQuery.JQuery.Of("#console").Empty().Ignore)
@@ -309,6 +348,7 @@ module Client =
                     filterBox
                     Doc.InputArea [attr.id "nScript"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "1" ] nScript
                     Doc.InputArea [attr.id "fsiCmd"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10"; attr.value "printfn \"orz\""] rvInput
+                    Doc.InputArea [attr.id "singleCmd"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "1" ] singleCommand
                 ]
                 hrAttr [] []
                 Doc.InputArea [attr.id "filteredResult"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "10"] filterResultFlattened

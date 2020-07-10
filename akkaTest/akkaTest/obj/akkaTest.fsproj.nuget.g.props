@@ -13,9 +13,11 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgHyperion Condition=" '$(PkgHyperion)' == '' ">C:\Users\anibal\.nuget\packages\hyperion\0.9.15</PkgHyperion>
     <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\anibal\.nuget\packages\fsharp.core\4.7.2</PkgFSharp_Core>
     <PkgAkka Condition=" '$(PkgAkka)' == '' ">C:\Users\anibal\.nuget\packages\akka\1.4.7</PkgAkka>
     <PkgAkka_Streams Condition=" '$(PkgAkka_Streams)' == '' ">C:\Users\anibal\.nuget\packages\akka.streams\1.4.7</PkgAkka_Streams>
+    <PkgAkka_Serialization_Hyperion Condition=" '$(PkgAkka_Serialization_Hyperion)' == '' ">C:\Users\anibal\.nuget\packages\akka.serialization.hyperion\1.4.7</PkgAkka_Serialization_Hyperion>
     <PkgAkka_Remote Condition=" '$(PkgAkka_Remote)' == '' ">C:\Users\anibal\.nuget\packages\akka.remote\1.4.7</PkgAkka_Remote>
     <PkgAkka_Persistence Condition=" '$(PkgAkka_Persistence)' == '' ">C:\Users\anibal\.nuget\packages\akka.persistence\1.4.7</PkgAkka_Persistence>
     <PkgAkka_Persistence_Sql_Common Condition=" '$(PkgAkka_Persistence_Sql_Common)' == '' ">C:\Users\anibal\.nuget\packages\akka.persistence.sql.common\1.4.7</PkgAkka_Persistence_Sql_Common>

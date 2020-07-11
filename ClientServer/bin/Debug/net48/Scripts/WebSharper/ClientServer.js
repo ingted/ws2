@@ -1,7 +1,7 @@
 (function()
 {
  "use strict";
- var Global,testFrom0,Client,JHelper,SC$1,ClientServer_JsonEncoder,GeneratedPrintf,ClientServer_JsonDecoder,WebSharper,Unchecked,JavaScript,Pervasives,UI,Next,Var,Html,Client$1,Tags,Concurrency,Owin,WebSocket,Client$2,WithEncoding,JSON,IntelliFactory,Runtime,Utils,$,Remoting,AjaxRemotingProvider,ClientSideJson,Provider,Strings,Arrays,Submitter,View,Seq,MatchFailureException,Doc,AttrProxy;
+ var Global,testFrom0,Client,JHelper,SC$1,ClientServer_JsonEncoder,GeneratedPrintf,ClientServer_JsonDecoder,WebSharper,Unchecked,JavaScript,Pervasives,UI,Next,Var,Html,Client$1,Tags,Concurrency,Owin,WebSocket,Client$2,WithEncoding,JSON,IntelliFactory,Runtime,Utils,$,Remoting,AjaxRemotingProvider,Strings,Arrays,Submitter,View,Seq,MatchFailureException,Doc,AttrProxy,ClientSideJson,Provider;
  Global=self;
  testFrom0=Global.testFrom0=Global.testFrom0||{};
  Client=testFrom0.Client=testFrom0.Client||{};
@@ -32,8 +32,6 @@
  $=Global.jQuery;
  Remoting=WebSharper&&WebSharper.Remoting;
  AjaxRemotingProvider=Remoting&&Remoting.AjaxRemotingProvider;
- ClientSideJson=WebSharper&&WebSharper.ClientSideJson;
- Provider=ClientSideJson&&ClientSideJson.Provider;
  Strings=WebSharper&&WebSharper.Strings;
  Arrays=WebSharper&&WebSharper.Arrays;
  Submitter=Next&&Next.Submitter;
@@ -42,6 +40,8 @@
  MatchFailureException=WebSharper&&WebSharper.MatchFailureException;
  Doc=Next&&Next.Doc;
  AttrProxy=Next&&Next.AttrProxy;
+ ClientSideJson=WebSharper&&WebSharper.ClientSideJson;
+ Provider=ClientSideJson&&ClientSideJson.Provider;
  JHelper.append=function(o,key,arr)
  {
   o[key]=JHelper.add((Unchecked.Equals(Pervasives.GetJS(o,[key]),void 0)?o[key]=[]:void 0,o[key]),arr);
@@ -244,25 +244,26 @@
  };
  Client.fsiCmd=function()
  {
-  var rvInput,rvHisCmd,o,o123,x,a,a$1,filterResultFlattened,nScript,singleCommand,webSocket2,curPos,submit,submitSingle,hisCmd,vReversed,filterBox;
-  function submitFun(a$2)
+  var inputPath,outFile,ifReadAllMode,f1,f2,sl1,sl2,p1,p2,rvInput,rvHisCmd,filterResultFlattened,nScript,singleCommand,webSocket2,curPos,submit,submitSingle,hisCmd,vReversed,filterBox;
+  function submitFun(a)
   {
    var input,b;
-   return a$2!=null&&a$2.$==1?(input=a$2.$0,(Var.Set(rvHisCmd,rvHisCmd.c.concat([input])),Var.Set(curPos,curPos.c+1),(new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.fsiExecute:-1840423385",[input]))):(b=null,Concurrency.Delay(function()
+   return a!=null&&a.$==1?(input=a.$0,(Var.Set(rvHisCmd,rvHisCmd.c.concat([input])),Var.Set(curPos,curPos.c+1),(new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.fsiExecute:-1840423385",[input]))):(b=null,Concurrency.Delay(function()
    {
     return Concurrency.Return("");
    }));
   }
+  inputPath=Var.Create$1("v:\\");
+  outFile=Var.Create$1("v:\\result.csv");
+  ifReadAllMode=Var.Create$1(false);
+  f1=Var.Create$1("5");
+  f2=Var.Create$1("6");
+  sl1=Var.Create$1("8");
+  sl2=Var.Create$1("9");
+  p1=Var.Create$1("3");
+  p2=Var.Create$1("4");
   rvInput=Var.Create$1("");
   rvHisCmd=Var.Create$1([]);
-  o={
-   g:[]
-  };
-  JSON.parse("123");
-  o123=(x=o.g,[JSON.parse("123")].concat(x));
-  Global.alert(JSON.stringify(((Provider.EncodeArray(Provider.Id()))())(o123)));
-  Global.alert((a=JHelper.add(JSON.parse("[123]"),JSON.parse("[456]")),JSON.stringify(((Provider.EncodeArray(Provider.Id()))())(a))));
-  Global.alert((a$1=JHelper.append(o,"ttc",JSON.parse("[789]")),JSON.stringify(((Provider.Id())())(a$1))));
   filterResultFlattened=Var.Lens(Client.filterResult(),function(arr)
   {
    var reg;
@@ -286,17 +287,17 @@
   {
    return Seq.nth(0,strSeq)+" "+Seq.nth(1,strSeq);
   },View.Sequence([View.MapAsync(submitFun,submit.view),View.MapAsync(submitFun,submitSingle.view)]));
-  View.MapAsync(function(a$2)
+  View.MapAsync(function(a)
   {
    var v,b;
-   if(a$2!=null&&a$2.$==1)
+   if(a!=null&&a.$==1)
    {
-    if(Arrays.length(a$2.$0)===0)
+    if(Arrays.length(a.$0)===0)
      return(new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getHisCmds:-118046996",[]);
     else
-     if(a$2!=null&&a$2.$==1)
+     if(a!=null&&a.$==1)
       {
-       v=a$2.$0;
+       v=a.$0;
        b=null;
        return Concurrency.Delay(function()
        {
@@ -304,7 +305,7 @@
        });
       }
      else
-      throw new MatchFailureException.New("Client.fs",262,33);
+      throw new MatchFailureException.New("Client.fs",271,33);
    }
    else
     return(new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getHisCmds:-118046996",[]);
@@ -330,9 +331,9 @@
    var b;
    Concurrency.Start((b=null,Concurrency.Delay(function()
    {
-    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getHisCmd:-447555547",[]),function(a$2)
+    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getHisCmd:-447555547",[]),function(a)
     {
-     $("#fsiCmd").val(a$2);
+     $("#fsiCmd").val(a);
      return Concurrency.Zero();
     });
    })),null);
@@ -341,9 +342,9 @@
    var b;
    Arrays.length(rvHisCmd.c)===0?Concurrency.Start((b=null,Concurrency.Delay(function()
    {
-    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getHisCmds:-118046996",[]),function(a$2)
+    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getHisCmds:-118046996",[]),function(a)
     {
-     Var.Set(rvHisCmd,a$2);
+     Var.Set(rvHisCmd,a);
      return Concurrency.Combine(Arrays.length(rvHisCmd.c)>0?(Var.Set(curPos,Arrays.length(rvHisCmd.c)-1),Concurrency.Zero()):Concurrency.Zero(),Concurrency.Delay(function()
      {
       Var.Set(rvInput,Arrays.get(rvHisCmd.c,curPos.c));
@@ -357,9 +358,10 @@
    var b;
    Concurrency.Start((b=null,Concurrency.Delay(function()
    {
-    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getNamedScript:-1840423385",[Global.String($("#nScript").val())]),function(a$2)
+    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getNamedScript:-1840423385",[Global.String($("#nScript").val())]),function(a)
     {
-     $("#fsiCmd").val(a$2);
+     $("#fsiCmd").val(a);
+     Var.Set(rvInput,a);
      return Concurrency.Zero();
     });
    })),null);
@@ -368,9 +370,9 @@
    var b;
    Concurrency.Start((b=null,Concurrency.Delay(function()
    {
-    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.upsertNamedScript:2040152023",[Global.String($("#nScript").val()),Global.String($("#fsiCmd").val())]),function(a$2)
+    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.upsertNamedScript:2040152023",[Global.String($("#nScript").val()),Global.String($("#fsiCmd").val())]),function(a)
     {
-     $("#fsiCmd").val(a$2);
+     $("#fsiCmd").val(a);
      return Concurrency.Zero();
     });
    })),null);
@@ -379,13 +381,13 @@
    var b;
    Concurrency.Start((b=null,Concurrency.Delay(function()
    {
-    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.listNamedScripts:-118046996",[]),function(a$2)
+    return Concurrency.Bind((new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.listNamedScripts:-118046996",[]),function(a)
     {
      var s;
      s=Arrays.fold(function(str,item)
      {
       return str!==""?str+"\r\n"+item:item;
-     },"",a$2);
+     },"",a);
      $("#nScript").val("");
      $("#fsiCmd").val(s);
      return Concurrency.Zero();
@@ -397,6 +399,12 @@
   }),Doc.Element("br",[],[]),Doc.Button("ConnectTo",[],function()
   {
    Concurrency.Start(Client.Send3(Global.String($("#webSocket2").val())),null);
+  }),Doc.Input([AttrProxy.Create("id","fast1"),AttrProxy.Create("style","width: 50px")],f1),Doc.Input([AttrProxy.Create("id","fast2"),AttrProxy.Create("style","width: 50px")],f2),Doc.Input([AttrProxy.Create("id","slow1"),AttrProxy.Create("style","width: 50px")],sl1),Doc.Input([AttrProxy.Create("id","slow2"),AttrProxy.Create("style","width: 50px")],sl2),Doc.Input([AttrProxy.Create("id","period1"),AttrProxy.Create("style","width: 50px")],p1),Doc.Input([AttrProxy.Create("id","period2"),AttrProxy.Create("style","width: 50px")],p2),Doc.Element("br",[],[]),Doc.Element("div",[AttrProxy.Create("style","display:inline-block")],[Doc.Element("div",[AttrProxy.Create("style","display:inline-block")],[Doc.TextNode("folder of input files: ")]),Doc.Input([AttrProxy.Create("id","ipp"),AttrProxy.Create("style","width: 440px; display:inline-block")],inputPath)]),Doc.Element("div",[],[Doc.Element("div",[AttrProxy.Create("style","display:inline-block")],[Doc.TextNode("output file: ")]),Doc.Input([AttrProxy.Create("id","opf"),AttrProxy.Create("style","width: 440px; display:inline-block")],outFile)]),Doc.CheckBox([AttrProxy.Create("id","ifReadAllMode")],ifReadAllMode),Doc.Button("RunColdFar",[],function()
+  {
+   var cmd;
+   cmd="#r @\".\\dowSim002.exe\"\n"+"open dowSim002\n"+"open System.Reflection\n"+"main [| @\""+inputPath.c+"\"; \""+f1.c+"\"; \""+f2.c+"\"; \""+sl1.c+"\"; \""+sl2.c+"\"; \""+p1.c+"\"; \""+p2.c+"\"; @\""+outFile.c+"\" |]";
+   Var.Set(rvInput,cmd);
+   $("#fsiCmd").val(cmd);
   }),Doc.Element("br",[],[]),Doc.InputArea([AttrProxy.Create("id","webSocket2"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","1")],webSocket2),Doc.Element("br",[],[]),filterBox,Doc.InputArea([AttrProxy.Create("id","nScript"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","1")],nScript),Doc.InputArea([AttrProxy.Create("id","fsiCmd"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10"),AttrProxy.Create("value","printfn \"orz\"")],rvInput),Doc.InputArea([AttrProxy.Create("id","singleCmd"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","1")],singleCommand)]),Doc.Element("hr",[],[]),Doc.InputArea([AttrProxy.Create("id","filteredResult"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10")],filterResultFlattened),Doc.Element("h4",[AttrProxy.Create("class","text-muted")],[Doc.TextNode("The server responded:")]),Doc.Element("div",[],[Doc.Element("h1",[],[Doc.TextView(vReversed)])])]);
  };
  Client.Send3=function(uri)

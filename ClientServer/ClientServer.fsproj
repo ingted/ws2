@@ -71,6 +71,11 @@
     <ProjectReference Include="..\..\f-\src\fsharp\fsiAnyCpu\fsiAnyCpu.fsproj" />
     <ProjectReference Include="..\..\f-\src\fsharp\Interactive.DependencyManager\Interactive.DependencyManager.fsproj" />
     <ProjectReference Include="..\Owin.WebSocket\Owin.WebSocket.csproj" />
+    <ProjectReference Include="G:\coldFar\dowSim002\dowSim002.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Runtime" />
   </ItemGroup>
 
   <ItemGroup>

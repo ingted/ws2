@@ -372,6 +372,7 @@ Z:\ws2\ClientServer\bin\Debug\net48\ru\FSharp.Core.resources.dll
 Z:\ws2\ClientServer\bin\Debug\net48\tr\FSharp.Core.resources.dll
 Z:\ws2\ClientServer\bin\Debug\net48\zh-Hans\FSharp.Core.resources.dll
 Z:\ws2\ClientServer\bin\Debug\net48\zh-Hant\FSharp.Core.resources.dll
+Z:\ws2\ClientServer\bin\Debug\net48\dowSim002.exe
 Z:\ws2\ClientServer\bin\Debug\net48\fsc.exe
 Z:\ws2\ClientServer\bin\Debug\net48\FSharp.Build.dll
 Z:\ws2\ClientServer\bin\Debug\net48\FSharp.Compiler.Interactive.Settings.dll
@@ -381,6 +382,7 @@ Z:\ws2\ClientServer\bin\Debug\net48\FSharp.DependencyManager.Nuget.dll
 Z:\ws2\ClientServer\bin\Debug\net48\fsiAnyCpu.exe
 Z:\ws2\ClientServer\bin\Debug\net48\Interactive.DependencyManager.dll
 Z:\ws2\ClientServer\bin\Debug\net48\CommonServiceLocator.dll
+Z:\ws2\ClientServer\bin\Debug\net48\Extreme.Numerics.dll
 Z:\ws2\ClientServer\bin\Debug\net48\fsc.xml
 Z:\ws2\ClientServer\bin\Debug\net48\fsc.exe.config
 Z:\ws2\ClientServer\bin\Debug\net48\FSharp.Compiler.Interactive.Settings.xml
@@ -391,6 +393,8 @@ Z:\ws2\ClientServer\bin\Debug\net48\FSharp.Build.xml
 Z:\ws2\ClientServer\bin\Debug\net48\FSharp.Compiler.Server.Shared.xml
 Z:\ws2\ClientServer\bin\Debug\net48\fsiAnyCpu.xml
 Z:\ws2\ClientServer\bin\Debug\net48\fsiAnyCpu.exe.config
+Z:\ws2\ClientServer\bin\Debug\net48\dowSim002.pdb
+Z:\ws2\ClientServer\bin\Debug\net48\dowSim002.exe.config
 Z:\ws2\ClientServer\bin\Debug\net48\FSharp.DependencyManager.Nuget.xml
 Z:\ws2\ClientServer\bin\Debug\net48\cs\FSharp.Compiler.Interactive.Settings.resources.dll
 Z:\ws2\ClientServer\bin\Debug\net48\de\FSharp.Compiler.Interactive.Settings.resources.dll

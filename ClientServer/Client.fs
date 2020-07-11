@@ -182,19 +182,28 @@ module Client =
 
     [<JavaScript>]
     let fsiCmd () =
+        let inputPath = Var.Create @"v:\"
+        let outFile = Var.Create @"v:\result.csv"
+        let ifReadAllMode = Var.Create false
+        let f1 = Var.Create "5"
+        let f2 = Var.Create "6"
+        let sl1 = Var.Create "8"
+        let sl2 = Var.Create "9"
+        let p1 = Var.Create "3"
+        let p2 = Var.Create "4"
         let rvInput = Var.Create ""
         let rvHisCmd = Var.Create ([||]:string[])
-        let o = new JSObject()
-        let g = Array.empty<JSObject>
-        o.["g"] <- g
-        //o.["ttc"] <- g
-        let p123 = (Json.Parse "123") :?> JSObject
-        let o123 = (o.["g"]:?>JSObject[]) |> Array.append [|(Json.Parse "123") :?> JSObject|]
-        JS.Alert (Json.Serialize o123)
-        //(o.["g"]) <- ((o.["g"]:?>JSObject[]) |> Array.append [|(Json.Parse "123") :?> JSObject|])
-
-        JS.Alert (Json.Serialize <| JHelper.add(((Json.Parse "[123]") :?> JSObject),  ((Json.Parse "[456]") :?> JSObject)))
-        JS.Alert (Json.Serialize <| JHelper.append o "ttc" ((Json.Parse "[789]") :?> JSObject))
+        //let o = new JSObject()
+        //let g = Array.empty<JSObject>
+        //o.["g"] <- g
+        ////o.["ttc"] <- g
+        //let p123 = (Json.Parse "123") :?> JSObject
+        //let o123 = (o.["g"]:?>JSObject[]) |> Array.append [|(Json.Parse "123") :?> JSObject|]
+        //JS.Alert (Json.Serialize o123)
+        ////(o.["g"]) <- ((o.["g"]:?>JSObject[]) |> Array.append [|(Json.Parse "123") :?> JSObject|])
+        //
+        //JS.Alert (Json.Serialize <| JHelper.add(((Json.Parse "[123]") :?> JSObject),  ((Json.Parse "[456]") :?> JSObject)))
+        //JS.Alert (Json.Serialize <| JHelper.append o "ttc" ((Json.Parse "[789]") :?> JSObject))
 
         //let filterResultFlattened =  
         //    Var.Lens filterResult (fun arr -> 
@@ -318,6 +327,7 @@ module Client =
                         async {
                             let! ns = Server.getNamedScript (WebSharper.JQuery.JQuery.Of("#nScript").Val().ToString())
                             WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(ns).Ignore
+                            rvInput.Value <- ns
                         } |> Async.Start
                         )
                     Doc.Button "Save Script" [] (fun () -> 
@@ -337,9 +347,50 @@ module Client =
                     Doc.Button "Clear Result Cache" [] (fun () -> 
                         filterResult.Value <- Array.empty
                         )
+
                     brAttr [][]
                     Doc.Button "ConnectTo" [] (fun () -> 
                         Send3 (WebSharper.JQuery.JQuery.Of("#webSocket2").Val().ToString()) |> Async.Start
+                        )
+                    Doc.Input [attr.id "fast1"; attr.style "width: 50px"] f1
+                    Doc.Input [attr.id "fast2"; attr.style "width: 50px"] f2
+                    Doc.Input [attr.id "slow1"; attr.style "width: 50px"] sl1
+                    Doc.Input [attr.id "slow2"; attr.style "width: 50px"] sl2
+                    Doc.Input [attr.id "period1"; attr.style "width: 50px"] p1
+                    Doc.Input [attr.id "period2"; attr.style "width: 50px"] p2
+                    brAttr [][]
+                    divAttr [attr.style "display:inline-block"] [
+                        divAttr [attr.style "display:inline-block"][text "folder of input files: "]
+                        Doc.Input [attr.id "ipp"; attr.style "width: 440px; display:inline-block"] inputPath
+                    ]
+                    divAttr [] [
+                        divAttr [attr.style "display:inline-block"][text "output file: "]
+                        Doc.Input [attr.id "opf"; attr.style "width: 440px; display:inline-block"] outFile
+                    ]
+                    Doc.CheckBox [attr.id "ifReadAllMode"] ifReadAllMode
+                    Doc.Button "RunColdFar" [] (fun () -> 
+                        let f1v = f1.Value
+                        let f2v = f2.Value
+                        let s1v = sl1.Value
+                        let s2v = sl2.Value
+                        let p1v = p1.Value
+                        let p2v = p2.Value
+                        let ipV = inputPath.Value
+                        let ofV = outFile.Value
+                        let cmd = 
+                            "#r @\".\dowSim002.exe\"\n" +
+                            "open dowSim002\n" +
+                            "open System.Reflection\n" + 
+                            "main [| @\"" + ipV + "\"; \"" + 
+                                            f1v + "\"; \"" + 
+                                            f2v + "\"; \"" + 
+                                            s1v + "\"; \"" + 
+                                            s2v + "\"; \"" + 
+                                            p1v + "\"; \"" + 
+                                            p2v + "\"; @\"" + 
+                                            ofV + "\" |]"
+                        rvInput.Value <- cmd
+                        (WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(cmd).Ignore) 
                         )
                     brAttr [][]
                     Doc.InputArea [attr.id "webSocket2"; attr.style "width: 880px"; attr.``class`` "input"; attr.rows "1" ] webSocket2

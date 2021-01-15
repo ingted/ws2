@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "JOAVLZUQ5+wOuJxjwB38NSF+5WymJbEjrvm09iNq5VtUTvpvz8tMm+nzMeBMNt5xYVbjBNgLtVSguvOM7N/yTQ==",
+  "dgSpecHash": "Ts5JxBWD67CiTuRqsFicQDdHY+yy/1Psh/KcbLUxoEtjkbrye9PE5GYdr229GxC2D5KPJkl51ExPXab+dxXmFQ==",
   "success": true,
   "projectFilePath": "Z:\\ws2\\ClientServer\\ClientServer.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\anibal\\.nuget\\packages\\commonservicelocator\\1.3.0\\commonservicelocator.1.3.0.nupkg.sha512",
+    "C:\\Users\\anibal\\.nuget\\packages\\extreme.numerics\\7.0.11\\extreme.numerics.7.0.11.nupkg.sha512",
     "C:\\Users\\anibal\\.nuget\\packages\\fsharp.control.reactive\\4.2.0\\fsharp.control.reactive.4.2.0.nupkg.sha512",
     "C:\\Users\\anibal\\.nuget\\packages\\fsharp.core\\4.7.0\\fsharp.core.4.7.0.nupkg.sha512",
     "C:\\Users\\anibal\\.nuget\\packages\\htmlagilitypack\\1.11.23\\htmlagilitypack.1.11.23.nupkg.sha512",
@@ -35,6 +36,7 @@
     "C:\\Users\\anibal\\.nuget\\packages\\microsoft.visualstudio.setup.configuration.interop\\1.16.30\\microsoft.visualstudio.setup.configuration.interop.1.16.30.nupkg.sha512",
     "C:\\Users\\anibal\\.nuget\\packages\\microsoft.win32.registry\\4.3.0\\microsoft.win32.registry.4.3.0.nupkg.sha512",
     "C:\\Users\\anibal\\.nuget\\packages\\owin\\1.0.0\\owin.1.0.0.nupkg.sha512",
+    "C:\\Users\\anibal\\.nuget\\packages\\reactive.streams\\1.0.2\\reactive.streams.1.0.2.nupkg.sha512",
     "C:\\Users\\anibal\\.nuget\\packages\\suave\\2.5.6\\suave.2.5.6.nupkg.sha512",
     "C:\\Users\\anibal\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\anibal\\.nuget\\packages\\system.collections.immutable\\5.0.0-preview.2.20160.6\\system.collections.immutable.5.0.0-preview.2.20160.6.nupkg.sha512",
@@ -92,6 +94,16 @@
       "warningLevel": 1,
       "message": "Detected package downgrade: CommonServiceLocator from 2.0.5 to 1.3. Reference the package directly from the project to select a different version. \r\n ClientServer -> Owin.WebSocket -> CommonServiceLocator (>= 2.0.5) \r\n ClientServer -> CommonServiceLocator (>= 1.3.0)",
       "libraryId": "CommonServiceLocator",
+      "targetGraphs": [
+        ".NETFramework,Version=v4.8"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: FSharp.Core from 4.7.2 to 4.7.0. Reference the package directly from the project to select a different version. \r\n ClientServer -> dowSim002 -> FSharp.Core (>= 4.7.2) \r\n ClientServer -> FSharp.Core (>= 4.7.0)",
+      "libraryId": "FSharp.Core",
       "targetGraphs": [
         ".NETFramework,Version=v4.8"
       ]

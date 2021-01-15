@@ -244,7 +244,7 @@
  };
  Client.fsiCmd=function()
  {
-  var inputPath,outFile,ifReadAllMode,f1,f2,sl1,sl2,p1,p2,rvInput,rvHisCmd,filterResultFlattened,nScript,singleCommand,webSocket2,curPos,submit,submitSingle,hisCmd,vReversed,filterBox;
+  var inputPath,outFile,ifReadAllMode,f1,f2,sl1,sl2,p1,p2,dtStart,dtEnd,rvInput,rvHisCmd,filterResultFlattened,nScript,singleCommand,webSocket2,curPos,submit,submitSingle,hisCmd,vReversed,filterBox;
   function submitFun(a)
   {
    var input,b;
@@ -262,6 +262,8 @@
   sl2=Var.Create$1("9");
   p1=Var.Create$1("3");
   p2=Var.Create$1("4");
+  dtStart=Var.Create$1("20200712");
+  dtEnd=Var.Create$1("20200720");
   rvInput=Var.Create$1("");
   rvHisCmd=Var.Create$1([]);
   filterResultFlattened=Var.Lens(Client.filterResult(),function(arr)
@@ -305,7 +307,7 @@
        });
       }
      else
-      throw new MatchFailureException.New("Client.fs",271,33);
+      throw new MatchFailureException.New("Client.fs",273,33);
    }
    else
     return(new AjaxRemotingProvider.New()).Async("ClientServer:testFrom0.Server.getHisCmds:-118046996",[]);
@@ -402,7 +404,7 @@
   }),Doc.Input([AttrProxy.Create("id","fast1"),AttrProxy.Create("style","width: 50px")],f1),Doc.Input([AttrProxy.Create("id","fast2"),AttrProxy.Create("style","width: 50px")],f2),Doc.Input([AttrProxy.Create("id","slow1"),AttrProxy.Create("style","width: 50px")],sl1),Doc.Input([AttrProxy.Create("id","slow2"),AttrProxy.Create("style","width: 50px")],sl2),Doc.Input([AttrProxy.Create("id","period1"),AttrProxy.Create("style","width: 50px")],p1),Doc.Input([AttrProxy.Create("id","period2"),AttrProxy.Create("style","width: 50px")],p2),Doc.Element("br",[],[]),Doc.Element("div",[AttrProxy.Create("style","display:inline-block")],[Doc.Element("div",[AttrProxy.Create("style","display:inline-block")],[Doc.TextNode("folder of input files: ")]),Doc.Input([AttrProxy.Create("id","ipp"),AttrProxy.Create("style","width: 440px; display:inline-block")],inputPath)]),Doc.Element("div",[],[Doc.Element("div",[AttrProxy.Create("style","display:inline-block")],[Doc.TextNode("output file: ")]),Doc.Input([AttrProxy.Create("id","opf"),AttrProxy.Create("style","width: 440px; display:inline-block")],outFile)]),Doc.CheckBox([AttrProxy.Create("id","ifReadAllMode")],ifReadAllMode),Doc.Button("RunColdFar",[],function()
   {
    var cmd;
-   cmd="#r @\".\\dowSim002.exe\"\n"+"open dowSim002\n"+"open System.Reflection\n"+"main [| @\""+inputPath.c+"\"; \""+f1.c+"\"; \""+f2.c+"\"; \""+sl1.c+"\"; \""+sl2.c+"\"; \""+p1.c+"\"; \""+p2.c+"\"; @\""+outFile.c+"\" |]";
+   cmd="#r @\".\\dowSim002.exe\"\n"+"open dowSim002\n"+"open System.Reflection\n"+"main [| @\""+inputPath.c+"\"; \""+f1.c+"\"; \""+f2.c+"\"; \""+sl1.c+"\"; \""+sl2.c+"\"; \""+p1.c+"\"; \""+p2.c+"\"; @\""+outFile.c+"\""+(!ifReadAllMode.c?"":"; \""+dtStart.c+"\""+"; \""+dtEnd.c+"\"")+" |]";
    Var.Set(rvInput,cmd);
    $("#fsiCmd").val(cmd);
   }),Doc.Element("br",[],[]),Doc.InputArea([AttrProxy.Create("id","webSocket2"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","1")],webSocket2),Doc.Element("br",[],[]),filterBox,Doc.InputArea([AttrProxy.Create("id","nScript"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","1")],nScript),Doc.InputArea([AttrProxy.Create("id","fsiCmd"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10"),AttrProxy.Create("value","printfn \"orz\"")],rvInput),Doc.InputArea([AttrProxy.Create("id","singleCmd"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","1")],singleCommand)]),Doc.Element("hr",[],[]),Doc.InputArea([AttrProxy.Create("id","filteredResult"),AttrProxy.Create("style","width: 880px"),AttrProxy.Create("class","input"),AttrProxy.Create("rows","10")],filterResultFlattened),Doc.Element("h4",[AttrProxy.Create("class","text-muted")],[Doc.TextNode("The server responded:")]),Doc.Element("div",[],[Doc.Element("h1",[],[Doc.TextView(vReversed)])])]);

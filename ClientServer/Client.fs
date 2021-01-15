@@ -191,6 +191,8 @@ module Client =
         let sl2 = Var.Create "9"
         let p1 = Var.Create "3"
         let p2 = Var.Create "4"
+        let dtStart = Var.Create "20200712"
+        let dtEnd = Var.Create "20200720"
         let rvInput = Var.Create ""
         let rvHisCmd = Var.Create ([||]:string[])
         //let o = new JSObject()
@@ -388,7 +390,14 @@ module Client =
                                             s2v + "\"; \"" + 
                                             p1v + "\"; \"" + 
                                             p2v + "\"; @\"" + 
-                                            ofV + "\" |]"
+                                            ofV + "\"" + 
+                                            (
+                                                if not ifReadAllMode.Value then
+                                                    ""
+                                                else
+                                                    "; \"" + dtStart.Value + "\"" +
+                                                    "; \"" + dtEnd.Value + "\"" 
+                                            ) + " |]"
                         rvInput.Value <- cmd
                         (WebSharper.JQuery.JQuery.Of("#fsiCmd").Val(cmd).Ignore) 
                         )

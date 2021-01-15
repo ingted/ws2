@@ -130,6 +130,7 @@
       },
       "frameworks": {
         "net48": {
+          "targetAlias": "net48",
           "projectReferences": {}
         }
       },
@@ -141,6 +142,7 @@
     },
     "frameworks": {
       "net48": {
+        "targetAlias": "net48",
         "dependencies": {
           "CommonServiceLocator": {
             "target": "Package",
@@ -155,7 +157,7 @@
             "version": "[1.0.0, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

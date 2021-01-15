@@ -1,4 +1,2 @@
-#r @".\dowSim002.exe"
-open dowSim002
-open System.Reflection
-main [| @"v:\"; "5"; "6"; "8"; "9"; "3"; "4"; @"v:\result.csv" |]
+let a = 123
+a * 2

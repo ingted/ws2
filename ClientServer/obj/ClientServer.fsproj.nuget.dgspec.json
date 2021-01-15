@@ -4,6 +4,91 @@
     "Z:\\ws2\\ClientServer\\ClientServer.fsproj": {}
   },
   "projects": {
+    "G:\\coldFar\\dowSim002\\dowSim002.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\coldFar\\dowSim002\\dowSim002.fsproj",
+        "projectName": "dowSim002",
+        "projectPath": "G:\\coldFar\\dowSim002\\dowSim002.fsproj",
+        "packagesPath": "C:\\Users\\anibal\\.nuget\\packages\\",
+        "outputPath": "G:\\coldFar\\dowSim002\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "Z:\\f-\\NuGet.Config",
+          "C:\\Users\\anibal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnet.myget.org/F/interactive-window/api/v3/index.json": {},
+          "https://dotnet.myget.org/F/roslyn-master-nightly/api/v3/index.json": {},
+          "https://dotnet.myget.org/F/roslyn-tools/api/v3/index.json": {},
+          "https://dotnet.myget.org/F/roslyn/api/v3/index.json": {},
+          "https://dotnet.myget.org/F/symreader-converter/api/v3/index.json": {},
+          "https://grpc.jfrog.io/grpc/api/nuget/v3/grpc-nuget-dev": {},
+          "https://myget.org/F/roslyn_concord/api/v3/index.json": {},
+          "https://myget.org/F/vs-devcore/api/v3/index.json": {},
+          "https://myget.org/F/vs-editor/api/v3/index.json": {},
+          "https://pkgs.dev.azure.com/azure-public/vside/_packaging/vs-impl/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/azure-public/vside/_packaging/vssdk/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-eng/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet5-transport/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet5/nuget/v3/index.json": {},
+          "https://www.myget.org/F/fsharp-daily/api/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {
+              "G:\\coldFar\\TA-Lib-Core\\TA-Lib-Core.csproj": {
+                "projectPath": "G:\\coldFar\\TA-Lib-Core\\TA-Lib-Core.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "Extreme.Numerics": {
+              "target": "Package",
+              "version": "[7.0.11, )",
+              "generatePathProperty": true
+            },
+            "FSharp.Core": {
+              "target": "Package",
+              "version": "[4.7.2, )",
+              "generatePathProperty": true
+            },
+            "Reactive.Streams": {
+              "target": "Package",
+              "version": "[1.0.2, )",
+              "generatePathProperty": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win7-x86": {
+          "#import": []
+        }
+      }
+    },
+    "G:\\coldFar\\TA-Lib-Core\\TA-Lib-Core.csproj": {
+      "restore": {
+        "projectUniqueName": "G:\\coldFar\\TA-Lib-Core\\TA-Lib-Core.csproj",
+        "projectName": "TA-Lib-Core",
+        "projectPath": "G:\\coldFar\\TA-Lib-Core\\TA-Lib-Core.csproj"
+      },
+      "frameworks": {
+        "net40": {}
+      }
+    },
     "Z:\\f-\\src\\fsharp\\fsc\\fsc.fsproj": {
       "version": "10.8.1-dev",
       "restore": {
@@ -43,6 +128,7 @@
         },
         "frameworks": {
           "netcoreapp3.0": {
+            "targetAlias": "netcoreapp3.0",
             "projectReferences": {
               "Z:\\f-\\src\\fsharp\\FSharp.Build\\FSharp.Build.fsproj": {
                 "projectPath": "Z:\\f-\\src\\fsharp\\FSharp.Build\\FSharp.Build.fsproj"
@@ -59,6 +145,7 @@
             }
           },
           "net472": {
+            "targetAlias": "net472",
             "projectReferences": {
               "Z:\\f-\\src\\fsharp\\FSharp.Build\\FSharp.Build.fsproj": {
                 "projectPath": "Z:\\f-\\src\\fsharp\\FSharp.Build\\FSharp.Build.fsproj"
@@ -83,6 +170,7 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "targetAlias": "netcoreapp3.0",
           "dependencies": {
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
@@ -171,9 +259,10 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         },
         "net472": {
+          "targetAlias": "net472",
           "dependencies": {
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
@@ -229,7 +318,7 @@
               "generatePathProperty": true
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -272,6 +361,7 @@
         },
         "frameworks": {
           "netcoreapp3.0": {
+            "targetAlias": "netcoreapp3.0",
             "projectReferences": {
               "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj": {
                 "projectPath": "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj"
@@ -279,6 +369,7 @@
             }
           },
           "net472": {
+            "targetAlias": "net472",
             "projectReferences": {
               "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj": {
                 "projectPath": "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj"
@@ -294,6 +385,7 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "targetAlias": "netcoreapp3.0",
           "dependencies": {
             "Microsoft.Build": {
               "target": "Package",
@@ -378,9 +470,10 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         },
         "net472": {
+          "targetAlias": "net472",
           "dependencies": {
             "Microsoft.Build": {
               "target": "Package",
@@ -441,7 +534,7 @@
               "generatePathProperty": true
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -484,6 +577,7 @@
         },
         "frameworks": {
           "net472": {
+            "targetAlias": "net472",
             "projectReferences": {
               "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj": {
                 "projectPath": "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj"
@@ -491,6 +585,7 @@
             }
           },
           "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
             "projectReferences": {
               "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj": {
                 "projectPath": "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj"
@@ -506,6 +601,7 @@
       },
       "frameworks": {
         "net472": {
+          "targetAlias": "net472",
           "dependencies": {
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
@@ -541,9 +637,10 @@
               "generatePathProperty": true
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         },
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "dependencies": {
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
@@ -596,7 +693,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -639,6 +736,7 @@
         },
         "frameworks": {
           "net472": {
+            "targetAlias": "net472",
             "projectReferences": {
               "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj": {
                 "projectPath": "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj"
@@ -649,6 +747,7 @@
             }
           },
           "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
             "projectReferences": {
               "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj": {
                 "projectPath": "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj"
@@ -667,6 +766,7 @@
       },
       "frameworks": {
         "net472": {
+          "targetAlias": "net472",
           "dependencies": {
             "Microsoft.Build": {
               "target": "Package",
@@ -822,9 +922,10 @@
               "generatePathProperty": true
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         },
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "dependencies": {
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
@@ -977,7 +1078,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -1018,6 +1119,7 @@
         },
         "frameworks": {
           "net472": {
+            "targetAlias": "net472",
             "projectReferences": {
               "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj": {
                 "projectPath": "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj"
@@ -1033,6 +1135,7 @@
       },
       "frameworks": {
         "net472": {
+          "targetAlias": "net472",
           "dependencies": {
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
@@ -1063,7 +1166,7 @@
               "generatePathProperty": true
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -1106,9 +1209,11 @@
         },
         "frameworks": {
           "net45": {
+            "targetAlias": "net45",
             "projectReferences": {}
           },
           "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
             "projectReferences": {}
           }
         },
@@ -1120,6 +1225,7 @@
       },
       "frameworks": {
         "net45": {
+          "targetAlias": "net45",
           "dependencies": {
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
@@ -1165,9 +1271,10 @@
               "generatePathProperty": true
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         },
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "dependencies": {
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
@@ -1230,7 +1337,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -1272,6 +1379,7 @@
         },
         "frameworks": {
           "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
             "projectReferences": {
               "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj": {
                 "projectPath": "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj"
@@ -1287,6 +1395,7 @@
       },
       "frameworks": {
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "dependencies": {
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
@@ -1429,7 +1538,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -1470,6 +1579,7 @@
         },
         "frameworks": {
           "net472": {
+            "targetAlias": "net472",
             "projectReferences": {
               "Z:\\f-\\src\\fsharp\\FSharp.Compiler.Interactive.Settings\\FSharp.Compiler.Interactive.Settings.fsproj": {
                 "projectPath": "Z:\\f-\\src\\fsharp\\FSharp.Compiler.Interactive.Settings\\FSharp.Compiler.Interactive.Settings.fsproj"
@@ -1497,6 +1607,7 @@
       },
       "frameworks": {
         "net472": {
+          "targetAlias": "net472",
           "dependencies": {
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
@@ -1527,7 +1638,7 @@
               "generatePathProperty": true
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -1570,6 +1681,7 @@
         },
         "frameworks": {
           "net472": {
+            "targetAlias": "net472",
             "projectReferences": {
               "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj": {
                 "projectPath": "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj"
@@ -1577,6 +1689,7 @@
             }
           },
           "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
             "projectReferences": {
               "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj": {
                 "projectPath": "Z:\\f-\\src\\fsharp\\FSharp.Core\\FSharp.Core.fsproj"
@@ -1592,6 +1705,7 @@
       },
       "frameworks": {
         "net472": {
+          "targetAlias": "net472",
           "dependencies": {
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
@@ -1717,9 +1831,10 @@
               "generatePathProperty": true
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         },
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "dependencies": {
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
@@ -1862,7 +1977,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -1903,7 +2018,11 @@
         },
         "frameworks": {
           "net48": {
+            "targetAlias": "net48",
             "projectReferences": {
+              "G:\\coldFar\\dowSim002\\dowSim002.fsproj": {
+                "projectPath": "G:\\coldFar\\dowSim002\\dowSim002.fsproj"
+              },
               "Z:\\f-\\src\\fsharp\\fsc\\fsc.fsproj": {
                 "projectPath": "Z:\\f-\\src\\fsharp\\fsc\\fsc.fsproj"
               },
@@ -1934,6 +2053,7 @@
       },
       "frameworks": {
         "net48": {
+          "targetAlias": "net48",
           "dependencies": {
             "CommonServiceLocator": {
               "target": "Package",
@@ -2101,7 +2221,7 @@
               "generatePathProperty": true
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -2142,6 +2262,7 @@
         },
         "frameworks": {
           "net48": {
+            "targetAlias": "net48",
             "projectReferences": {}
           }
         },
@@ -2153,6 +2274,7 @@
       },
       "frameworks": {
         "net48": {
+          "targetAlias": "net48",
           "dependencies": {
             "CommonServiceLocator": {
               "target": "Package",
@@ -2167,7 +2289,7 @@
               "version": "[1.0.0, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

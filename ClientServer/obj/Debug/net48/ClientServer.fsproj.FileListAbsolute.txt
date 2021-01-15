@@ -372,7 +372,6 @@ Z:\ws2\ClientServer\bin\Debug\net48\ru\FSharp.Core.resources.dll
 Z:\ws2\ClientServer\bin\Debug\net48\tr\FSharp.Core.resources.dll
 Z:\ws2\ClientServer\bin\Debug\net48\zh-Hans\FSharp.Core.resources.dll
 Z:\ws2\ClientServer\bin\Debug\net48\zh-Hant\FSharp.Core.resources.dll
-Z:\ws2\ClientServer\bin\Debug\net48\dowSim002.exe
 Z:\ws2\ClientServer\bin\Debug\net48\fsc.exe
 Z:\ws2\ClientServer\bin\Debug\net48\FSharp.Build.dll
 Z:\ws2\ClientServer\bin\Debug\net48\FSharp.Compiler.Interactive.Settings.dll
@@ -393,8 +392,6 @@ Z:\ws2\ClientServer\bin\Debug\net48\FSharp.Build.xml
 Z:\ws2\ClientServer\bin\Debug\net48\FSharp.Compiler.Server.Shared.xml
 Z:\ws2\ClientServer\bin\Debug\net48\fsiAnyCpu.xml
 Z:\ws2\ClientServer\bin\Debug\net48\fsiAnyCpu.exe.config
-Z:\ws2\ClientServer\bin\Debug\net48\dowSim002.pdb
-Z:\ws2\ClientServer\bin\Debug\net48\dowSim002.exe.config
 Z:\ws2\ClientServer\bin\Debug\net48\FSharp.DependencyManager.Nuget.xml
 Z:\ws2\ClientServer\bin\Debug\net48\cs\FSharp.Compiler.Interactive.Settings.resources.dll
 Z:\ws2\ClientServer\bin\Debug\net48\de\FSharp.Compiler.Interactive.Settings.resources.dll
@@ -468,3 +465,9 @@ Z:\ws2\ClientServer\obj\Debug\net48\ClientServer.AssemblyInfo.fs
 Z:\ws2\ClientServer\obj\Debug\net48\ClientServer.fsproj.CopyComplete
 Z:\ws2\ClientServer\obj\Debug\net48\ClientServer.exe
 Z:\ws2\ClientServer\obj\Debug\net48\ClientServer.pdb
+Z:\ws2\ClientServer\bin\Debug\net48\Reactive.Streams.dll
+Z:\ws2\ClientServer\bin\Debug\net48\dowSim002.exe
+Z:\ws2\ClientServer\bin\Debug\net48\TA-Lib-Core.dll
+Z:\ws2\ClientServer\bin\Debug\net48\dowSim002.pdb
+Z:\ws2\ClientServer\bin\Debug\net48\dowSim002.exe.config
+Z:\ws2\ClientServer\bin\Debug\net48\TA-Lib-Core.pdb

@@ -11,6 +11,15 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
+      "Extreme.Numerics/7.0.11": {
+        "type": "package",
+        "compile": {
+          "lib/net46/Extreme.Numerics.dll": {}
+        },
+        "runtime": {
+          "lib/net46/Extreme.Numerics.dll": {}
+        }
+      },
       "FSharp.Control.Reactive/4.2.0": {
         "type": "package",
         "dependencies": {
@@ -433,6 +442,15 @@
         },
         "runtime": {
           "lib/net40/Owin.dll": {}
+        }
+      },
+      "Reactive.Streams/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Reactive.Streams.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Reactive.Streams.dll": {}
         }
       },
       "Suave/2.5.6": {
@@ -1214,6 +1232,22 @@
           "build/WebSharper.UI.Next.targets": {}
         }
       },
+      "dowSim002/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.8",
+        "dependencies": {
+          "Extreme.Numerics": "7.0.11",
+          "FSharp.Core": "4.7.2",
+          "Reactive.Streams": "1.0.2",
+          "TA-Lib-Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/dowSim002.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/dowSim002.dll": {}
+        }
+      },
       "fsc/10.8.1-dev": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.7.2",
@@ -1415,6 +1449,15 @@
         "runtime": {
           "bin/placeholder/Owin.WebSocket.dll": {}
         }
+      },
+      "TA-Lib-Core/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/TA-Lib-Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TA-Lib-Core.dll": {}
+        }
       }
     }
   },
@@ -1431,6 +1474,34 @@
         "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.XML",
         "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll",
         "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.pdb"
+      ]
+    },
+    "Extreme.Numerics/7.0.11": {
+      "sha512": "AztS3Nu0W5+DEeH2v46ftUhbrVFkO2YLDFIphJ75/ws9NebnwJ958//bUDM8xttGo1bUUwVuVeoRew6EyyEcsg==",
+      "type": "package",
+      "path": "extreme.numerics/7.0.11",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "extreme.numerics.7.0.11.nupkg.sha512",
+        "extreme.numerics.nuspec",
+        "lib/net35/Extreme.Numerics.dll",
+        "lib/net35/Extreme.Numerics.xml",
+        "lib/net40/Extreme.Numerics.dll",
+        "lib/net40/Extreme.Numerics.xml",
+        "lib/net46/Extreme.Numerics.dll",
+        "lib/net46/Extreme.Numerics.xml",
+        "lib/netcoreapp1.1/Extreme.Numerics.dll",
+        "lib/netcoreapp1.1/Extreme.Numerics.xml",
+        "lib/netcoreapp2.1/Extreme.Numerics.dll",
+        "lib/netcoreapp2.1/Extreme.Numerics.xml",
+        "lib/netstandard1.3/Extreme.Numerics.dll",
+        "lib/netstandard1.3/Extreme.Numerics.xml",
+        "lib/netstandard2.0/Extreme.Numerics.dll",
+        "lib/netstandard2.0/Extreme.Numerics.xml",
+        "readme.txt",
+        "tools/Extreme.LicenseManager.exe"
       ]
     },
     "FSharp.Control.Reactive/4.2.0": {
@@ -1931,6 +2002,19 @@
         "lib/net40/Owin.dll",
         "owin.1.0.0.nupkg.sha512",
         "owin.nuspec"
+      ]
+    },
+    "Reactive.Streams/1.0.2": {
+      "sha512": "Pux+eMwOLJGx7nKbODddR1HJuyWNQck1ZdR8klCiezCXF8G19YLu9l94PjFivzRCL/mKVOXWA3O3MaTQkNsNLA==",
+      "type": "package",
+      "path": "reactive.streams/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Reactive.Streams.dll",
+        "lib/netstandard1.0/Reactive.Streams.dll",
+        "reactive.streams.1.0.2.nupkg.sha512",
+        "reactive.streams.nuspec"
       ]
     },
     "Suave/2.5.6": {
@@ -4198,6 +4282,11 @@
         "websharper.ui.next.nuspec"
       ]
     },
+    "dowSim002/1.0.0": {
+      "type": "project",
+      "path": "G:\\coldFar\\dowSim002\\dowSim002.fsproj",
+      "msbuildProject": "G:\\coldFar\\dowSim002\\dowSim002.fsproj"
+    },
     "fsc/10.8.1-dev": {
       "type": "project",
       "path": "../../f-/src/fsharp/fsc/fsc.fsproj",
@@ -4242,6 +4331,11 @@
       "type": "project",
       "path": "../Owin.WebSocket/Owin.WebSocket.csproj",
       "msbuildProject": "../Owin.WebSocket/Owin.WebSocket.csproj"
+    },
+    "TA-Lib-Core/1.0.0": {
+      "type": "project",
+      "path": "G:\\coldFar\\TA-Lib-Core\\TA-Lib-Core.csproj",
+      "msbuildProject": "G:\\coldFar\\TA-Lib-Core\\TA-Lib-Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4285,6 +4379,7 @@
       "WebSharper.Suave >= 4.6.0.246",
       "WebSharper.UI >= 4.6.1.207",
       "WebSharper.UI.Next >= 4.6.1.220",
+      "dowSim002 >= 1.0.0",
       "fsc >= 10.8.1-dev",
       "fsiAnyCpu >= 10.8.1-dev"
     ]
@@ -4329,7 +4424,11 @@
       },
       "frameworks": {
         "net48": {
+          "targetAlias": "net48",
           "projectReferences": {
+            "G:\\coldFar\\dowSim002\\dowSim002.fsproj": {
+              "projectPath": "G:\\coldFar\\dowSim002\\dowSim002.fsproj"
+            },
             "Z:\\f-\\src\\fsharp\\fsc\\fsc.fsproj": {
               "projectPath": "Z:\\f-\\src\\fsharp\\fsc\\fsc.fsproj"
             },
@@ -4360,6 +4459,7 @@
     },
     "frameworks": {
       "net48": {
+        "targetAlias": "net48",
         "dependencies": {
           "CommonServiceLocator": {
             "target": "Package",
@@ -4527,7 +4627,7 @@
             "generatePathProperty": true
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -4538,6 +4638,16 @@
       "warningLevel": 1,
       "message": "Detected package downgrade: CommonServiceLocator from 2.0.5 to 1.3. Reference the package directly from the project to select a different version. \r\n ClientServer -> Owin.WebSocket -> CommonServiceLocator (>= 2.0.5) \r\n ClientServer -> CommonServiceLocator (>= 1.3.0)",
       "libraryId": "CommonServiceLocator",
+      "targetGraphs": [
+        ".NETFramework,Version=v4.8"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: FSharp.Core from 4.7.2 to 4.7.0. Reference the package directly from the project to select a different version. \r\n ClientServer -> dowSim002 -> FSharp.Core (>= 4.7.2) \r\n ClientServer -> FSharp.Core (>= 4.7.0)",
+      "libraryId": "FSharp.Core",
       "targetGraphs": [
         ".NETFramework,Version=v4.8"
       ]

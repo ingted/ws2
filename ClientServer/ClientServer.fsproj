@@ -32,7 +32,7 @@
     <PackageReference Include="FSharp.Control.Reactive" Version="4.2.0" />
     <PackageReference Include="HtmlAgilityPack" Version="1.11.23" />
     <PackageReference Include="IntelliFactory.Xml" Version="0.6.64.1" />
-    <PackageReference Include="Microsoft.Owin" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Owin" Version="4.2.2" />
     <PackageReference Include="Microsoft.Owin.FileSystems" Version="4.1.0" />
     <PackageReference Include="Microsoft.Owin.Host.HttpListener" Version="4.1.0" />
     <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.1.0" />
